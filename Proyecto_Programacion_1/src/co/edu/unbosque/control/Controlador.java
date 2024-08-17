@@ -223,7 +223,7 @@ public class Controlador {
 					int cantidad = vf.getCon().readInt();
 					vf.getCon().burnLine();
 
-					vf.getCon().printSameLine("Ingresela fecha de cosecha del prodcuto dd/MM/aaaa");
+					vf.getCon().printSameLine("Ingresela fecha de cosecha del prodcuto dd/MM/aaaa: ");
 					SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 					String date = vf.getCon().readLine();
 					Date cosecha;
@@ -263,7 +263,8 @@ public class Controlador {
 					vf.getCon().printNewLine("---ACTUALIZANDO FRUTA / VERDURA---");
 					vf.getCon().printNewLine("Ingrese el dato que desea actualizar");
 					int indexCarAct = vf.getCon().readInt();
-
+					vf.getCon().burnLine();
+					
 					if (mf.getFrutaVerduraDAO().checkearIndex(indexCarAct - 1).equals("s")) {
 						vf.getCon().printNewLine("*Rellene los datos solicitados*");
 
@@ -284,7 +285,7 @@ public class Controlador {
 						int cantidadAct = vf.getCon().readInt();
 						vf.getCon().burnLine();
 
-						vf.getCon().printSameLine("Ingresela fecha de cosecha del prodcuto dd/MM/aaaa");
+						vf.getCon().printSameLine("Ingresela fecha de cosecha del prodcuto dd/MM/aaaa: ");
 						SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 						String dateAct = vf.getCon().readLine();
 						Date cosechaAct;
@@ -293,7 +294,7 @@ public class Controlador {
 						vf.getCon().printSameLine("El producto es organico: Si / No ");
 						boolean esOrganicoAct = vf.getCon().readBoolean();
 
-						mf.getFrutaVerduraDAO().actualizar(indexCarAct, new FrutaVerdura(numIdAct, nombreAct,
+						mf.getFrutaVerduraDAO().actualizar(indexCarAct - 1, new FrutaVerdura(numIdAct, nombreAct,
 								empresaAct, precioAct, cantidadAct, cosechaAct, esOrganicoAct));
 						vf.getCon().printNewLine("Dato actualizado con exito");
 
