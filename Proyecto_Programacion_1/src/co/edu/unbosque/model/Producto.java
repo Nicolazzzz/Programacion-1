@@ -12,7 +12,7 @@ public class Producto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Producto(int numId, String nombre, String empresa, float precio, int cantidad) {
+	public Producto(long numId, String nombre, String empresa, float precio, int cantidad) {
 		super();
 		this.numId = numId;
 		this.nombre = nombre;
