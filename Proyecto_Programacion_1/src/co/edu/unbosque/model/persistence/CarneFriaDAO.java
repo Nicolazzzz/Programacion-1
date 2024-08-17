@@ -29,7 +29,7 @@ public class CarneFriaDAO implements CRUDOperation<CarneFria> {
 
 				contenido += "\nProducto: " + pos;
 				contenido += producto.toString();
-
+				pos++;
 			}
 			return contenido;
 		}
