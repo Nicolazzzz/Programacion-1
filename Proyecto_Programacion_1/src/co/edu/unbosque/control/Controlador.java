@@ -107,9 +107,20 @@ public class Controlador {
 				break;
 
 			case 2:
-				vf.getCon().printNewLine("---MOSTRANDO LISTA CARNES FRIAS---");
-				mf.getCarneFriaDAO().mostrar();
+				boolean temp = false;
+				while (temp != true) {
+					vf.getCon().printNewLine("---MOSTRANDO LISTA CARNES FRIAS---");
+					mf.getCarneFriaDAO().mostrar();
+					vf.getCon().printNewLine("Desea continuar? \n)Si \n)No ");
+					temp = vf.getCon().readBoolean();
+					if (temp != true) {
 
+						temp = false;
+
+						vf.getCon().printNewLine("--MOSTRANDO NUEVAMENTE--\n");
+
+					}
+				}
 				break;
 
 			case 5:
