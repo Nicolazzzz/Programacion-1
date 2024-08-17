@@ -15,14 +15,14 @@ public class Juguete extends Producto {
 		this.numJugadores = numJugadores;
 	}
 
-	public Juguete(int numId, String nombre, String empresa, float precio, int cantidad, int edadMinima,
+	public Juguete(long numId, String nombre, String empresa, float precio, int cantidad, int edadMinima,
 			int numJugadores) {
 		super(numId, nombre, empresa, precio, cantidad);
 		this.edadMinima = edadMinima;
 		this.numJugadores = numJugadores;
 	}
 
-	public Juguete(int numId, String nombre, String empresa, float precio, int cantidad) {
+	public Juguete(long numId, String nombre, String empresa, float precio, int cantidad) {
 		super(numId, nombre, empresa, precio, cantidad);
 	}
 

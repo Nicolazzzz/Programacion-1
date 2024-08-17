@@ -17,14 +17,14 @@ public class FrutaVerdura extends Producto {
 		this.esOrganico = esOrganico;
 	}
 
-	public FrutaVerdura(int numId, String nombre, String empresa, float precio, int cantidad, Date fechaCosecha,
+	public FrutaVerdura(long numId, String nombre, String empresa, float precio, int cantidad, Date fechaCosecha,
 			boolean esOrganico) {
 		super(numId, nombre, empresa, precio, cantidad);
 		this.fechaCosecha = fechaCosecha;
 		this.esOrganico = esOrganico;
 	}
 
-	public FrutaVerdura(int numId, String nombre, String empresa, float precio, int cantidad) {
+	public FrutaVerdura(long numId, String nombre, String empresa, float precio, int cantidad) {
 		super(numId, nombre, empresa, precio, cantidad);
 	}
 

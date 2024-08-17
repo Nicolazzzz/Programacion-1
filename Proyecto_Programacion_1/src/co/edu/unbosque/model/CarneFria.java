@@ -13,12 +13,12 @@ public class CarneFria extends Producto {
 		this.animalOrigen = animalOrigen;
 	}
 
-	public CarneFria(int numId, String nombre, String empresa, float precio, int cantidad, String animalOrigen) {
+	public CarneFria(long numId, String nombre, String empresa, float precio, int cantidad, String animalOrigen) {
 		super(numId, nombre, empresa, precio, cantidad);
 		this.animalOrigen = animalOrigen;
 	}
 
-	public CarneFria(int numId, String nombre, String empresa, float precio, int cantidad) {
+	public CarneFria(long numId, String nombre, String empresa, float precio, int cantidad) {
 		super(numId, nombre, empresa, precio, cantidad);
 	}
 

@@ -103,7 +103,7 @@ public class Controlador {
 				vf.getCon().printSameLine("Ingrese el nombre del animal de origen del producto: ");
 				String animalOrigen = vf.getCon().readLine();
 
-				mf.getCarneFriaDAO().crear(new CarneFria(op1, nombre, empresa, precio, cantidad, animalOrigen));
+				mf.getCarneFriaDAO().crear(new CarneFria(numid, nombre, empresa, precio, cantidad, animalOrigen));
 				break;
 
 			case 2:
@@ -121,6 +121,33 @@ public class Controlador {
 
 					}
 				}
+				break;
+
+			case 3:
+				vf.getCon().printNewLine("---ACTUALIZANDO CARNE FRIA---");
+				vf.getCon().printSameLine("Ingrese la posición del producto");
+				int index = vf.getCon().readInt();
+
+				vf.getCon().printSameLine("Ingrese el número de identificación del producto: ");
+				long numidActualizado = vf.getCon().readLong();
+
+				vf.getCon().printSameLine("Ingrese el nombre del producto: ");
+				String nombreActualizado = vf.getCon().readLine();
+
+				vf.getCon().printSameLine("Ingrese el nombre de la empresa del producto: ");
+				String empresaActualizado = vf.getCon().readLine();
+
+				vf.getCon().printSameLine("Ingrese el precio del producto: ");
+				float precioActualizado = vf.getCon().readFloat();
+
+				vf.getCon().printSameLine("Ingrese la cantidad del producto: ");
+				int cantidadActualizado = vf.getCon().readInt();
+
+				vf.getCon().printSameLine("Ingrese el nombre del animal de origen del producto: ");
+				String animalOrigenActualizado = vf.getCon().readLine();
+
+			
+
 				break;
 
 			case 5:

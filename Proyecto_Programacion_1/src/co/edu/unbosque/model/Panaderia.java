@@ -17,7 +17,7 @@ public class Panaderia extends Producto {
 		this.esLibreLevadura = esLibreLevadura;
 	}
 
-	public Panaderia(int numId, String nombre, String empresa, float precio, int cantidad, boolean esLibreGluten,
+	public Panaderia(long numId, String nombre, String empresa, float precio, int cantidad, boolean esLibreGluten,
 			boolean esIntegral, boolean esLibreLevadura) {
 		super(numId, nombre, empresa, precio, cantidad);
 		this.esLibreGluten = esLibreGluten;
@@ -25,7 +25,7 @@ public class Panaderia extends Producto {
 		this.esLibreLevadura = esLibreLevadura;
 	}
 
-	public Panaderia(int numId, String nombre, String empresa, float precio, int cantidad) {
+	public Panaderia(long numId, String nombre, String empresa, float precio, int cantidad) {
 		super(numId, nombre, empresa, precio, cantidad);
 	}
 
