@@ -7,7 +7,7 @@ public class Controlador {
 	}
 
 	public void run() {
-		System.out.println("ALO");
+		System.out.println("ALO1");
 	}
 
 }
