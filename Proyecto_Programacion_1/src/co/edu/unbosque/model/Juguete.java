@@ -44,7 +44,7 @@ public class Juguete extends Producto {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Juguete [edadMinima=" + edadMinima + ", numJugadores=" + numJugadores + "]";
+		return super.toString() + "\nEdad mínima: " + edadMinima + "\nNúmero de jugadores=" + numJugadores;
 	}
 
 }

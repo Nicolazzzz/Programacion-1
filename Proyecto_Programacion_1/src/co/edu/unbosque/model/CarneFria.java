@@ -32,7 +32,7 @@ public class CarneFria extends Producto {
 
 	@Override
 	public String toString() {
-		return super.toString() + "CarnesFrias [animalOrigen=" + animalOrigen + "]";
+		return super.toString() + "\nAnimal de origen: " + animalOrigen;
 	}
 
 }

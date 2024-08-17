@@ -55,8 +55,8 @@ public class Panaderia extends Producto {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Panaderia [esLibreGluten=" + esLibreGluten + ", esIntegral=" + esIntegral
-				+ ", esLibreLevadura=" + esLibreLevadura + "]";
+		return super.toString() + "\nEs libre de glúten: " + esLibreGluten + "\nEs pan integral: " + esIntegral
+				+ "\nEs libre de levaduras: " + esLibreLevadura;
 	}
 
 }

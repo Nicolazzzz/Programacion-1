@@ -46,7 +46,7 @@ public class FrutaVerdura extends Producto {
 
 	@Override
 	public String toString() {
-		return super.toString() + "FrutaVerdura [fechaCosecha=" + fechaCosecha + ", esOrganico=" + esOrganico + "]";
+		return super.toString() + "\nFecha de cosecha: " + fechaCosecha + "\nEs organico: " + esOrganico;
 	}
 
 }
