@@ -1,5 +1,13 @@
 package co.edu.unbosque.control;
 
 public class Controlador {
- // prueba
+
+	public Controlador() {
+		run();
+	}
+
+	public void run() {
+
+	}
+
 }
