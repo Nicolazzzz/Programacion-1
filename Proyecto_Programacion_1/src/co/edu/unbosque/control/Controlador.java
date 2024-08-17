@@ -1,6 +1,11 @@
 package co.edu.unbosque.control;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import co.edu.unbosque.model.CarneFria;
+import co.edu.unbosque.model.FrutaVerdura;
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.view.ViewFacade;
 
@@ -198,36 +203,49 @@ public class Controlador {
 
 			switch (op1) {
 			case 1:
-				vf.getCon().printNewLine("---AGREGANDO CARNE FRIA---");
+				try {
+					vf.getCon().printNewLine("---AGREGANDO FRUTA / VERDURA---");
 
-				vf.getCon().printSameLine("Ingrese el número de identificación del producto: ");
-				long numId = vf.getCon().readLong();
-				vf.getCon().burnLine();
+					vf.getCon().printSameLine("Ingrese el número de identificación del producto: ");
+					long numId = vf.getCon().readLong();
+					vf.getCon().burnLine();
 
-				vf.getCon().printSameLine("Ingrese el nombre del producto: ");
-				String nombre = vf.getCon().readLine();
+					vf.getCon().printSameLine("Ingrese el nombre del producto: ");
+					String nombre = vf.getCon().readLine();
 
-				vf.getCon().printSameLine("Ingrese el nombre de la empresa del producto: ");
-				String empresa = vf.getCon().readLine();
+					vf.getCon().printSameLine("Ingrese el nombre de la empresa del producto: ");
+					String empresa = vf.getCon().readLine();
 
-				vf.getCon().printSameLine("Ingrese el precio del producto: ");
-				float precio = vf.getCon().readFloat();
+					vf.getCon().printSameLine("Ingrese el precio del producto: ");
+					float precio = vf.getCon().readFloat();
 
-				vf.getCon().printSameLine("Ingrese la cantidad del producto: ");
-				int cantidad = vf.getCon().readInt();
-				vf.getCon().burnLine();
+					vf.getCon().printSameLine("Ingrese la cantidad del producto: ");
+					int cantidad = vf.getCon().readInt();
+					vf.getCon().burnLine();
 
-				vf.getCon().printSameLine("Ingrese el nombre del animal de origen del producto: ");
-				String animalOrigen = vf.getCon().readLine();
+					vf.getCon().printSameLine("Ingresela fecha de cosecha del prodcuto dd/MM/aaaa");
+					SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+					String date = vf.getCon().readLine();
+					Date cosecha;
+					cosecha = sdf.parse(date);
 
-				mf.getCarneFriaDAO().crear(new CarneFria(numId, nombre, empresa, precio, cantidad, animalOrigen));
+					vf.getCon().printSameLine("El producto es organico: Si / No ");
+					boolean esOrganico = vf.getCon().readBoolean();
+
+					mf.getFrutaVerduraDAO()
+							.crear(new FrutaVerdura(numId, nombre, empresa, precio, cantidad, cosecha, esOrganico));
+				} catch (ParseException e) {
+					vf.getCon().printNewLine("El formato de fecha debe ser dd/MM/aaaa");
+
+				}
+
 				break;
 
 			case 2:
 				boolean temp = false;
 				while (temp != true) {
-					vf.getCon().printNewLine("---MOSTRANDO LISTA CARNES FRIAS---");
-					vf.getCon().printNewLine(mf.getCarneFriaDAO().mostrar());
+					vf.getCon().printNewLine("---MOSTRANDO LISTA FRUTAS / VERDURAS---");
+					vf.getCon().printNewLine(mf.getFrutaVerduraDAO().mostrar());
 					vf.getCon().printNewLine("\nDesea continuar? \n)Si \n)No ");
 					temp = vf.getCon().readBoolean();
 					if (temp != true) {
@@ -241,45 +259,59 @@ public class Controlador {
 				break;
 
 			case 3:
-				vf.getCon().printNewLine("Ingrese el dato que desea actualizar");
-				vf.getCon().printNewLine(mf.getCarneFriaDAO().mostrar());
-				int indexCarAct = vf.getCon().readInt();
+				try {
+					vf.getCon().printNewLine("---ACTUALIZANDO FRUTA / VERDURA---");
+					vf.getCon().printNewLine("Ingrese el dato que desea actualizar");
+					int indexCarAct = vf.getCon().readInt();
 
-				vf.getCon().printNewLine("Rellene los datos solicitados");
+					if (mf.getFrutaVerduraDAO().checkearIndex(indexCarAct - 1).equals("s")) {
+						vf.getCon().printNewLine("*Rellene los datos solicitados*");
 
-				vf.getCon().printSameLine("Ingrese el número de identificación del producto: ");
-				long numIdAct = vf.getCon().readLong();
-				vf.getCon().burnLine();
+						vf.getCon().printSameLine("Ingrese el número de identificación del producto: ");
+						long numIdAct = vf.getCon().readLong();
+						vf.getCon().burnLine();
 
-				vf.getCon().printSameLine("Ingrese el nombre del producto: ");
-				String nombreAct = vf.getCon().readLine();
+						vf.getCon().printSameLine("Ingrese el nombre del producto: ");
+						String nombreAct = vf.getCon().readLine();
 
-				vf.getCon().printSameLine("Ingrese el nombre de la empresa del producto: ");
-				String empresaAct = vf.getCon().readLine();
+						vf.getCon().printSameLine("Ingrese el nombre de la empresa del producto: ");
+						String empresaAct = vf.getCon().readLine();
 
-				vf.getCon().printSameLine("Ingrese el precio del producto: ");
-				float precioAct = vf.getCon().readFloat();
+						vf.getCon().printSameLine("Ingrese el precio del producto: ");
+						float precioAct = vf.getCon().readFloat();
 
-				vf.getCon().printSameLine("Ingrese la cantidad del producto: ");
-				int cantidadAct = vf.getCon().readInt();
-				vf.getCon().burnLine();
+						vf.getCon().printSameLine("Ingrese la cantidad del producto: ");
+						int cantidadAct = vf.getCon().readInt();
+						vf.getCon().burnLine();
 
-				vf.getCon().printSameLine("Ingrese el nombre del animal de origen del producto: ");
-				String animalOrigenAct = vf.getCon().readLine();
+						vf.getCon().printSameLine("Ingresela fecha de cosecha del prodcuto dd/MM/aaaa");
+						SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+						String dateAct = vf.getCon().readLine();
+						Date cosechaAct;
+						cosechaAct = sdf.parse(dateAct);
 
-				mf.getCarneFriaDAO().actualizar(indexCarAct - 1,
-						new CarneFria(numIdAct, nombreAct, empresaAct, precioAct, cantidadAct, animalOrigenAct));
+						vf.getCon().printSameLine("El producto es organico: Si / No ");
+						boolean esOrganicoAct = vf.getCon().readBoolean();
 
-				vf.getCon().printNewLine("Dato actualizado con exito");
-				vf.getCon().printNewLine(mf.getCarneFriaDAO().mostrar());
+						mf.getFrutaVerduraDAO().actualizar(indexCarAct, new FrutaVerdura(numIdAct, nombreAct,
+								empresaAct, precioAct, cantidadAct, cosechaAct, esOrganicoAct));
+						vf.getCon().printNewLine("Dato actualizado con exito");
 
-				// PRESENTA PROBLEMAS
+					} else {
+						vf.getCon().printNewLine("Ingrese un indice valido, recuerde "
+								+ "que no puede ser negativo ni exceder el tamaño de la lista");
+					}
+				} catch (ParseException e) {
+					vf.getCon().printNewLine("El formato de fecha debe ser dd/MM/aaaa");
+				}
+
 				break;
 
 			case 4:
-				vf.getCon().printNewLine("Seleccione el indice a eliminar");
-				vf.getCon().printNewLine(mf.getCarneFriaDAO().mostrar());
-				vf.getCon().printNewLine(mf.getCarneFriaDAO().mostrar());
+				vf.getCon().printNewLine("---ELIMINANDO FRUTA / VERDURA---");
+				vf.getCon().printNewLine("Ingrese el nombre del dato a eliminar: ");
+				String fvDelete = vf.getCon().readLine();
+				vf.getCon().printNewLine(mf.getCarneFriaDAO().eliminarPorNombre(fvDelete));
 				break;
 			case 5:
 				vf.getCon().printNewLine("---VOLVIENDO A MENU PRINCIPAL---");
