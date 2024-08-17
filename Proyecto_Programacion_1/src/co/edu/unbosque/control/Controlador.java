@@ -8,6 +8,17 @@ public class Controlador {
 
 	public void run() {
 		System.out.println("ASDASDASDASD");
+		System.out.println("Hola");
+		System.out.println("Hola");
+		System.out.println("Hola");
+		System.out.println("Hola");
+		System.out.println("Hola");
+		System.out.println("Hola");
+		System.out.println("Hola");
+		System.out.println("Hola");
+		System.out.println("Hola");
+		System.out.println("Hola");
+		System.out.println("Hola");
 	}
 
 }
