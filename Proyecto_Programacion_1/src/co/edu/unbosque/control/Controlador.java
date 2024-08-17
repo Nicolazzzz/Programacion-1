@@ -6,7 +6,9 @@ import java.util.Date;
 
 import co.edu.unbosque.model.CarneFria;
 import co.edu.unbosque.model.FrutaVerdura;
+import co.edu.unbosque.model.Juguete;
 import co.edu.unbosque.model.ModelFacade;
+import co.edu.unbosque.model.Panaderia;
 import co.edu.unbosque.view.ViewFacade;
 
 public class Controlador {
@@ -112,6 +114,7 @@ public class Controlador {
 				vf.getCon().printSameLine("Ingrese el nombre del animal de origen del producto: ");
 				String animalOrigen = vf.getCon().readLine();
 				mf.getCarneFriaDAO().crear(new CarneFria(numId, nombre, empresa, precio, cantidad, animalOrigen));
+				vf.getCon().printNewLine("Producto creado exitosamente");
 
 				break;
 
@@ -134,13 +137,13 @@ public class Controlador {
 
 			case 3:
 				vf.getCon().printNewLine("---ACTUALIZANDO CARNE FRIA---");
-				vf.getCon().printSameLine("Ingrese el dato que desea actualizar");
+				vf.getCon().printSameLine("Ingrese el dato que desea actualizar: ");
 				int indexCarAct = vf.getCon().readInt();
 				vf.getCon().burnLine();
 
 				if (mf.getCarneFriaDAO().checkearIndex(indexCarAct - 1).equals("s")) {
 
-					vf.getCon().printNewLine("Rellene los datos solicitados");
+					vf.getCon().printNewLine("\n*Rellene los datos solicitados*\n");
 
 					vf.getCon().printSameLine("Ingrese el número de identificación del producto: ");
 					long numIdAct = vf.getCon().readLong();
@@ -164,9 +167,8 @@ public class Controlador {
 
 					mf.getCarneFriaDAO().actualizar(indexCarAct - 1,
 							new CarneFria(numIdAct, nombreAct, empresaAct, precioAct, cantidadAct, animalOrigenAct));
+					vf.getCon().printNewLine("\nProducto actualizado con exito\n");
 
-					vf.getCon().printNewLine("Dato actualizado con exito");
-					vf.getCon().printNewLine(mf.getCarneFriaDAO().mostrar());
 				} else {
 					vf.getCon().printNewLine("Ingrese un indice valido, recuerde "
 							+ "que no puede ser negativo ni exceder el tamaño de la lista");
@@ -234,6 +236,8 @@ public class Controlador {
 
 					mf.getFrutaVerduraDAO()
 							.crear(new FrutaVerdura(numId, nombre, empresa, precio, cantidad, cosecha, esOrganico));
+					vf.getCon().printNewLine("Producto creado exitosamente");
+
 				} catch (ParseException e) {
 					vf.getCon().printNewLine("El formato de fecha debe ser dd/MM/aaaa");
 
@@ -264,9 +268,9 @@ public class Controlador {
 					vf.getCon().printNewLine("Ingrese el dato que desea actualizar");
 					int indexCarAct = vf.getCon().readInt();
 					vf.getCon().burnLine();
-					
+
 					if (mf.getFrutaVerduraDAO().checkearIndex(indexCarAct - 1).equals("s")) {
-						vf.getCon().printNewLine("*Rellene los datos solicitados*");
+						vf.getCon().printNewLine("\n*Rellene los datos solicitados*\n");
 
 						vf.getCon().printSameLine("Ingrese el número de identificación del producto: ");
 						long numIdAct = vf.getCon().readLong();
@@ -328,11 +332,251 @@ public class Controlador {
 	}
 
 	public void mostrarMenuJuguete() {
+		toyloop: while (true) {
+
+			vf.getCon().printNewLine("---MENU JUGUETES---");
+			vf.getCon().printNewLine("\n1) Agregar\n2) Mostrar\n3) Actualizar\n4) Eliminar \n5) Volver");
+			int op1 = vf.getCon().readInt();
+			vf.getCon().burnLine();
+			switch (op1) {
+			case 1:
+				vf.getCon().printNewLine("---AGREGANDO JUGUETES---");
+
+				vf.getCon().printSameLine("Ingrese el número de identificación del producto: ");
+				long numId = vf.getCon().readLong();
+				vf.getCon().burnLine();
+
+				vf.getCon().printSameLine("Ingrese el nombre del producto: ");
+				String nombre = vf.getCon().readLine();
+
+				vf.getCon().printSameLine("Ingrese el nombre de la empresa del producto: ");
+				String empresa = vf.getCon().readLine();
+
+				vf.getCon().printSameLine("Ingrese el precio del producto: ");
+				float precio = vf.getCon().readFloat();
+
+				vf.getCon().printSameLine("Ingrese la cantidad del producto: ");
+				int cantidad = vf.getCon().readInt();
+
+				vf.getCon().printSameLine("Ingrese la edad minima establecida del producto: ");
+				int edadMinima = vf.getCon().readInt();
+
+				vf.getCon().printSameLine("Ingrese la cantidad de jugadores del producto: ");
+				int numeroJugadores = vf.getCon().readInt();
+
+				mf.getJugueteDAO()
+						.crear(new Juguete(numId, nombre, empresa, precio, cantidad, edadMinima, numeroJugadores));
+				vf.getCon().printNewLine("Producto creado exitosamente");
+
+				break;
+
+			case 2:
+				boolean temp = false;
+				while (temp != true) {
+					vf.getCon().printNewLine("---MOSTRANDO JUGUETES---");
+					vf.getCon().printNewLine(mf.getJugueteDAO().mostrar());
+					vf.getCon().printNewLine("\nDesea continuar? \n)Si \n)No ");
+					temp = vf.getCon().readBoolean();
+					if (temp != true) {
+
+						temp = false;
+
+						vf.getCon().printNewLine("--MOSTRANDO NUEVAMENTE--\n");
+
+					}
+				}
+				break;
+
+			case 3:
+				vf.getCon().printNewLine("---ACTUALIZANDO JUGUETES---");
+				vf.getCon().printSameLine("Ingrese el dato que desea actualizar");
+				int indexCarAct = vf.getCon().readInt();
+				vf.getCon().burnLine();
+
+				if (mf.getCarneFriaDAO().checkearIndex(indexCarAct - 1).equals("s")) {
+
+					vf.getCon().printNewLine("\n*Rellene los datos solicitados*\n");
+
+					vf.getCon().printSameLine("Ingrese el número de identificación del producto: ");
+					long numIdAct = vf.getCon().readLong();
+					vf.getCon().burnLine();
+
+					vf.getCon().printSameLine("Ingrese el nombre del producto: ");
+					String nombreAct = vf.getCon().readLine();
+
+					vf.getCon().printSameLine("Ingrese el nombre de la empresa del producto: ");
+					String empresaAct = vf.getCon().readLine();
+
+					vf.getCon().printSameLine("Ingrese el precio del producto: ");
+					float precioAct = vf.getCon().readFloat();
+
+					vf.getCon().printSameLine("Ingrese la cantidad del producto: ");
+					int cantidadAct = vf.getCon().readInt();
+					vf.getCon().burnLine();
+
+					vf.getCon().printSameLine("Ingrese la edad minima establecida del producto: ");
+					int edadMinimaAct = vf.getCon().readInt();
+
+					vf.getCon().printSameLine("Ingrese la cantidad de jugadores del producto: ");
+					int numeroJugadoresAct = vf.getCon().readInt();
+
+					mf.getJugueteDAO().actualizar(indexCarAct - 1, new Juguete(numIdAct, nombreAct, empresaAct,
+							precioAct, cantidadAct, edadMinimaAct, numeroJugadoresAct));
+					vf.getCon().printNewLine("Dato actualizado con exito");
+
+				} else {
+					vf.getCon().printNewLine("Ingrese un indice valido, recuerde "
+							+ "que no puede ser negativo ni exceder el tamaño de la lista");
+				}
+
+				break;
+
+			case 4:
+				vf.getCon().printNewLine("---ELIMINANDO CARNE FRIA---");
+				vf.getCon().printNewLine("Ingrese el nombre del dato a eliminar: ");
+				String carneDelete = vf.getCon().readLine();
+				vf.getCon().printNewLine(mf.getJugueteDAO().eliminarPorNombre(carneDelete));
+				break;
+
+			case 5:
+				vf.getCon().printNewLine("---VOLVIENDO A MENU PRINCIPAL---");
+				break toyloop;
+
+			default:
+				vf.getCon().printNewLine("INGRESE UNA OPCION VALIDA");
+
+				break;
+			}
+
+		}
 
 	}
 
 	public void mostrarMenuPanaderia() {
 
-	}
+		breadloop: while (true) {
 
+			vf.getCon().printNewLine("---MENU PANADERIA---");
+			vf.getCon().printNewLine("\n1) Agregar\n2) Mostrar\n3) Actualizar\n4) Eliminar \n5) Volver");
+			int op1 = vf.getCon().readInt();
+			vf.getCon().burnLine();
+			switch (op1) {
+			case 1:
+				vf.getCon().printNewLine("---AGREGANDO PANES---");
+
+				vf.getCon().printSameLine("Ingrese el número de identificación del producto: ");
+				long numId = vf.getCon().readLong();
+				vf.getCon().burnLine();
+
+				vf.getCon().printSameLine("Ingrese el nombre del producto: ");
+				String nombre = vf.getCon().readLine();
+
+				vf.getCon().printSameLine("Ingrese el nombre de la empresa del producto: ");
+				String empresa = vf.getCon().readLine();
+
+				vf.getCon().printSameLine("Ingrese el precio del producto: ");
+				float precio = vf.getCon().readFloat();
+
+				vf.getCon().printSameLine("Ingrese la cantidad del producto: ");
+				int cantidad = vf.getCon().readInt();
+				vf.getCon().burnLine();
+
+				vf.getCon().printSameLine("Ingrese si el producto es libre de gluten: Si / No");
+				boolean esLibreGluten = vf.getCon().readBoolean();
+
+				vf.getCon().printSameLine("Ingrese si el producto es integral: Si / No");
+				boolean esIntegral = vf.getCon().readBoolean();
+
+				vf.getCon().printSameLine("Ingrese si el producto es libre de levaduras: Si / No");
+				boolean esLibreLevadura = vf.getCon().readBoolean();
+
+				mf.getPanaderiaDAO().crear(new Panaderia(numId, nombre, empresa, precio, cantidad, esLibreGluten,
+						esIntegral, esLibreLevadura));
+				vf.getCon().printNewLine("Producto creado exitosamente");
+
+				break;
+
+			case 2:
+				boolean temp = false;
+				while (temp != true) {
+					vf.getCon().printNewLine("---MOSTRANDO LISTA CARNES FRIAS---");
+					vf.getCon().printNewLine(mf.getPanaderiaDAO().mostrar());
+					vf.getCon().printNewLine("\nDesea continuar? \n)Si \n)No ");
+					temp = vf.getCon().readBoolean();
+					if (temp != true) {
+
+						temp = false;
+
+						vf.getCon().printNewLine("--MOSTRANDO NUEVAMENTE--\n");
+
+					}
+				}
+				break;
+
+			case 3:
+				vf.getCon().printNewLine("---ACTUALIZANDO PANES---");
+				vf.getCon().printSameLine("Ingrese el dato que desea actualizar");
+				int indexCarAct = vf.getCon().readInt();
+				vf.getCon().burnLine();
+
+				if (mf.getCarneFriaDAO().checkearIndex(indexCarAct - 1).equals("s")) {
+
+					vf.getCon().printNewLine("\n*Rellene los datos solicitados*\n");
+
+					vf.getCon().printSameLine("Ingrese el número de identificación del producto: ");
+					long numIdAct = vf.getCon().readLong();
+					vf.getCon().burnLine();
+
+					vf.getCon().printSameLine("Ingrese el nombre del producto: ");
+					String nombreAct = vf.getCon().readLine();
+
+					vf.getCon().printSameLine("Ingrese el nombre de la empresa del producto: ");
+					String empresaAct = vf.getCon().readLine();
+
+					vf.getCon().printSameLine("Ingrese el precio del producto: ");
+					float precioAct = vf.getCon().readFloat();
+
+					vf.getCon().printSameLine("Ingrese la cantidad del producto: ");
+					int cantidadAct = vf.getCon().readInt();
+					vf.getCon().burnLine();
+
+					vf.getCon().printSameLine("Ingrese si el producto es libre de gluten: Si / No");
+					boolean esLibreGlutenAct = vf.getCon().readBoolean();
+
+					vf.getCon().printSameLine("Ingrese si el producto es integral: Si / No");
+					boolean esIntegralAct = vf.getCon().readBoolean();
+
+					vf.getCon().printSameLine("Ingrese si el producto es libre de levaduras: Si / No");
+					boolean esLibreLevaduraAct = vf.getCon().readBoolean();
+
+					mf.getPanaderiaDAO().actualizar(indexCarAct - 1, new Panaderia(numIdAct, nombreAct, empresaAct,
+							precioAct, cantidadAct, esLibreGlutenAct, esIntegralAct, esLibreLevaduraAct));
+					vf.getCon().printNewLine("Producto actualizado con exito");
+
+				} else {
+					vf.getCon().printNewLine("Ingrese un indice valido, recuerde "
+							+ "que no puede ser negativo ni exceder el tamaño de la lista");
+				}
+
+				break;
+
+			case 4:
+				vf.getCon().printNewLine("---ELIMINANDO PANES---");
+				vf.getCon().printNewLine("Ingrese el nombre del dato a eliminar: ");
+				String panDelete = vf.getCon().readLine();
+				vf.getCon().printNewLine(mf.getPanaderiaDAO().eliminarPorNombre(panDelete));
+				break;
+
+			case 5:
+				vf.getCon().printNewLine("---VOLVIENDO A MENU PRINCIPAL---");
+				break breadloop;
+
+			default:
+				vf.getCon().printNewLine("INGRESE UNA OPCION VALIDA");
+
+				break;
+
+			}
+		}
+	}
 }

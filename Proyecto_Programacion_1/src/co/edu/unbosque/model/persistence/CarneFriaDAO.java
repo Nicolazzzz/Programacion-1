@@ -29,7 +29,7 @@ public class CarneFriaDAO implements CRUDOperation<CarneFria> {
 			for (CarneFria producto : listaCarnesFrias) {
 
 				contenido += "\nProducto: " + pos;
-				contenido += producto.toString();
+				contenido += producto.toString() + "\n";
 				pos++;
 			}
 			return contenido;
@@ -51,7 +51,7 @@ public class CarneFriaDAO implements CRUDOperation<CarneFria> {
 
 		}
 	}
-	
+
 	@Override
 	public String eliminarPorNombre(String name) {
 
