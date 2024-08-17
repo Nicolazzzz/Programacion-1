@@ -1,10 +1,10 @@
 package co.edu.unbosque.model;
 
-public class Juguete extends Producto{
+public class Juguete extends Producto {
 
 	private int edadMinima;
 	private int numJugadores;
-	
+
 	public Juguete() {
 		// TODO Auto-generated constructor stub
 	}
@@ -41,6 +41,10 @@ public class Juguete extends Producto{
 	public void setNumJugadores(int numJugadores) {
 		this.numJugadores = numJugadores;
 	}
-	
-	//toString
+
+	@Override
+	public String toString() {
+		return super.toString() + "Juguete [edadMinima=" + edadMinima + ", numJugadores=" + numJugadores + "]";
+	}
+
 }

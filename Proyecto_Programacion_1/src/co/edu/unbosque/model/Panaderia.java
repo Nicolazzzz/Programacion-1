@@ -1,11 +1,11 @@
 package co.edu.unbosque.model;
 
-public class Panaderia extends Producto{
+public class Panaderia extends Producto {
 
 	private boolean esLibreGluten;
 	private boolean esIntegral;
 	private boolean esLibreLevadura;
-	
+
 	public Panaderia() {
 		// TODO Auto-generated constructor stub
 	}
@@ -52,10 +52,11 @@ public class Panaderia extends Producto{
 	public void setEsLibreLevadura(boolean esLibreLevadura) {
 		this.esLibreLevadura = esLibreLevadura;
 	}
-	
-	//toString
-	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return super.toString() + "Panaderia [esLibreGluten=" + esLibreGluten + ", esIntegral=" + esIntegral
+				+ ", esLibreLevadura=" + esLibreLevadura + "]";
+	}
+
 }

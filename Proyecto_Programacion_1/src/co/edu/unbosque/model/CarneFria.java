@@ -1,24 +1,24 @@
 package co.edu.unbosque.model;
 
-public class CarnesFrias extends Producto{
+public class CarneFria extends Producto {
 
 	private String animalOrigen;
-	
-	public CarnesFrias() {
+
+	public CarneFria() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CarnesFrias(String animalOrigen) {
+	public CarneFria(String animalOrigen) {
 		super();
 		this.animalOrigen = animalOrigen;
 	}
 
-	public CarnesFrias(int numId, String nombre, String empresa, float precio, int cantidad, String animalOrigen) {
+	public CarneFria(int numId, String nombre, String empresa, float precio, int cantidad, String animalOrigen) {
 		super(numId, nombre, empresa, precio, cantidad);
 		this.animalOrigen = animalOrigen;
 	}
 
-	public CarnesFrias(int numId, String nombre, String empresa, float precio, int cantidad) {
+	public CarneFria(int numId, String nombre, String empresa, float precio, int cantidad) {
 		super(numId, nombre, empresa, precio, cantidad);
 	}
 
@@ -29,6 +29,10 @@ public class CarnesFrias extends Producto{
 	public void setAnimalOrigen(String animalOrigen) {
 		this.animalOrigen = animalOrigen;
 	}
-	
-	//toString
+
+	@Override
+	public String toString() {
+		return super.toString() + "CarnesFrias [animalOrigen=" + animalOrigen + "]";
+	}
+
 }

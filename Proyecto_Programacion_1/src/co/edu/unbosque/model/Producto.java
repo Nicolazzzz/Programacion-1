@@ -2,12 +2,12 @@ package co.edu.unbosque.model;
 
 public class Producto {
 
-	private int numId;
+	private long numId;
 	private String nombre;
 	private String empresa;
 	private float precio;
 	private int cantidad;
-	
+
 	public Producto() {
 		// TODO Auto-generated constructor stub
 	}
@@ -21,7 +21,7 @@ public class Producto {
 		this.cantidad = cantidad;
 	}
 
-	public int getNumId() {
+	public long getNumId() {
 		return numId;
 	}
 
@@ -66,6 +66,5 @@ public class Producto {
 		return "Producto [numId=" + numId + ", nombre=" + nombre + ", empresa=" + empresa + ", precio=" + precio
 				+ ", cantidad=" + cantidad + "]";
 	}
-	
-	
+
 }
