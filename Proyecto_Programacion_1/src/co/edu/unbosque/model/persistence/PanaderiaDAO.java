@@ -52,33 +52,23 @@ public class PanaderiaDAO implements CRUDOperation<Panaderia> {
 	}
 
 	@Override
-	public String eliminar(int index) {
-		if (index < 0) {
-			return "\nEl indice no puede tener valores negativos";
-		} else if (index >= listaPanaderia.size()) {
-			return "\nEl indice se excede del tamaño actual de la lista, tamaño actual: " + listaPanaderia.size()
-					+ " datos";
-		} else {
-			listaPanaderia.remove(index);
-			return "\nProducto en indice " + index + " eliminado exitosamente";
-		}
-	}
-
-	@Override
-	public boolean eliminar(Panaderia datoEliminar) {
-		if (listaPanaderia.remove(datoEliminar)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	@Override
 	public String checkearIndex(int index) {
 		if (index < 0 || index >= listaPanaderia.size()) {
 			return "n";
 		}
 		return "s";
+	}
+
+	@Override
+	public String eliminarPorNombre(String name) {
+		for (int i = 0; i < listaPanaderia.size(); i++) {
+			Panaderia panaderia = listaPanaderia.get(i);
+			if (panaderia.getNombre().toLowerCase().equals(name.toLowerCase())) {
+				listaPanaderia.remove(i);
+				return "Producto eliminado exitosamente";
+			}
+		}
+		return "El nombre del producto no coincide con ninguno registrado";
 	}
 
 }

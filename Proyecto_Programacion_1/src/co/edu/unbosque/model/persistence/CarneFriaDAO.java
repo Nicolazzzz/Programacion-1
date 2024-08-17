@@ -15,6 +15,7 @@ public class CarneFriaDAO implements CRUDOperation<CarneFria> {
 	@Override
 	public void crear(CarneFria data) {
 		listaCarnesFrias.add(data);
+
 	}
 
 	@Override
@@ -37,6 +38,7 @@ public class CarneFriaDAO implements CRUDOperation<CarneFria> {
 
 	@Override
 	public String actualizar(int index, CarneFria newData) {
+
 		if (index < 0) {
 			return "\nEl indice no puede tener valores negativos";
 		} else if (index >= 0) {
@@ -49,28 +51,18 @@ public class CarneFriaDAO implements CRUDOperation<CarneFria> {
 
 		}
 	}
-
+	
 	@Override
-	public String eliminar(int index) {
-		if (index < 0) {
-			return "\nEl indice no puede tener valores negativos";
-		} else if (index >= listaCarnesFrias.size()) {
-			return "\nEl indice se excede del tamaño actual de la lista, tamaño actual: " + listaCarnesFrias.size()
-					+ " datos";
-		} else {
-			listaCarnesFrias.remove(index);
-			return "\nProducto en indice " + index + " eliminado exitosamente";
-		}
-	}
+	public String eliminarPorNombre(String name) {
 
-	@Override
-	public boolean eliminar(CarneFria datoEliminar) {
-		if (listaCarnesFrias.remove(datoEliminar)) {
-			return true;
-		} else {
-			return false;
+		for (int i = 0; i < listaCarnesFrias.size(); i++) {
+			CarneFria carneFria = listaCarnesFrias.get(i);
+			if (carneFria.getNombre().toLowerCase().equals(name.toLowerCase())) {
+				listaCarnesFrias.remove(i);
+				return "Producto eliminado exitosamente";
+			}
 		}
-
+		return "El nombre del producto no coincide con ninguno registrado";
 	}
 
 	@Override

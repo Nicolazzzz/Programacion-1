@@ -82,7 +82,7 @@ public class Controlador {
 			vf.getCon().printNewLine("---MENU CARNES FRIAS---");
 			vf.getCon().printNewLine("\n1) Agregar\n2) Mostrar\n3) Actualizar\n4) Eliminar \n5) Volver");
 			int op1 = vf.getCon().readInt();
-
+			vf.getCon().burnLine();
 			switch (op1) {
 			case 1:
 				vf.getCon().printNewLine("---AGREGANDO CARNE FRIA---");
@@ -130,10 +130,10 @@ public class Controlador {
 			case 3:
 				vf.getCon().printNewLine("---ACTUALIZANDO CARNE FRIA---");
 				vf.getCon().printSameLine("Ingrese el dato que desea actualizar");
-				vf.getCon().printNewLine(mf.getCarneFriaDAO().mostrar());
 				int indexCarAct = vf.getCon().readInt();
+				vf.getCon().burnLine();
 
-				if (mf.getCarneFriaDAO().checkearIndex(indexCarAct-1).equals("s")) {
+				if (mf.getCarneFriaDAO().checkearIndex(indexCarAct - 1).equals("s")) {
 
 					vf.getCon().printNewLine("Rellene los datos solicitados");
 
@@ -170,13 +170,10 @@ public class Controlador {
 				break;
 
 			case 4:
-				vf.getCon().printNewLine("Seleccione el dato a eliminar");
-				vf.getCon().printNewLine(mf.getCarneFriaDAO().mostrar());
+				vf.getCon().printNewLine("---ELIMINANDO CARNE FRIA---");
+				vf.getCon().printNewLine("Ingrese el nombre del dato a eliminar: ");
 				String carneDelete = vf.getCon().readLine();
-				Object carneEli = carneDelete; // CASTEAR DE STRING A CARNEFRIA
-				CarneFria carneDel = (CarneFria) carneEli;
-				mf.getCarneFriaDAO().eliminar(carneDel);
-				vf.getCon().printNewLine(mf.getCarneFriaDAO().mostrar());
+				vf.getCon().printNewLine(mf.getCarneFriaDAO().eliminarPorNombre(carneDelete));
 				break;
 
 			case 5:
@@ -282,8 +279,6 @@ public class Controlador {
 			case 4:
 				vf.getCon().printNewLine("Seleccione el indice a eliminar");
 				vf.getCon().printNewLine(mf.getCarneFriaDAO().mostrar());
-				int indexCarDel = vf.getCon().readInt();
-				mf.getCarneFriaDAO().eliminar(indexCarDel - 1);
 				vf.getCon().printNewLine(mf.getCarneFriaDAO().mostrar());
 				break;
 			case 5:

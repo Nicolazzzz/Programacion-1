@@ -8,9 +8,7 @@ public interface CRUDOperation<T> {
 
 	public String actualizar(int index, T newData);
 
-	public String eliminar(int index);
-
-	public boolean eliminar(T datoEliminar);
+	public String eliminarPorNombre(String name);
 
 	public String checkearIndex(int index);
 

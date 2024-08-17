@@ -51,33 +51,23 @@ public class JugueteDAO implements CRUDOperation<Juguete> {
 	}
 
 	@Override
-	public String eliminar(int index) {
-		if (index < 0) {
-			return "\nEl indice no puede tener valores negativos";
-		} else if (index >= listaJuguetes.size()) {
-			return "\nEl indice se excede del tamaño actual de la lista, tamaño actual: " + listaJuguetes.size()
-					+ " datos";
-		} else {
-			listaJuguetes.remove(index);
-			return "\nProducto en indice " + index + " eliminado exitosamente";
-		}
-	}
-
-	@Override
-	public boolean eliminar(Juguete datoEliminar) {
-		if (listaJuguetes.remove(datoEliminar)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	@Override
 	public String checkearIndex(int index) {
 		if (index < 0 || index >= listaJuguetes.size()) {
 			return "n";
 		}
 		return "s";
+	}
+
+	@Override
+	public String eliminarPorNombre(String name) {
+		for (int i = 0; i < listaJuguetes.size(); i++) {
+			Juguete juguete = listaJuguetes.get(i);
+			if (juguete.getNombre().toLowerCase().equals(name.toLowerCase())) {
+				listaJuguetes.remove(i);
+				return "Producto eliminado exitosamente";
+			}
+		}
+		return "El nombre del producto no coincide con ninguno registrado";
 	}
 
 }

@@ -52,33 +52,22 @@ public class FrutaVerduraDAO implements CRUDOperation<FrutaVerdura> {
 	}
 
 	@Override
-	public String eliminar(int index) {
-
-		if (index < 0) {
-			return "\nEl indice no puede tener valores negativos";
-		} else if (index >= listaFrutasVerduras.size()) {
-			return "\nEl indice se excede del tamaño actual de la lista, tamaño actual: " + listaFrutasVerduras.size()
-					+ " datos";
-		} else {
-			listaFrutasVerduras.remove(index);
-			return "\nProducto en indice " + index + " eliminado exitosamente";
-		}
-	}
-
-	@Override
-	public boolean eliminar(FrutaVerdura datoEliminar) {
-		if (listaFrutasVerduras.remove(datoEliminar)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	@Override
 	public String checkearIndex(int index) {
 		if (index < 0 || index >= listaFrutasVerduras.size()) {
 			return "n";
 		}
 		return "s";
+	}
+
+	@Override
+	public String eliminarPorNombre(String name) {
+		for (int i = 0; i < listaFrutasVerduras.size(); i++) {
+			FrutaVerdura frutaVerdura = listaFrutasVerduras.get(i);
+			if (frutaVerdura.getNombre().toLowerCase().equals(name.toLowerCase())) {
+				listaFrutasVerduras.remove(i);
+				return "Producto eliminado exitosamente";
+			}
+		}
+		return "El nombre del producto no coincide con ninguno registrado";
 	}
 }
