@@ -27,7 +27,6 @@ public class FrutaVerduraDAO implements CRUDOperation<FrutaVerdura> {
 		} else {
 			String contenido = "";
 			for (FrutaVerdura producto : listaFrutasVerduras) {
-
 				contenido += "\nProducto: " + pos;
 				contenido += producto.toString();
 				pos++;

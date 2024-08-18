@@ -3,6 +3,7 @@ package co.edu.unbosque.control;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.InputMismatchException;
 
 import co.edu.unbosque.model.CarneFria;
 import co.edu.unbosque.model.FrutaVerdura;
@@ -165,7 +166,7 @@ public class Controlador {
 					vf.getCon().printSameLine("Ingrese el nombre del animal de origen del producto: ");
 					String animalOrigenAct = vf.getCon().readLine();
 
-					mf.getCarneFriaDAO().actualizar(indexCarAct-1,
+					mf.getCarneFriaDAO().actualizar(indexCarAct - 1,
 							new CarneFria(numIdAct, nombreAct, empresaAct, precioAct, cantidadAct, animalOrigenAct));
 					vf.getCon().printNewLine("\nProducto actualizado con exito\n");
 
