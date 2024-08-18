@@ -313,10 +313,12 @@ public class Controlador {
 				break;
 
 			case 4:
+
 				vf.getCon().printNewLine("---ELIMINANDO FRUTA / VERDURA---");
 				vf.getCon().printNewLine("Ingrese el nombre del dato a eliminar: ");
+				vf.getCon().burnLine();
 				String fvDelete = vf.getCon().readLine();
-				vf.getCon().printNewLine(mf.getCarneFriaDAO().eliminarPorNombre(fvDelete));
+				vf.getCon().printNewLine(mf.getFrutaVerduraDAO().eliminarPorNombre(fvDelete));
 				break;
 			case 5:
 				vf.getCon().printNewLine("---VOLVIENDO A MENU PRINCIPAL---");
@@ -393,7 +395,7 @@ public class Controlador {
 				int indexCarAct = vf.getCon().readInt();
 				vf.getCon().burnLine();
 
-				if (mf.getCarneFriaDAO().checkearIndex(indexCarAct - 1).equals("s")) {
+				if (mf.getJugueteDAO().checkearIndex(indexCarAct - 1).equals("s")) {
 
 					vf.getCon().printNewLine("\n*Rellene los datos solicitados*\n");
 
@@ -514,12 +516,13 @@ public class Controlador {
 				break;
 
 			case 3:
+
 				vf.getCon().printNewLine("---ACTUALIZANDO PANES---");
 				vf.getCon().printSameLine("Ingrese el dato que desea actualizar");
 				int indexCarAct = vf.getCon().readInt();
 				vf.getCon().burnLine();
 
-				if (mf.getCarneFriaDAO().checkearIndex(indexCarAct - 1).equals("s")) {
+				if (mf.getPanaderiaDAO().checkearIndex(indexCarAct - 1).equals("s")) {
 
 					vf.getCon().printNewLine("\n*Rellene los datos solicitados*\n");
 

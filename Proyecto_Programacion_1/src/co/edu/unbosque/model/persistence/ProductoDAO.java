@@ -32,6 +32,7 @@ public class ProductoDAO implements CRUDOperation<Producto> {
 
 				contenido += "\nProducto: " + pos;
 				contenido += producto.toString();
+				pos++;
 
 			}
 			return contenido;
@@ -43,7 +44,7 @@ public class ProductoDAO implements CRUDOperation<Producto> {
 
 		if (index < 0) {
 			return "\nEl indice no puede tener valores negativos";
-		} else if (index >= 0) {
+		} else if (index >= listaProductos.size()) {
 			return "\nEl indice se excede del tamaño actual de la lista, tamaño actual: " + listaProductos.size()
 					+ " datos";
 		} else {

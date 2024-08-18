@@ -12,6 +12,7 @@ public class Producto {
 		// TODO Auto-generated constructor stub
 	}
 
+	
 	public Producto(long numId, String nombre, String empresa, float precio, int cantidad) {
 		super();
 		this.numId = numId;
@@ -25,7 +26,7 @@ public class Producto {
 		return numId;
 	}
 
-	public void setNumId(int numId) {
+	public void setNumId(long numId) {
 		this.numId = numId;
 	}
 

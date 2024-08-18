@@ -29,7 +29,7 @@ public class JugueteDAO implements CRUDOperation<Juguete> {
 
 				contenido += "\nProducto: " + pos;
 				contenido += producto.toString();
-
+				pos++;
 			}
 			return contenido;
 		}
@@ -39,7 +39,7 @@ public class JugueteDAO implements CRUDOperation<Juguete> {
 	public String actualizar(int index, Juguete newData) {
 		if (index < 0) {
 			return "\nEl indice no puede tener valores negativos";
-		} else if (index >= 0) {
+		} else if (index >= listaJuguetes.size()) {
 			return "\nEl indice se excede del tamaño actual de la lista, tamaño actual: " + listaJuguetes.size()
 					+ " datos";
 		} else {
