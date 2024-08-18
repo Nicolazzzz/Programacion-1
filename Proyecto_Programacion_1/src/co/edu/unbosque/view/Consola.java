@@ -35,7 +35,6 @@ public class Consola {
 	}
 
 	public boolean readBoolean() {
-
 		String input = sc.nextLine();
 		if (input.toLowerCase().contains("si")) {
 			return true;

@@ -30,7 +30,7 @@ public class FrutaVerduraDAO implements CRUDOperation<FrutaVerdura> {
 
 				contenido += "\nProducto: " + pos;
 				contenido += producto.toString();
-
+				pos++;
 			}
 			return contenido;
 		}
@@ -40,7 +40,7 @@ public class FrutaVerduraDAO implements CRUDOperation<FrutaVerdura> {
 	public String actualizar(int index, FrutaVerdura newData) {
 		if (index < 0) {
 			return "\nEl indice no puede tener valores negativos";
-		} else if (index >= 0) {
+		} else if (index >= listaFrutasVerduras.size()) {
 			return "\nEl indice se excede del tamaño actual de la lista, tamaño actual: " + listaFrutasVerduras.size()
 					+ " datos";
 		} else {
@@ -59,6 +59,8 @@ public class FrutaVerduraDAO implements CRUDOperation<FrutaVerdura> {
 		return "s";
 	}
 
+	
+	
 	@Override
 	public String eliminarPorNombre(String name) {
 		for (int i = 0; i < listaFrutasVerduras.size(); i++) {

@@ -38,20 +38,17 @@ public class CarneFriaDAO implements CRUDOperation<CarneFria> {
 
 	@Override
 	public String actualizar(int index, CarneFria newData) {
-
-		if (index < 0) {
-			return "\nEl indice no puede tener valores negativos";
-		} else if (index >= 0) {
-			return "\nEl indice se excede del tamaño actual de la lista, tamaño actual: " + listaCarnesFrias.size()
-					+ " datos";
-		} else {
-
-			listaCarnesFrias.set(index, newData);
-			return "\nDato actualizado correctamente";
-
-		}
+	    if (index < 0) {
+	        return "\nEl indice no puede tener valores negativos";
+	    } else if (index >= listaCarnesFrias.size()) {
+	        return "\nEl indice se excede del tamaño actual de la lista, tamaño actual: " + listaCarnesFrias.size()
+	                + " datos";
+	    } else {
+	        listaCarnesFrias.set(index, newData);
+	        return "\nDato actualizado correctamente";
+	    }
 	}
-
+	
 	@Override
 	public String eliminarPorNombre(String name) {
 
