@@ -10,6 +10,7 @@ import co.edu.unbosque.model.FrutaVerdura;
 import co.edu.unbosque.model.Juguete;
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.Panaderia;
+import co.edu.unbosque.view.VentanaPrincipal;
 import co.edu.unbosque.view.ViewFacade;
 
 public class Controlador {
@@ -20,6 +21,7 @@ public class Controlador {
 	public Controlador() {
 		mf = new ModelFacade();
 		vf = new ViewFacade();
+
 		run();
 	}
 
@@ -27,6 +29,9 @@ public class Controlador {
 
 		mainloop: while (true) {
 
+			vf.getPrincipal().setVisible(true);
+			vf.getPrincipal().getMenuPpal().setVisible(true);
+			vf.getPrincipal().mostrarPanelMenuPrincipal();
 			mostrarMenuPrincipal();
 			int op = vf.getCon().readInt();
 
