@@ -165,7 +165,7 @@ public class Controlador {
 					vf.getCon().printSameLine("Ingrese el nombre del animal de origen del producto: ");
 					String animalOrigenAct = vf.getCon().readLine();
 
-					mf.getCarneFriaDAO().actualizar(indexCarAct - 1,
+					mf.getCarneFriaDAO().actualizar(indexCarAct-1,
 							new CarneFria(numIdAct, nombreAct, empresaAct, precioAct, cantidadAct, animalOrigenAct));
 					vf.getCon().printNewLine("\nProducto actualizado con exito\n");
 
