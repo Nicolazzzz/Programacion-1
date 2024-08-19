@@ -13,7 +13,11 @@ public class Consola {
 	}
 
 	public void mostrarAlerta(String texto) {
-		JOptionPane.showMessageDialog(null, texto, "Alerta", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, texto, "Alerta", JOptionPane.WARNING_MESSAGE);
+	}
+
+	public void mostrarError(String texto) {
+		JOptionPane.showMessageDialog(null, texto, "Error", JOptionPane.ERROR_MESSAGE);
 	}
 
 	public void mostrarListado(String texto) {
