@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class PanelMenuGestion extends JPanel {
 
-	JLabel imagen1;
+	JLabel imagenCarne, imagenFV, imagenJuguete, imagenPan;
 	JButton btnAgregar, btnMostrar, btnActualizar, btnEliminar, btnVolver;
 
 	public PanelMenuGestion() {
@@ -20,73 +20,141 @@ public class PanelMenuGestion extends JPanel {
 		setVisible(true);
 		setSize(1280, 720);
 		
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int screenWidth = (int) screenSize.getWidth();
-        int screenHeight = (int) screenSize.getHeight();
-        setPreferredSize(new Dimension(screenWidth, screenHeight));
-
 		btnAgregar = new JButton("agregar");
-		btnAgregar.setBounds(583, 335, 140, 130);
-		btnAgregar.setOpaque(true);
+		btnAgregar.setBounds(483, 270, 140, 130);
+		btnAgregar.setOpaque(false);
 		btnAgregar.setActionCommand("AGREGAR");
 
 		btnMostrar = new JButton("mostrar");
-		btnMostrar.setBounds(787, 335, 158, 130);
-		btnMostrar.setOpaque(true);
+		btnMostrar.setBounds(640, 270, 170, 130);
+		btnMostrar.setOpaque(false);
 		btnMostrar.setActionCommand("MOSTRAR");
 
 		btnActualizar = new JButton("actualizar");
-		btnActualizar.setBounds(583, 500, 140, 130);
-		btnActualizar.setOpaque(true);
+		btnActualizar.setBounds(483, 400, 140, 130);
+		btnActualizar.setOpaque(false);
 		btnActualizar.setActionCommand("ACTUALIZAR");
 
 		btnEliminar = new JButton("eliminar");
-		btnEliminar.setBounds(787, 500, 158, 130);
-		btnEliminar.setOpaque(true);
+		btnEliminar.setBounds(640, 400, 170, 130);
+		btnEliminar.setOpaque(false);
 		btnEliminar.setActionCommand("ELIMINAR");
 
 		btnVolver = new JButton("volver");
-		btnVolver.setBounds(690, 655, 140, 125);
-		btnVolver.setOpaque(true);
+		btnVolver.setBounds(570, 530, 160, 125);
+		btnVolver.setOpaque(false);
 		btnVolver.setActionCommand("VOLVER");
-		
-		imagen1 = new JLabel();
-		ImageIcon imagen = new ImageIcon("src/media/MenuAcciones.png");
-		Image redimensionado = imagen.getImage().getScaledInstance(screenWidth, screenHeight, Image.SCALE_SMOOTH);
-		imagen1.setIcon(new ImageIcon(redimensionado));
-		imagen1.setBounds(0, 0, screenWidth, screenHeight);
 
+		imagenCarne = new JLabel();
+		ImageIcon imagenCarnea = new ImageIcon("src/media/MenuAcciones.png");
+		Image redimensionado = imagenCarnea.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
+		imagenCarne.setIcon(new ImageIcon(redimensionado));
+		imagenCarne.setVisible(false);
+		imagenCarne.setBounds(0, 0, 1280, 720);
+
+		imagenFV = new JLabel();
+		ImageIcon imagenFVa = new ImageIcon("src/media/MenuAcciones2.png");
+		Image redimensionado2 = imagenFVa.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
+		imagenFV.setIcon(new ImageIcon(redimensionado2));
+		imagenFV.setVisible(false);
+		imagenFV.setBounds(0, 0, 1280, 720);
+
+		imagenJuguete = new JLabel();
+		ImageIcon imagenJuguetea = new ImageIcon("src/media/MenuAcciones3.png");
+		Image redimensionado3 = imagenJuguetea.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
+		imagenJuguete.setIcon(new ImageIcon(redimensionado3));
+		imagenJuguete.setVisible(false);
+		imagenJuguete.setBounds(0, 0, 1280, 720);
+
+		imagenPan = new JLabel();
+		ImageIcon imagenPana = new ImageIcon("src/media/MenuAcciones4.png");
+		Image redimensionado4 = imagenPana.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
+		imagenPan.setIcon(new ImageIcon(redimensionado4));
+		imagenPan.setVisible(false);
+		imagenPan.setBounds(0, 0, 1280, 720);
+
+		add(imagenCarne);
+		add(imagenFV);
+		add(imagenJuguete);
+		add(imagenPan);
 		add(btnAgregar);
 		add(btnMostrar);
 		add(btnActualizar);
 		add(btnEliminar);
 		add(btnVolver);
-		add(imagen1);
 
 	}
 
-	public JLabel getImagen1() {
-		return imagen1;
+	public JLabel getImagenCarne() {
+		return imagenCarne;
+	}
+
+	public void setImagenCarne(JLabel imagenCarne) {
+		this.imagenCarne = imagenCarne;
+	}
+
+	public JLabel getImagenFV() {
+		return imagenFV;
+	}
+
+	public void setImagenFV(JLabel imagenFV) {
+		this.imagenFV = imagenFV;
+	}
+
+	public JLabel getImagenJuguete() {
+		return imagenJuguete;
+	}
+
+	public void setImagenJuguete(JLabel imagenJuguete) {
+		this.imagenJuguete = imagenJuguete;
+	}
+
+	public JLabel getImagenPan() {
+		return imagenPan;
+	}
+
+	public void setImagenPan(JLabel imagenPan) {
+		this.imagenPan = imagenPan;
 	}
 
 	public JButton getBtnAgregar() {
 		return btnAgregar;
 	}
 
+	public void setBtnAgregar(JButton btnAgregar) {
+		this.btnAgregar = btnAgregar;
+	}
+
 	public JButton getBtnMostrar() {
 		return btnMostrar;
+	}
+
+	public void setBtnMostrar(JButton btnMostrar) {
+		this.btnMostrar = btnMostrar;
 	}
 
 	public JButton getBtnActualizar() {
 		return btnActualizar;
 	}
 
+	public void setBtnActualizar(JButton btnActualizar) {
+		this.btnActualizar = btnActualizar;
+	}
+
 	public JButton getBtnEliminar() {
 		return btnEliminar;
 	}
 
+	public void setBtnEliminar(JButton btnEliminar) {
+		this.btnEliminar = btnEliminar;
+	}
+
 	public JButton getBtnVolver() {
 		return btnVolver;
+	}
+
+	public void setBtnVolver(JButton btnVolver) {
+		this.btnVolver = btnVolver;
 	}
 
 }

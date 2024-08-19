@@ -85,6 +85,7 @@ public class CarneFriaDAO implements CRUDOperation<CarneFria> {
 	 */
 	@Override
 	public String eliminarPorNombre(String name) {
+		name += "";
 		for (int i = 0; i < listaCarnesFrias.size(); i++) {
 			CarneFria carneFria = listaCarnesFrias.get(i);
 			if (carneFria.getNombre().toLowerCase().equals(name.toLowerCase())) {

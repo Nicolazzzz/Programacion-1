@@ -28,6 +28,17 @@ public class Consola {
 		return JOptionPane.showInputDialog(null, texto, "Eliminando producto", JOptionPane.WARNING_MESSAGE);
 	}
 
+	public String leerEntradaEmergente(String texto) {
+		return JOptionPane.showInputDialog(null, texto, "Ingresando dato", JOptionPane.WARNING_MESSAGE);
+	}
+
+	public boolean leerBoolean(String entrada) {
+		if (entrada.toLowerCase().contains("si")) {
+			return true;
+		}
+		return false;
+	}
+
 	public Consola() {
 		sc = new Scanner(System.in);
 	}
