@@ -32,6 +32,7 @@ public class Controlador implements ActionListener {
 
 	public void asignarLectores() {
 
+		// MENU PRINCIPAL
 		vf.getPrincipal().getMenuPpal().getBtnCarne().addActionListener(this);
 		vf.getPrincipal().getMenuPpal().getBtnCarne().setActionCommand("CARNEFRIA");
 
@@ -44,6 +45,23 @@ public class Controlador implements ActionListener {
 		vf.getPrincipal().getMenuPpal().getBtnPan().addActionListener(this);
 		vf.getPrincipal().getMenuPpal().getBtnPan().setActionCommand("PAN");
 
+		// MENU GESTION
+		vf.getPrincipal().getMenuGestion().getBtnAgregar().addActionListener(this);
+		vf.getPrincipal().getMenuGestion().getBtnAgregar().setActionCommand("AGREGAR");
+
+		vf.getPrincipal().getMenuGestion().getBtnMostrar().addActionListener(this);
+		vf.getPrincipal().getMenuGestion().getBtnMostrar().setActionCommand("MOSTRAR");
+
+		vf.getPrincipal().getMenuGestion().getBtnActualizar().addActionListener(this);
+		vf.getPrincipal().getMenuGestion().getBtnActualizar().setActionCommand("ACTUALIZAR");
+
+		vf.getPrincipal().getMenuGestion().getBtnEliminar().addActionListener(this);
+		vf.getPrincipal().getMenuGestion().getBtnEliminar().setActionCommand("ELIMINAR");
+		
+		vf.getPrincipal().getMenuGestion().getBtnVolver().addActionListener(this);
+		vf.getPrincipal().getMenuGestion().getBtnVolver().setActionCommand("VOLVER");
+		;
+
 	}
 
 	@Override
@@ -55,11 +73,47 @@ public class Controlador implements ActionListener {
 
 		switch (e.getActionCommand()) {
 
+		// MENU PRINCIPAL
 		case "CARNEFRIA":
-			vf.getPrincipal().getMenuPpal().setVisible(false);
-			vf.getPrincipal().getMenuGestion().setVisible(true);
+			vf.getPrincipal().setTitle("ADMINISTRANDO CARNES FRIAS");
 			vf.getPrincipal().mostrarPanelMenuGestion();
 
+			break;
+
+		case "FRUTAVERDURA":
+			vf.getPrincipal().setTitle("ADMINISTRANDO FRUTAS Y VERDURAS");
+			vf.getPrincipal().mostrarPanelMenuGestion();
+
+			break;
+
+		case "JUGUETE":
+			vf.getPrincipal().setTitle("ADMINISTRANDO JUGUETES");
+			vf.getPrincipal().mostrarPanelMenuGestion();
+
+			break;
+
+		case "PAN":
+			vf.getPrincipal().setTitle("ADMINISTRANDO PANADERIA");
+			vf.getPrincipal().mostrarPanelMenuGestion();
+			break;
+
+		// MENU GESTION
+
+		case "AGREGAR":
+			break;
+
+		case "MOSTRAR":
+			break;
+
+		case "ACTUALIZAR":
+			break;
+
+		case "ELIMINAR":
+			break;
+
+		case "VOLVER":
+			vf.getPrincipal().setTitle("MENU PRINCIPAL");
+			vf.getPrincipal().mostrarPanelMenuPrincipal();
 			break;
 
 		}

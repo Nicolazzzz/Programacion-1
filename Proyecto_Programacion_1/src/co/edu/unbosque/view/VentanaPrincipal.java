@@ -1,5 +1,6 @@
 package co.edu.unbosque.view;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class VentanaPrincipal extends JFrame {
@@ -15,6 +16,11 @@ public class VentanaPrincipal extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
 		setResizable(false);
+
+		setTitle("MENU PRINCIPAL");
+
+		ImageIcon logo = new ImageIcon("src/media/logoexito.png");
+		setIconImage(logo.getImage());
 
 		menuPpal = new PanelMenuPrincipal();
 		menuGestion = new PanelMenuGestion();
