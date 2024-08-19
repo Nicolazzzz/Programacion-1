@@ -109,6 +109,17 @@ public class Controlador implements ActionListener {
 		// MENU GESTION
 
 		case "AGREGAR":
+
+			if (carne == true) {
+			}
+			if (frutaV == true) {
+
+			}
+			if (juguete == true) {
+
+			}
+			if (pan == true) {
+			}
 			break;
 
 		case "MOSTRAR":
@@ -166,7 +177,8 @@ public class Controlador implements ActionListener {
 		vf.getPrincipal().setVisible(true);
 		vf.getPrincipal().mostrarPanelMenuPrincipal();
 		vf.getPrincipal().getMenuPpal().setVisible(true);
-		vf.getCon().mostrarMensajeEmergente("Bienvenido!, este es tu espacio para administrar inventario de almacenes éxito");
+		vf.getCon().mostrarMensajeEmergente(
+				"Bienvenido!, este es tu espacio para administrar inventario de almacenes éxito");
 
 		mainloop: while (true) {
 
@@ -257,6 +269,7 @@ public class Controlador implements ActionListener {
 
 				vf.getCon().printSameLine("Ingrese el nombre del animal de origen del producto: ");
 				String animalOrigen = vf.getCon().readLine();
+				
 				mf.getCarneFriaDAO().crear(new CarneFria(numId, nombre, empresa, precio, cantidad, animalOrigen));
 				vf.getCon().printNewLine("Producto creado exitosamente");
 
