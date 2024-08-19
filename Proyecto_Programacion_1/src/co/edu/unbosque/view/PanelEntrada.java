@@ -2,8 +2,6 @@ package co.edu.unbosque.view;
 
 import java.awt.Color;
 import java.awt.Image;
-
-import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
