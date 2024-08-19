@@ -1,12 +1,11 @@
 package co.edu.unbosque.view;
 
-import java.awt.Color;
-
 import javax.swing.JFrame;
 
 public class VentanaPrincipal extends JFrame {
 
 	private PanelMenuPrincipal menuPpal;
+	private PanelEliminar panelEliminar;
 
 	public VentanaPrincipal() {
 
@@ -17,6 +16,7 @@ public class VentanaPrincipal extends JFrame {
 		setResizable(false);
 
 		menuPpal = new PanelMenuPrincipal();
+		panelEliminar = new PanelEliminar();
 
 	}
 
@@ -24,8 +24,16 @@ public class VentanaPrincipal extends JFrame {
 		setContentPane(menuPpal);
 	}
 
+	public void mostrarPanelEliminar() {
+		setContentPane(panelEliminar);
+	}
+
 	public PanelMenuPrincipal getMenuPpal() {
 		return menuPpal;
+	}
+
+	public PanelEliminar getPanelEliminar() {
+		return panelEliminar;
 	}
 
 }

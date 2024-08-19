@@ -1,5 +1,7 @@
 package co.edu.unbosque.view;
 
-public class PanelAgregar {
+import javax.swing.JPanel;
+
+public class PanelAgregar extends JPanel {
 
 }

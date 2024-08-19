@@ -1,5 +1,7 @@
 package co.edu.unbosque.view;
 
-public class PanelActualizar {
+import javax.swing.JPanel;
+
+public class PanelActualizar extends JPanel{
 
 }
