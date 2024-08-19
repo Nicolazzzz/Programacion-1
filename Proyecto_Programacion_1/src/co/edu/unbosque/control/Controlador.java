@@ -1,5 +1,7 @@
 package co.edu.unbosque.control;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,7 +15,7 @@ import co.edu.unbosque.model.Panaderia;
 import co.edu.unbosque.view.VentanaPrincipal;
 import co.edu.unbosque.view.ViewFacade;
 
-public class Controlador {
+public class Controlador implements ActionListener {
 
 	private ModelFacade mf;
 	private ViewFacade vf;
@@ -25,6 +27,35 @@ public class Controlador {
 		run();
 	}
 
+	public void asignarLectores() {
+
+		vf.getPrincipal().getMenuPpal().getBtnCarne().addActionListener(this);
+		vf.getPrincipal().getMenuPpal().getBtnCarne().setActionCommand("CARNEFRIA");
+
+		vf.getPrincipal().getMenuPpal().getBtnFrutaV().addActionListener(this);
+		vf.getPrincipal().getMenuPpal().getBtnFrutaV().setActionCommand("FRUTAVERDURA");
+
+		vf.getPrincipal().getMenuPpal().getBtnJuguete().addActionListener(this);
+		vf.getPrincipal().getMenuPpal().getBtnJuguete().setActionCommand("JUGUETE");
+
+		vf.getPrincipal().getMenuPpal().getBtnPan().addActionListener(this);
+		vf.getPrincipal().getMenuPpal().getBtnPan().setActionCommand("PAN");
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
+		switch (e.getActionCommand()) {
+
+		
+		
+		
+		
+		
+		}
+	}
+
 	public void run() {
 
 		mainloop: while (true) {
@@ -32,6 +63,7 @@ public class Controlador {
 			vf.getPrincipal().setVisible(true);
 			vf.getPrincipal().getMenuPpal().setVisible(true);
 			vf.getPrincipal().mostrarPanelMenuPrincipal();
+
 			mostrarMenuPrincipal();
 			int op = vf.getCon().readInt();
 
@@ -588,4 +620,5 @@ public class Controlador {
 			}
 		}
 	}
+
 }

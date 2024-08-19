@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 public class PanelMenuPrincipal extends JPanel {
 
 	private JLabel imagenPpal;
-	private JButton carne, frutaV, juguete, pan;
+	private JButton btnCarne, btnFrutaV, btnJuguete, btnPan;
 
 	public PanelMenuPrincipal() {
 
@@ -18,25 +18,25 @@ public class PanelMenuPrincipal extends JPanel {
 		setSize(1280, 720);
 		setVisible(false);
 
-		carne = new JButton("carnes");
-		carne.setBounds(485, 378, 135, 100);
-		carne.setOpaque(false);
-		carne.setActionCommand("CARNEFRIA");
+		btnCarne = new JButton("carnes");
+		btnCarne.setBounds(485, 378, 135, 100);
+		btnCarne.setOpaque(false);
+		btnCarne.setActionCommand("CARNEFRIA");
 
-		frutaV = new JButton("frutaV");
-		frutaV.setBounds(634, 378, 156, 100);
-		frutaV.setOpaque(false);
-		frutaV.setActionCommand("FRUTAVERDURA");
+		btnFrutaV = new JButton("frutaV");
+		btnFrutaV.setBounds(634, 378, 156, 100);
+		btnFrutaV.setOpaque(false);
+		btnFrutaV.setActionCommand("FRUTAVERDURA");
 
-		juguete = new JButton("juguetes");
-		juguete.setBounds(485, 500, 135, 100);
-		juguete.setOpaque(false);
-		juguete.setActionCommand("JUGUETE");
+		btnJuguete = new JButton("juguetes");
+		btnJuguete.setBounds(485, 500, 135, 100);
+		btnJuguete.setOpaque(false);
+		btnJuguete.setActionCommand("JUGUETE");
 
-		pan = new JButton("pan");
-		pan.setBounds(634, 500, 156, 100);
-		pan.setOpaque(false);
-		pan.setActionCommand("PAN");
+		btnPan = new JButton("pan");
+		btnPan.setBounds(634, 500, 156, 100);
+		btnPan.setOpaque(false);
+		btnPan.setActionCommand("PAN");
 
 		imagenPpal = new JLabel();
 		ImageIcon imagen = new ImageIcon("src/media/ventanaPrincipalExito2.png");
@@ -45,11 +45,32 @@ public class PanelMenuPrincipal extends JPanel {
 		imagenPpal.setBounds(0, 0, 1280, 720);
 
 		add(imagenPpal);
-		add(carne);
-		add(frutaV);
-		add(juguete);
-		add(pan);
-
+		add(btnCarne);
+		add(btnFrutaV);
+		add(btnJuguete);
+		add(btnPan);
 	}
+
+	public JLabel getImagenPpal() {
+		return imagenPpal;
+	}
+
+	public JButton getBtnCarne() {
+		return btnCarne;
+	}
+
+	public JButton getBtnFrutaV() {
+		return btnFrutaV;
+	}
+
+	public JButton getBtnJuguete() {
+		return btnJuguete;
+	}
+
+	public JButton getBtnPan() {
+		return btnPan;
+	}
+	
+	
 
 }
