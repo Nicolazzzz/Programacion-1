@@ -205,25 +205,54 @@ public class Controlador implements ActionListener {
 				vf.getPrincipal().mostrarPanelMenuGestion();
 
 			}
+
+			vf.getPrincipal().getPanelAgregar().getNumId().setText("");
+			vf.getPrincipal().getPanelAgregar().getNombre().setText("");
+			vf.getPrincipal().getPanelAgregar().getEmpresa().setText("");
+			vf.getPrincipal().getPanelAgregar().getPrecio().setText("");
+			vf.getPrincipal().getPanelAgregar().getCantidad().setText("");
+			vf.getPrincipal().getPanelAgregar().getAtributoPropio1().setText("");
+			vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setText("");
+			vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setText("");
 			break;
 
 		case "AGREGARPRODUCTO":
 
-			if (carne == true) {
+			try {
 
+				if (carne == true) {
+
+					long numId = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+
+					String nombre = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+
+					String empresa = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+
+					float precio = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+
+					int cantidad = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+
+					String animalOrigen = vf.getPrincipal().getPanelAgregar().getAtributoPropio1().getText();
+
+					mf.getCarneFriaDAO().crear(new CarneFria(numId, nombre, empresa, precio, cantidad, animalOrigen));
+					vf.getCon().mostrarMensajeEmergente("Producto creado exitosamente");
+
+				}
+				if (frutaV == true) {
+
+				}
+				if (juguete == true) {
+
+				}
+				if (pan == true) {
+
+				}
+
+				break;
+
+			} catch (NumberFormatException i) {
+				vf.getCon().mostrarError("Verifique los datos ingresados");
 			}
-			if (frutaV == true) {
-
-			}
-			if (juguete == true) {
-
-			}
-			if (pan == true) {
-
-			}
-
-			break;
-
 		}
 	}
 
