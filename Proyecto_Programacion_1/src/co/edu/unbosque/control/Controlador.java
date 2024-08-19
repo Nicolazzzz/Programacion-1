@@ -134,27 +134,19 @@ public class Controlador implements ActionListener {
 
 			if (carne == true) {
 				vf.getPrincipal().setTitle("AGREGANDO CARNES FRIAS");
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(false);
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(false);
 				vf.getPrincipal().mostrarPanelAgregar();
 			}
 			if (frutaV == true) {
 				vf.getPrincipal().setTitle("AGREGANDO FRUTAS Y VERDURAS");
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(true);
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(false);
 				vf.getPrincipal().mostrarPanelAgregar();
 
 			}
 			if (juguete == true) {
 				vf.getPrincipal().setTitle("AGREGANDO JUGUETES");
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(true);
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(false);
 				vf.getPrincipal().mostrarPanelAgregar();
 
 			}
 			if (pan == true) {
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(true);
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(true);
 				vf.getPrincipal().setTitle("AGREGANDO EN PANADERIA");
 				vf.getPrincipal().mostrarPanelAgregar();
 
