@@ -11,7 +11,7 @@ public class VentanaPrincipal extends JFrame {
 
 	public VentanaPrincipal() {
 
-		setSize(1280, 720);
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setLocation(70, 70);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
@@ -24,6 +24,9 @@ public class VentanaPrincipal extends JFrame {
 
 		menuPpal = new PanelMenuPrincipal();
 		menuGestion = new PanelMenuGestion();
+	    setContentPane(menuGestion);
+	    pack();
+	    setLocationRelativeTo(null);
 		panelEliminar = new PanelEliminar();
 
 	}
