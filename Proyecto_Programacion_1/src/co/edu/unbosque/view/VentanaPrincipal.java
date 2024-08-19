@@ -11,11 +11,12 @@ public class VentanaPrincipal extends JFrame {
 
 	public VentanaPrincipal() {
 
-		setSize(1280, 720);
 		setLocation(70, 70);
+		setSize(1280, 720);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
 		setResizable(false);
+		setLocationRelativeTo(null);
 
 		setTitle("MENU PRINCIPAL");
 
