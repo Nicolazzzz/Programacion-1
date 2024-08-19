@@ -15,7 +15,7 @@ public class PanelMenuGestion extends JPanel {
 	public PanelMenuGestion() {
 
 		setLayout(null);
-		setVisible(false);
+		setVisible(true);
 		setSize(1280, 720);
 
 		btnAgregar = new JButton("agregar");
@@ -38,6 +38,11 @@ public class PanelMenuGestion extends JPanel {
 		btnEliminar.setOpaque(true);
 		btnEliminar.setActionCommand("ELIMINAR");
 
+		btnVolver = new JButton("volver");
+		btnVolver.setBounds(200, 500, 100, 100);
+		btnVolver.setOpaque(true);
+		btnVolver.setActionCommand("VOLVER");
+
 		imagen1 = new JLabel();
 		ImageIcon imagen = new ImageIcon("");
 		Image redimensionado = imagen.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
@@ -48,6 +53,7 @@ public class PanelMenuGestion extends JPanel {
 		add(btnMostrar);
 		add(btnActualizar);
 		add(btnEliminar);
+		add(btnVolver);
 		add(imagen1);
 
 	}

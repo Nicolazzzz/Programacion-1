@@ -5,30 +5,34 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.InputMismatchException;
 
 import co.edu.unbosque.model.CarneFria;
 import co.edu.unbosque.model.FrutaVerdura;
 import co.edu.unbosque.model.Juguete;
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.Panaderia;
-import co.edu.unbosque.view.VentanaPrincipal;
 import co.edu.unbosque.view.ViewFacade;
 
 public class Controlador implements ActionListener {
 
 	private ModelFacade mf;
 	private ViewFacade vf;
+	private boolean carne = false;
+	private boolean frutaV = false;
+	private boolean juguete = false;
+	private boolean pan = false;
 
 	public Controlador() {
 		mf = new ModelFacade();
 		vf = new ViewFacade();
 
+		asignarLectores();
 		run();
 	}
 
 	public void asignarLectores() {
 
+		// MENU PRINCIPAL
 		vf.getPrincipal().getMenuPpal().getBtnCarne().addActionListener(this);
 		vf.getPrincipal().getMenuPpal().getBtnCarne().setActionCommand("CARNEFRIA");
 
@@ -41,6 +45,23 @@ public class Controlador implements ActionListener {
 		vf.getPrincipal().getMenuPpal().getBtnPan().addActionListener(this);
 		vf.getPrincipal().getMenuPpal().getBtnPan().setActionCommand("PAN");
 
+		// MENU GESTION
+		vf.getPrincipal().getMenuGestion().getBtnAgregar().addActionListener(this);
+		vf.getPrincipal().getMenuGestion().getBtnAgregar().setActionCommand("AGREGAR");
+
+		vf.getPrincipal().getMenuGestion().getBtnMostrar().addActionListener(this);
+		vf.getPrincipal().getMenuGestion().getBtnMostrar().setActionCommand("MOSTRAR");
+
+		vf.getPrincipal().getMenuGestion().getBtnActualizar().addActionListener(this);
+		vf.getPrincipal().getMenuGestion().getBtnActualizar().setActionCommand("ACTUALIZAR");
+
+		vf.getPrincipal().getMenuGestion().getBtnEliminar().addActionListener(this);
+		vf.getPrincipal().getMenuGestion().getBtnEliminar().setActionCommand("ELIMINAR");
+
+		vf.getPrincipal().getMenuGestion().getBtnVolver().addActionListener(this);
+		vf.getPrincipal().getMenuGestion().getBtnVolver().setActionCommand("VOLVER");
+		;
+
 	}
 
 	@Override
@@ -48,21 +69,118 @@ public class Controlador implements ActionListener {
 
 		switch (e.getActionCommand()) {
 
-		
-		
-		
-		
-		
+		// MENU PRINCIPAL
+		case "CARNEFRIA":
+			vf.getPrincipal().setTitle("ADMINISTRANDO CARNES FRIAS");
+			vf.getPrincipal().mostrarPanelMenuGestion();
+			carne = true;
+			frutaV = false;
+			juguete = false;
+			pan = false;
+			break;
+
+		case "FRUTAVERDURA":
+			vf.getPrincipal().setTitle("ADMINISTRANDO FRUTAS Y VERDURAS");
+			vf.getPrincipal().mostrarPanelMenuGestion();
+			carne = false;
+			frutaV = true;
+			juguete = false;
+			pan = false;
+			break;
+
+		case "JUGUETE":
+			vf.getPrincipal().setTitle("ADMINISTRANDO JUGUETES");
+			vf.getPrincipal().mostrarPanelMenuGestion();
+			carne = false;
+			frutaV = false;
+			juguete = true;
+			pan = false;
+			break;
+
+		case "PAN":
+			vf.getPrincipal().setTitle("ADMINISTRANDO PANADERIA");
+			vf.getPrincipal().mostrarPanelMenuGestion();
+			carne = false;
+			frutaV = false;
+			juguete = false;
+			pan = true;
+			break;
+
+		// MENU GESTION
+
+		case "AGREGAR":
+
+			if (carne == true) {
+			}
+			if (frutaV == true) {
+
+			}
+			if (juguete == true) {
+
+			}
+			if (pan == true) {
+			}
+			break;
+
+		case "MOSTRAR":
+
+			if (carne == true) {
+				vf.getCon().mostrarListado(mf.getCarneFriaDAO().mostrar());
+			}
+			if (frutaV == true) {
+				vf.getCon().mostrarListado(mf.getFrutaVerduraDAO().mostrar());
+
+			}
+			if (juguete == true) {
+				vf.getCon().mostrarListado(mf.getJugueteDAO().mostrar());
+
+			}
+			if (pan == true) {
+				vf.getCon().mostrarListado(mf.getPanaderiaDAO().mostrar());
+			}
+			break;
+
+		case "ACTUALIZAR":
+
+			break;
+
+		case "ELIMINAR":
+			if (carne == true) {
+				String delete = vf.getCon().leerInputEliminar("Ingrese el nombre del producto a eliminar: ");
+				vf.getCon().mostrarAlerta(mf.getCarneFriaDAO().eliminarPorNombre(delete));
+			}
+			if (frutaV == true) {
+				String delete1 = vf.getCon().leerInputEliminar("Ingrese el nombre del producto a eliminar: ");
+				vf.getCon().mostrarAlerta(mf.getFrutaVerduraDAO().eliminarPorNombre(delete1));
+			}
+			if (juguete == true) {
+				String delete2 = vf.getCon().leerInputEliminar("Ingrese el nombre del producto a eliminar: ");
+				vf.getCon().mostrarAlerta(mf.getJugueteDAO().eliminarPorNombre(delete2));
+			}
+
+			if (pan == true) {
+				String delete3 = vf.getCon().leerInputEliminar("Ingrese el nombre del producto a eliminar: ");
+				vf.getCon().mostrarAlerta(mf.getPanaderiaDAO().eliminarPorNombre(delete3));
+			}
+			break;
+
+		case "VOLVER":
+			vf.getPrincipal().setTitle("MENU PRINCIPAL");
+			vf.getPrincipal().mostrarPanelMenuPrincipal();
+			break;
+
 		}
 	}
 
 	public void run() {
 
-		mainloop: while (true) {
+		vf.getPrincipal().setVisible(true);
+		vf.getPrincipal().mostrarPanelMenuPrincipal();
+		vf.getPrincipal().getMenuPpal().setVisible(true);
+		vf.getCon().mostrarMensajeEmergente(
+				"Bienvenido!, este es tu espacio para administrar inventario de almacenes éxito");
 
-			vf.getPrincipal().setVisible(true);
-			vf.getPrincipal().getMenuPpal().setVisible(true);
-			vf.getPrincipal().mostrarPanelMenuPrincipal();
+		mainloop: while (true) {
 
 			mostrarMenuPrincipal();
 			int op = vf.getCon().readInt();
@@ -151,6 +269,7 @@ public class Controlador implements ActionListener {
 
 				vf.getCon().printSameLine("Ingrese el nombre del animal de origen del producto: ");
 				String animalOrigen = vf.getCon().readLine();
+				
 				mf.getCarneFriaDAO().crear(new CarneFria(numId, nombre, empresa, precio, cantidad, animalOrigen));
 				vf.getCon().printNewLine("Producto creado exitosamente");
 
