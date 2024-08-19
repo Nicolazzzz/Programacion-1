@@ -8,12 +8,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PanelAgregarCarne extends JPanel {
+public class PanelEntrada extends JPanel {
 	JLabel imagenBackground, imagenProducto;
 	JTextField numId, nombre, empresa, precio, cantidad, atributoPropio1, atributoPropio2, atributoPropio3;
 	JButton btnVolver, btnAgregar;
 
-	public PanelAgregarCarne() {
+	public PanelEntrada() {
 
 		setSize(1280, 720);
 		setLayout(null);

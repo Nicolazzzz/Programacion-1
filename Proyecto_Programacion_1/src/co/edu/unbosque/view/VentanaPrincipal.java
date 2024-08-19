@@ -7,7 +7,7 @@ public class VentanaPrincipal extends JFrame {
 
 	private PanelMenuPrincipal menuPpal;
 	private PanelMenuGestion menuGestion;
-	private PanelAgregarCarne panelAgregar;
+	private PanelEntrada panelAgregar;
 
 	public VentanaPrincipal() {
 
@@ -24,7 +24,7 @@ public class VentanaPrincipal extends JFrame {
 
 		menuPpal = new PanelMenuPrincipal();
 		menuGestion = new PanelMenuGestion();
-		panelAgregar = new PanelAgregarCarne();
+		panelAgregar = new PanelEntrada();
 
 	}
 
@@ -48,7 +48,7 @@ public class VentanaPrincipal extends JFrame {
 		return menuGestion;
 	}
 
-	public PanelAgregarCarne getPanelAgregar() {
+	public PanelEntrada getPanelAgregar() {
 		return panelAgregar;
 	}
 
