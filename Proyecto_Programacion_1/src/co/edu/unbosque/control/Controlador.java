@@ -78,6 +78,12 @@ public class Controlador implements ActionListener {
 		// MENU PRINCIPAL
 		case "CARNEFRIA":
 			vf.getPrincipal().setTitle("ADMINISTRANDO CARNES FRIAS");
+			//labels fondo
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarC().setVisible(true);
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarV().setVisible(false);
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarJ().setVisible(false);
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarP().setVisible(false);
+			
 			vf.getPrincipal().getMenuGestion().getImagenCarne().setVisible(true);
 			vf.getPrincipal().getMenuGestion().getImagenFV().setVisible(false);
 			vf.getPrincipal().getMenuGestion().getImagenJuguete().setVisible(false);
@@ -91,6 +97,12 @@ public class Controlador implements ActionListener {
 
 		case "FRUTAVERDURA":
 			vf.getPrincipal().setTitle("ADMINISTRANDO FRUTAS Y VERDURAS");
+			//labels fondo
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarC().setVisible(false);
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarV().setVisible(true);
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarJ().setVisible(false);
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarP().setVisible(false);
+			
 			vf.getPrincipal().getMenuGestion().getImagenCarne().setVisible(false);
 			vf.getPrincipal().getMenuGestion().getImagenFV().setVisible(true);
 			vf.getPrincipal().getMenuGestion().getImagenJuguete().setVisible(false);
@@ -104,6 +116,12 @@ public class Controlador implements ActionListener {
 
 		case "JUGUETE":
 			vf.getPrincipal().setTitle("ADMINISTRANDO JUGUETES");
+			//labels fondo
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarC().setVisible(false);
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarV().setVisible(false);
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarJ().setVisible(true);
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarP().setVisible(false);
+			
 			vf.getPrincipal().getMenuGestion().getImagenCarne().setVisible(false);
 			vf.getPrincipal().getMenuGestion().getImagenFV().setVisible(false);
 			vf.getPrincipal().getMenuGestion().getImagenJuguete().setVisible(true);
@@ -117,6 +135,12 @@ public class Controlador implements ActionListener {
 
 		case "PAN":
 			vf.getPrincipal().setTitle("ADMINISTRANDO PANADERIA");
+			//labels fondo
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarC().setVisible(false);
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarV().setVisible(false);
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarJ().setVisible(false);
+			vf.getPrincipal().getPanelAgregar().getImagenAgregarP().setVisible(true);
+			
 			vf.getPrincipal().getMenuGestion().getImagenCarne().setVisible(false);
 			vf.getPrincipal().getMenuGestion().getImagenFV().setVisible(false);
 			vf.getPrincipal().getMenuGestion().getImagenJuguete().setVisible(false);
@@ -158,7 +182,7 @@ public class Controlador implements ActionListener {
 				vf.getPrincipal().setTitle("AGREGANDO EN PANADERIA");
 				vf.getPrincipal().mostrarPanelAgregar();
 
-			}
+			} 
 			break;
 
 		case "MOSTRAR":
