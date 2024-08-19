@@ -16,7 +16,6 @@ public class VentanaPrincipal extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
 		setResizable(false);
-		setLocationRelativeTo(null);
 
 		setTitle("MENU PRINCIPAL");
 

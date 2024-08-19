@@ -63,10 +63,10 @@ public class Controlador implements ActionListener {
 
 		// PANEL AGREGAR
 		vf.getPrincipal().getPanelAgregar().getBtnAgregar().addActionListener(this);
-		vf.getPrincipal().getPanelAgregar().getBtnAgregar().setActionCommand("VOLVERDEADD");
+		vf.getPrincipal().getPanelAgregar().getBtnAgregar().setActionCommand("AGREGARPRODUCTO");
 
 		vf.getPrincipal().getPanelAgregar().getBtnVolver().addActionListener(this);
-		vf.getPrincipal().getPanelAgregar().getBtnVolver().setActionCommand("AGREGARPRODUCTO");
+		vf.getPrincipal().getPanelAgregar().getBtnVolver().setActionCommand("VOLVERDEADD");
 
 	}
 
@@ -78,6 +78,10 @@ public class Controlador implements ActionListener {
 		// MENU PRINCIPAL
 		case "CARNEFRIA":
 			vf.getPrincipal().setTitle("ADMINISTRANDO CARNES FRIAS");
+			vf.getPrincipal().getMenuGestion().getImagenCarne().setVisible(true);
+			vf.getPrincipal().getMenuGestion().getImagenFV().setVisible(false);
+			vf.getPrincipal().getMenuGestion().getImagenJuguete().setVisible(false);
+			vf.getPrincipal().getMenuGestion().getImagenPan().setVisible(false);
 			vf.getPrincipal().mostrarPanelMenuGestion();
 			carne = true;
 			frutaV = false;
@@ -87,6 +91,10 @@ public class Controlador implements ActionListener {
 
 		case "FRUTAVERDURA":
 			vf.getPrincipal().setTitle("ADMINISTRANDO FRUTAS Y VERDURAS");
+			vf.getPrincipal().getMenuGestion().getImagenCarne().setVisible(false);
+			vf.getPrincipal().getMenuGestion().getImagenFV().setVisible(true);
+			vf.getPrincipal().getMenuGestion().getImagenJuguete().setVisible(false);
+			vf.getPrincipal().getMenuGestion().getImagenPan().setVisible(false);
 			vf.getPrincipal().mostrarPanelMenuGestion();
 			carne = false;
 			frutaV = true;
@@ -96,6 +104,10 @@ public class Controlador implements ActionListener {
 
 		case "JUGUETE":
 			vf.getPrincipal().setTitle("ADMINISTRANDO JUGUETES");
+			vf.getPrincipal().getMenuGestion().getImagenCarne().setVisible(false);
+			vf.getPrincipal().getMenuGestion().getImagenFV().setVisible(false);
+			vf.getPrincipal().getMenuGestion().getImagenJuguete().setVisible(true);
+			vf.getPrincipal().getMenuGestion().getImagenPan().setVisible(false);
 			vf.getPrincipal().mostrarPanelMenuGestion();
 			carne = false;
 			frutaV = false;
@@ -105,6 +117,10 @@ public class Controlador implements ActionListener {
 
 		case "PAN":
 			vf.getPrincipal().setTitle("ADMINISTRANDO PANADERIA");
+			vf.getPrincipal().getMenuGestion().getImagenCarne().setVisible(false);
+			vf.getPrincipal().getMenuGestion().getImagenFV().setVisible(false);
+			vf.getPrincipal().getMenuGestion().getImagenJuguete().setVisible(false);
+			vf.getPrincipal().getMenuGestion().getImagenPan().setVisible(true);
 			vf.getPrincipal().mostrarPanelMenuGestion();
 			carne = false;
 			frutaV = false;
@@ -118,19 +134,27 @@ public class Controlador implements ActionListener {
 
 			if (carne == true) {
 				vf.getPrincipal().setTitle("AGREGANDO CARNES FRIAS");
+				vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(false);
+				vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(false);
 				vf.getPrincipal().mostrarPanelAgregar();
 			}
 			if (frutaV == true) {
 				vf.getPrincipal().setTitle("AGREGANDO FRUTAS Y VERDURAS");
+				vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(true);
+				vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(false);
 				vf.getPrincipal().mostrarPanelAgregar();
 
 			}
 			if (juguete == true) {
 				vf.getPrincipal().setTitle("AGREGANDO JUGUETES");
+				vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(true);
+				vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(false);
 				vf.getPrincipal().mostrarPanelAgregar();
 
 			}
 			if (pan == true) {
+				vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(true);
+				vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(true);
 				vf.getPrincipal().setTitle("AGREGANDO EN PANADERIA");
 				vf.getPrincipal().mostrarPanelAgregar();
 
@@ -156,6 +180,143 @@ public class Controlador implements ActionListener {
 			break;
 
 		case "ACTUALIZAR":
+
+			try {
+				if (carne == true) {
+
+					int index = Integer
+							.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
+
+					if (mf.getCarneFriaDAO().checkearIndex(index - 1).equals("s")) {
+						vf.getPrincipal().setTitle("ACTUALIZANDO CARNES FRIAS");
+						vf.getPrincipal().mostrarPanelAgregar();
+
+						long numId = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+
+						String nombre = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+
+						String empresa = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+
+						float precio = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+
+						int cantidad = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+
+						String animalOrigen = vf.getPrincipal().getPanelAgregar().getAtributoPropio1().getText();
+
+						mf.getCarneFriaDAO().actualizar(index - 1,
+								new CarneFria(numId, nombre, empresa, precio, cantidad, animalOrigen));
+						vf.getCon().mostrarMensajeEmergente("Producto actualizado exitosamente");
+					} else {
+						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
+								+ "que no puede ser negativo ni exceder el tamaño de la lista");
+					}
+
+				}
+				if (frutaV == true) {
+					int index1 = Integer
+							.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
+					if (mf.getFrutaVerduraDAO().checkearIndex(index1 - 1).equals("s")) {
+						vf.getPrincipal().setTitle("ACTUALIZANDO FRUTAS Y VEGETALES");
+						vf.getPrincipal().mostrarPanelAgregar();
+						try {
+							long numId1 = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+
+							String nombre1 = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+
+							String empresa1 = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+
+							float precio1 = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+
+							int cantidad1 = Integer
+									.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+
+							SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+							String date = vf.getPrincipal().getPanelAgregar().getAtributoPropio1().getText();
+							Date cosecha;
+							cosecha = sdf.parse(date);
+
+							String organico = (vf.getPrincipal().getPanelAgregar().getAtributoPropio2().getText());
+							boolean esOrganico = vf.getCon().leerBoolean(organico);
+							vf.getCon().mostrarMensajeEmergente("Producto actualizado exitosamente");
+
+							mf.getFrutaVerduraDAO().actualizar(index1 - 1, new FrutaVerdura(numId1, nombre1, empresa1,
+									precio1, cantidad1, cosecha, esOrganico));
+						} catch (ParseException e1) {
+							vf.getCon().mostrarError("Formato de fecha no válido, ingrese dd/MM/yyyy");
+						}
+					} else {
+						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
+								+ "que no puede ser negativo ni exceder el tamaño de la lista");
+
+					}
+				}
+				if (juguete == true) {
+
+					int index2 = Integer
+							.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
+					if (mf.getJugueteDAO().checkearIndex(index2 - 1).equals("s")) {
+						long numId2 = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+
+						String nombre2 = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+
+						String empresa2 = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+
+						float precio2 = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+
+						int cantidad2 = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+
+						int edadMinima = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+
+						int numeroJugadores = Integer
+								.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+
+						mf.getJugueteDAO().actualizar(index2 - 1, new Juguete(numId2, nombre2, empresa2, precio2,
+								cantidad2, edadMinima, numeroJugadores));
+						vf.getCon().mostrarMensajeEmergente("Producto actualizado exitosamente");
+					} else {
+						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
+								+ "que no puede ser negativo ni exceder el tamaño de la lista");
+
+					}
+				}
+				if (pan == true) {
+					int index3 = Integer
+							.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
+
+					if (mf.getPanaderiaDAO().checkearIndex(index3 - 1).equals("s")) {
+
+						long numId3 = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+
+						String nombre3 = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+
+						String empresa3 = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+
+						float precio3 = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+
+						int cantidad3 = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+
+						String lGluten = (vf.getPrincipal().getPanelAgregar().getAtributoPropio1().getText());
+						boolean esLibreGluten = vf.getCon().leerBoolean(lGluten);
+
+						String integral = (vf.getPrincipal().getPanelAgregar().getAtributoPropio2().getText());
+						boolean esIntegral = vf.getCon().leerBoolean(integral);
+
+						String lLevadura = (vf.getPrincipal().getPanelAgregar().getAtributoPropio3().getText());
+						boolean esLibreLevadura = vf.getCon().leerBoolean(lLevadura);
+
+						mf.getPanaderiaDAO().actualizar(index3 - 1, new Panaderia(numId3, nombre3, empresa3, precio3,
+								cantidad3, esLibreGluten, esIntegral, esLibreLevadura));
+						vf.getCon().mostrarMensajeEmergente("Producto actualizado exitosamente");
+
+					} else {
+						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
+								+ "que no puede ser negativo ni exceder el tamaño de la lista");
+					}
+				}
+			} catch (NumberFormatException f) {
+				vf.getCon().mostrarError("Verifique el formato de los datos ingresados");
+
+			}
 
 			break;
 
@@ -221,7 +382,6 @@ public class Controlador implements ActionListener {
 			try {
 
 				if (carne == true) {
-
 					long numId = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
 
 					String nombre = vf.getPrincipal().getPanelAgregar().getNombre().getText();
@@ -239,28 +399,91 @@ public class Controlador implements ActionListener {
 
 				}
 				if (frutaV == true) {
+					try {
+						long numId1 = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+
+						String nombre1 = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+
+						String empresa1 = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+
+						float precio1 = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+
+						int cantidad1 = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+
+						SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+						String date = vf.getPrincipal().getPanelAgregar().getAtributoPropio1().getText();
+						Date cosecha;
+						cosecha = sdf.parse(date);
+
+						String organico = (vf.getPrincipal().getPanelAgregar().getAtributoPropio2().getText());
+						boolean esOrganico = vf.getCon().leerBoolean(organico);
+						mf.getFrutaVerduraDAO().crear(
+								new FrutaVerdura(numId1, nombre1, empresa1, precio1, cantidad1, cosecha, esOrganico));
+						vf.getCon().mostrarMensajeEmergente("Producto creado exitosamente");
+
+					} catch (ParseException e1) {
+						vf.getCon().mostrarError("Formato de fecha no válido, ingrese dd/MM/yyyy");
+					}
 
 				}
 				if (juguete == true) {
+					long numId2 = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+
+					String nombre2 = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+
+					String empresa2 = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+
+					float precio2 = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+
+					int cantidad2 = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+
+					int edadMinima = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+
+					int numeroJugadores = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+
+					mf.getJugueteDAO().crear(
+							new Juguete(numId2, nombre2, empresa2, precio2, cantidad2, edadMinima, numeroJugadores));
+					vf.getCon().mostrarMensajeEmergente("Producto creado exitosamente");
 
 				}
 				if (pan == true) {
+					long numId3 = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
 
+					String nombre3 = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+
+					String empresa3 = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+
+					float precio3 = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+
+					int cantidad3 = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+
+					String lGluten = (vf.getPrincipal().getPanelAgregar().getAtributoPropio1().getText());
+					boolean esLibreGluten = vf.getCon().leerBoolean(lGluten);
+
+					String integral = (vf.getPrincipal().getPanelAgregar().getAtributoPropio2().getText());
+					boolean esIntegral = vf.getCon().leerBoolean(integral);
+
+					String lLevadura = (vf.getPrincipal().getPanelAgregar().getAtributoPropio3().getText());
+					boolean esLibreLevadura = vf.getCon().leerBoolean(lLevadura);
+
+					mf.getPanaderiaDAO().crear(new Panaderia(numId3, nombre3, empresa3, precio3, cantidad3,
+							esLibreGluten, esIntegral, esLibreLevadura));
+					vf.getCon().mostrarMensajeEmergente("Producto creado exitosamente");
 				}
 
 				break;
 
 			} catch (NumberFormatException i) {
-				vf.getCon().mostrarError("Verifique los datos ingresados");
+				vf.getCon().mostrarError("Verifique el formato de los datos ingresados");
 			}
 		}
+
 	}
 
 	public void run() {
 
 		vf.getPrincipal().setVisible(true);
 		vf.getPrincipal().mostrarPanelMenuPrincipal();
-		vf.getPrincipal().getMenuPpal().setVisible(true);
 		vf.getCon().mostrarMensajeEmergente(
 				"Bienvenido!, este es tu espacio para administrar inventario de almacenes éxito");
 

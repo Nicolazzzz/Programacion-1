@@ -1,8 +1,6 @@
 package co.edu.unbosque.view;
 
-import java.awt.Dimension;
 import java.awt.Image;
-import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,49 +18,38 @@ public class PanelMenuPrincipal extends JPanel {
 		setSize(1280, 720);
 		setVisible(true);
 
+		imagenPpal = new JLabel();
+		ImageIcon imagen1 = new ImageIcon("src/media/ventanaPrincipalExito2.png");
+		Image redimensionado = imagen1.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
+		imagenPpal.setIcon(new ImageIcon(redimensionado));
+		imagenPpal.setBounds(0, 0, 1280, 720);
+
 		btnCarne = new JButton("carnes");
-		btnCarne.setBounds(584, 454, 160, 120);
+		btnCarne.setBounds(482, 378, 140, 100);
 		btnCarne.setOpaque(false);
 		btnCarne.setActionCommand("CARNEFRIA");
 
 		btnFrutaV = new JButton("frutaV");
-		btnFrutaV.setBounds(758, 454, 192, 120);
+		btnFrutaV.setBounds(634, 378, 155, 100);
 		btnFrutaV.setOpaque(false);
 		btnFrutaV.setActionCommand("FRUTAVERDURA");
 
 		btnJuguete = new JButton("juguetes");
-		btnJuguete.setBounds(584, 606, 160, 107);
+		btnJuguete.setBounds(485, 504, 140, 90);
 		btnJuguete.setOpaque(false);
 		btnJuguete.setActionCommand("JUGUETE");
 
 		btnPan = new JButton("pan");
-		btnPan.setBounds(758, 606, 192, 107);
+		btnPan.setBounds(634, 504, 155, 92);
 		btnPan.setOpaque(false);
 		btnPan.setActionCommand("PAN");
-
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int screenWidth = (int) screenSize.getWidth();
-        int screenHeight = (int) screenSize.getHeight();
-        
-		imagenPpal = new JLabel();
-		ImageIcon imagen = new ImageIcon("src/media/VentanaExito.png");
-		Image redimensionado = imagen.getImage().getScaledInstance(screenWidth, screenHeight, Image.SCALE_SMOOTH);
-		imagenPpal.setIcon(new ImageIcon(redimensionado));
-		imagenPpal.setBounds(0, 0, screenWidth, screenHeight);
-		
-		/*ImageIcon imagenVentana = new ImageIcon("VentanaExito.png");
-        Image imagenVentana1 = imagenVentana.getImage();
-        Image imagenRedimensionada = imagenVentana1.getScaledInstance(screenWidth, screenHeight, Image.SCALE_SMOOTH);
-        ImageIcon iconoRedimensionado = new ImageIcon(imagenRedimensionada);
-        JLabel label1 = new JLabel(iconoRedimensionado);
-        label1.setBounds(0, 0, screenWidth, screenHeight);*/
 
 		add(imagenPpal);
 		add(btnCarne);
 		add(btnFrutaV);
 		add(btnJuguete);
 		add(btnPan);
-		
+
 	}
 
 	public JLabel getImagenPpal() {
@@ -84,7 +71,5 @@ public class PanelMenuPrincipal extends JPanel {
 	public JButton getBtnPan() {
 		return btnPan;
 	}
-	
-	
 
 }

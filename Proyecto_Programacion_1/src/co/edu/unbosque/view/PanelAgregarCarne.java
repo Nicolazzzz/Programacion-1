@@ -1,11 +1,15 @@
 package co.edu.unbosque.view;
 
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class PanelAgregarCarne extends JPanel {
-
+	JLabel imagenBackground, imagenProducto;
 	JTextField numId, nombre, empresa, precio, cantidad, atributoPropio1, atributoPropio2, atributoPropio3;
 	JButton btnVolver, btnAgregar;
 
@@ -19,7 +23,7 @@ public class PanelAgregarCarne extends JPanel {
 		numId.setBounds(100, 100, 100, 50);
 		numId.setOpaque(true);
 
-		nombre = new JTextField("NOMBRE");
+		nombre = new JTextField("NAME");
 		nombre.setBounds(100, 150, 100, 50);
 		nombre.setOpaque(true);
 
@@ -27,35 +31,37 @@ public class PanelAgregarCarne extends JPanel {
 		empresa.setBounds(100, 200, 100, 50);
 		empresa.setOpaque(true);
 
-		precio = new JTextField("Precio");
+		precio = new JTextField("PRECIO");
 		precio.setBounds(100, 250, 100, 50);
 		precio.setOpaque(true);
 
-		cantidad = new JTextField("Cantidad");
+		cantidad = new JTextField("CANTIDAD");
 		cantidad.setBounds(100, 300, 100, 50);
 		cantidad.setOpaque(true);
 
-		atributoPropio1 = new JTextField("Propio 1");
+		atributoPropio1 = new JTextField("PROPIO1");
 		atributoPropio1.setBounds(100, 350, 100, 50);
 		atributoPropio1.setOpaque(true);
 
-		atributoPropio2 = new JTextField("Propio 2");
+		atributoPropio2 = new JTextField("PROPIO2");
 		atributoPropio2.setBounds(100, 400, 100, 50);
 		atributoPropio2.setOpaque(true);
 
-		atributoPropio3 = new JTextField("Propio 3");
+		atributoPropio3 = new JTextField("PROPIO3");
 		atributoPropio3.setBounds(100, 450, 100, 50);
 		atributoPropio3.setOpaque(true);
 
-		btnVolver = new JButton();
+		btnVolver = new JButton("volver");
 		btnVolver.setBounds(500, 400, 100, 100);
 		btnVolver.setOpaque(true);
 		btnVolver.setActionCommand("VOLVERDEADD");
 
-		btnAgregar = new JButton();
+		btnAgregar = new JButton("agregar");
 		btnAgregar.setBounds(500, 500, 100, 100);
 		btnAgregar.setOpaque(true);
 		btnAgregar.setActionCommand("AGREGARPRODUCTO");
+		
+		imagenProducto = new JLabel();
 
 		add(numId);
 		add(nombre);
