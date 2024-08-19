@@ -2,7 +2,7 @@ package co.edu.unbosque.model;
 
 public class CarneFria extends Producto {
 
-	private String animalOrigen;//hola
+	private String animalOrigen;
 
 	public CarneFria() {
 		// TODO Auto-generated constructor stub
