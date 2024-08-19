@@ -9,7 +9,7 @@ public class CarneFria extends Producto {
     private String animalOrigen;
 
     /**
-     * Constructor por defecto de la clase CarneFria.
+     * Constructor vacio de la clase CarneFria.
      */
     public CarneFria() {
         // TODO Auto-generated constructor stub
