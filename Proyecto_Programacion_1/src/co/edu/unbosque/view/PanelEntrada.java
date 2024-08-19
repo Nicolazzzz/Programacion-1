@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 public class PanelEntrada extends JPanel {
 	JLabel imagenBackground, imagenProducto;
 	JTextField numId, nombre, empresa, precio, cantidad, atributoPropio1, atributoPropio2, atributoPropio3;
-	JButton btnVolver, btnAgregar;
+	JButton btnVolver, btnAgregar, btnFileChooser;
 
 	public PanelEntrada() {
 
@@ -60,8 +60,15 @@ public class PanelEntrada extends JPanel {
 		btnAgregar.setBounds(500, 500, 100, 100);
 		btnAgregar.setOpaque(true);
 		btnAgregar.setActionCommand("AGREGARPRODUCTO");
-		
+
+		btnFileChooser = new JButton("importar");
+		btnFileChooser.setBounds(800, 510, 150, 150);
+		btnFileChooser.setOpaque(true);
+		btnFileChooser.setActionCommand("IMAGEN");
+
 		imagenProducto = new JLabel();
+		imagenProducto.setBounds(500, 200, 360, 280);
+		imagenProducto.setVisible(true);
 
 		add(numId);
 		add(nombre);
@@ -73,6 +80,32 @@ public class PanelEntrada extends JPanel {
 		add(atributoPropio3);
 		add(btnAgregar);
 		add(btnVolver);
+		add(btnFileChooser);
+		add(imagenProducto);
+	}
+
+	public JLabel getImagenBackground() {
+		return imagenBackground;
+	}
+
+	public void setImagenBackground(JLabel imagenBackground) {
+		this.imagenBackground = imagenBackground;
+	}
+
+	public JLabel getImagenProducto() {
+		return imagenProducto;
+	}
+
+	public void setImagenProducto(JLabel imagenProducto) {
+		this.imagenProducto = imagenProducto;
+	}
+
+	public JButton getBtnFileChooser() {
+		return btnFileChooser;
+	}
+
+	public void setBtnFileChooser(JButton btnFileChooser) {
+		this.btnFileChooser = btnFileChooser;
 	}
 
 	public JTextField getNumId() {
