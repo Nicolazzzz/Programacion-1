@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 public class VentanaPrincipal extends JFrame {
 
 	private PanelMenuPrincipal menuPpal;
+	private PanelMenuGestion menuGestion;
 	private PanelEliminar panelEliminar;
 
 	public VentanaPrincipal() {
@@ -16,6 +17,7 @@ public class VentanaPrincipal extends JFrame {
 		setResizable(false);
 
 		menuPpal = new PanelMenuPrincipal();
+		menuGestion = new PanelMenuGestion();
 		panelEliminar = new PanelEliminar();
 
 	}
@@ -24,12 +26,20 @@ public class VentanaPrincipal extends JFrame {
 		setContentPane(menuPpal);
 	}
 
+	public void mostrarPanelMenuGestion() {
+		setContentPane(menuGestion);
+	}
+
 	public void mostrarPanelEliminar() {
 		setContentPane(panelEliminar);
 	}
 
 	public PanelMenuPrincipal getMenuPpal() {
 		return menuPpal;
+	}
+
+	public PanelMenuGestion getMenuGestion() {
+		return menuGestion;
 	}
 
 	public PanelEliminar getPanelEliminar() {

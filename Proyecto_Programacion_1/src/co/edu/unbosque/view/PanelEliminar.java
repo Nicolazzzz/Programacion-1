@@ -13,7 +13,7 @@ public class PanelEliminar extends JPanel {
 
 		setLayout(null);
 		setSize(1280, 720);
-		setVisible(false);
+		setVisible(true);
 
 		txtNombre = new JTextField("NOMBRE PRODUCTO");
 		txtNombre.setBounds(100, 100, 150, 150);

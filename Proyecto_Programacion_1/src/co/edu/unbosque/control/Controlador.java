@@ -5,14 +5,12 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.InputMismatchException;
 
 import co.edu.unbosque.model.CarneFria;
 import co.edu.unbosque.model.FrutaVerdura;
 import co.edu.unbosque.model.Juguete;
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.Panaderia;
-import co.edu.unbosque.view.VentanaPrincipal;
 import co.edu.unbosque.view.ViewFacade;
 
 public class Controlador implements ActionListener {
@@ -24,6 +22,11 @@ public class Controlador implements ActionListener {
 		mf = new ModelFacade();
 		vf = new ViewFacade();
 
+		vf.getPrincipal().setVisible(true);
+		vf.getPrincipal().getMenuPpal().setVisible(true);
+		vf.getPrincipal().mostrarPanelMenuPrincipal();
+
+		asignarLectores();
 		run();
 	}
 
@@ -45,24 +48,26 @@ public class Controlador implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		boolean carne = false;
+		boolean frutaV = false;
+		boolean juguete = false;
+		boolean pan = false;
 
 		switch (e.getActionCommand()) {
 
-		
-		
-		
-		
-		
+		case "CARNEFRIA":
+			vf.getPrincipal().getMenuPpal().setVisible(false);
+			vf.getPrincipal().getMenuGestion().setVisible(true);
+			vf.getPrincipal().mostrarPanelMenuGestion();
+
+			break;
+
 		}
 	}
 
 	public void run() {
 
 		mainloop: while (true) {
-
-			vf.getPrincipal().setVisible(true);
-			vf.getPrincipal().getMenuPpal().setVisible(true);
-			vf.getPrincipal().mostrarPanelMenuPrincipal();
 
 			mostrarMenuPrincipal();
 			int op = vf.getCon().readInt();

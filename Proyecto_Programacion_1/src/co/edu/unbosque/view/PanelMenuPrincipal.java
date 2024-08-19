@@ -16,7 +16,7 @@ public class PanelMenuPrincipal extends JPanel {
 
 		setLayout(null);
 		setSize(1280, 720);
-		setVisible(false);
+		setVisible(true);
 
 		btnCarne = new JButton("carnes");
 		btnCarne.setBounds(485, 378, 135, 100);
