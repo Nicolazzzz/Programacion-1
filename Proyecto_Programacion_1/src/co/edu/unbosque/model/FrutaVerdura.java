@@ -3,7 +3,7 @@ package co.edu.unbosque.model;
 import java.util.Date;
 
 /**
- * La clase FrutaVerdura representa un producto que es una fruta o verdura,
+ * La clase FrutaVerdura representa un producto que son frutas y verduras,
  * heredando de la clase Producto. Incluye atributos adicionales como la fecha
  * de cosecha y si el producto es orgánico.
  */
