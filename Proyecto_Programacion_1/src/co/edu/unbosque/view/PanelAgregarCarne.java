@@ -7,16 +7,66 @@ import javax.swing.JTextField;
 public class PanelAgregarCarne extends JPanel {
 
 	JTextField numId, nombre, empresa, precio, cantidad, atributoPropio1, atributoPropio2, atributoPropio3;
-	JButton volver, agregar;
+	JButton btnVolver, btnAgregar;
 
 	public PanelAgregarCarne() {
 
 		setSize(1280, 720);
 		setLayout(null);
 		setVisible(true);
-		
-		
 
+		numId = new JTextField("ID");
+		numId.setBounds(100, 100, 100, 50);
+		numId.setOpaque(true);
+
+		nombre = new JTextField("NOMBRE");
+		nombre.setBounds(100, 150, 100, 50);
+		nombre.setOpaque(true);
+
+		empresa = new JTextField("EMPRESA");
+		empresa.setBounds(100, 200, 100, 50);
+		empresa.setOpaque(true);
+
+		precio = new JTextField("Precio");
+		precio.setBounds(100, 250, 100, 50);
+		precio.setOpaque(true);
+
+		cantidad = new JTextField("Cantidad");
+		cantidad.setBounds(100, 300, 100, 50);
+		cantidad.setOpaque(true);
+
+		atributoPropio1 = new JTextField("Propio 1");
+		atributoPropio1.setBounds(100, 350, 100, 50);
+		atributoPropio1.setOpaque(true);
+
+		atributoPropio2 = new JTextField("Propio 2");
+		atributoPropio2.setBounds(100, 400, 100, 50);
+		atributoPropio2.setOpaque(true);
+
+		atributoPropio3 = new JTextField("Propio 3");
+		atributoPropio3.setBounds(100, 450, 100, 50);
+		atributoPropio3.setOpaque(true);
+
+		btnVolver = new JButton();
+		btnVolver.setBounds(500, 400, 100, 100);
+		btnVolver.setOpaque(true);
+		btnVolver.setActionCommand("VOLVERDEADD");
+
+		btnAgregar = new JButton();
+		btnAgregar.setBounds(500, 500, 100, 100);
+		btnAgregar.setOpaque(true);
+		btnAgregar.setActionCommand("AGREGARPRODUCTO");
+
+		add(numId);
+		add(nombre);
+		add(empresa);
+		add(precio);
+		add(cantidad);
+		add(atributoPropio1);
+		add(atributoPropio2);
+		add(atributoPropio3);
+		add(btnAgregar);
+		add(btnVolver);
 	}
 
 	public JTextField getNumId() {
@@ -83,20 +133,20 @@ public class PanelAgregarCarne extends JPanel {
 		this.atributoPropio3 = atributoPropio3;
 	}
 
-	public JButton getVolver() {
-		return volver;
+	public JButton getBtnVolver() {
+		return btnVolver;
 	}
 
-	public void setVolver(JButton volver) {
-		this.volver = volver;
+	public void setBtnVolver(JButton btnVolver) {
+		this.btnVolver = btnVolver;
 	}
 
-	public JButton getAgregar() {
-		return agregar;
+	public JButton getBtnAgregar() {
+		return btnAgregar;
 	}
 
-	public void setAgregar(JButton agregar) {
-		this.agregar = agregar;
+	public void setBtnAgregar(JButton btnAgregar) {
+		this.btnAgregar = btnAgregar;
 	}
 
 }

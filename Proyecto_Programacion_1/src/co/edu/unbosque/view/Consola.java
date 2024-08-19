@@ -27,6 +27,8 @@ public class Consola {
 	public String leerInputEliminar(String texto) {
 		return JOptionPane.showInputDialog(null, texto, "Eliminando producto", JOptionPane.WARNING_MESSAGE);
 	}
+	
+
 
 	public Consola() {
 		sc = new Scanner(System.in);

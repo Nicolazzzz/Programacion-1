@@ -60,7 +60,13 @@ public class Controlador implements ActionListener {
 
 		vf.getPrincipal().getMenuGestion().getBtnVolver().addActionListener(this);
 		vf.getPrincipal().getMenuGestion().getBtnVolver().setActionCommand("VOLVER");
-		;
+
+		// PANEL AGREGAR
+		vf.getPrincipal().getPanelAgregar().getBtnAgregar().addActionListener(this);
+		vf.getPrincipal().getPanelAgregar().getBtnAgregar().setActionCommand("VOLVERDEADD");
+
+		vf.getPrincipal().getPanelAgregar().getBtnVolver().addActionListener(this);
+		vf.getPrincipal().getPanelAgregar().getBtnVolver().setActionCommand("AGREGARPRODUCTO");
 
 	}
 
@@ -111,14 +117,23 @@ public class Controlador implements ActionListener {
 		case "AGREGAR":
 
 			if (carne == true) {
+				vf.getPrincipal().setTitle("AGREGANDO CARNES FRIAS");
+				vf.getPrincipal().mostrarPanelAgregar();
 			}
 			if (frutaV == true) {
+				vf.getPrincipal().setTitle("AGREGANDO FRUTAS Y VERDURAS");
+				vf.getPrincipal().mostrarPanelAgregar();
 
 			}
 			if (juguete == true) {
+				vf.getPrincipal().setTitle("AGREGANDO JUGUETES");
+				vf.getPrincipal().mostrarPanelAgregar();
 
 			}
 			if (pan == true) {
+				vf.getPrincipal().setTitle("AGREGANDO EN PANADERIA");
+				vf.getPrincipal().mostrarPanelAgregar();
+
 			}
 			break;
 
@@ -167,6 +182,46 @@ public class Controlador implements ActionListener {
 		case "VOLVER":
 			vf.getPrincipal().setTitle("MENU PRINCIPAL");
 			vf.getPrincipal().mostrarPanelMenuPrincipal();
+			break;
+
+		// PANEL AGREGAR
+		case "VOLVERDEADD":
+			if (carne == true) {
+				vf.getPrincipal().setTitle("ADMINISTRANDO CARNES FRIAS");
+				vf.getPrincipal().mostrarPanelMenuGestion();
+			}
+			if (frutaV == true) {
+				vf.getPrincipal().setTitle("ADMINISTRANDO FRUTAS Y VERDURAS");
+				vf.getPrincipal().mostrarPanelMenuGestion();
+
+			}
+			if (juguete == true) {
+				vf.getPrincipal().setTitle("ADMINISTRANDO JUGUETES");
+				vf.getPrincipal().mostrarPanelMenuGestion();
+
+			}
+			if (pan == true) {
+				vf.getPrincipal().setTitle("ADMINISTRANDO PANADERIA");
+				vf.getPrincipal().mostrarPanelMenuGestion();
+
+			}
+			break;
+
+		case "AGREGARPRODUCTO":
+
+			if (carne == true) {
+
+			}
+			if (frutaV == true) {
+
+			}
+			if (juguete == true) {
+
+			}
+			if (pan == true) {
+
+			}
+
 			break;
 
 		}
@@ -269,7 +324,7 @@ public class Controlador implements ActionListener {
 
 				vf.getCon().printSameLine("Ingrese el nombre del animal de origen del producto: ");
 				String animalOrigen = vf.getCon().readLine();
-				
+
 				mf.getCarneFriaDAO().crear(new CarneFria(numId, nombre, empresa, precio, cantidad, animalOrigen));
 				vf.getCon().printNewLine("Producto creado exitosamente");
 
