@@ -17,14 +17,14 @@ public class Controlador implements ActionListener {
 
 	private ModelFacade mf;
 	private ViewFacade vf;
+	private boolean carne = false;
+	private boolean frutaV = false;
+	private boolean juguete = false;
+	private boolean pan = false;
 
 	public Controlador() {
 		mf = new ModelFacade();
 		vf = new ViewFacade();
-
-		vf.getPrincipal().setVisible(true);
-		vf.getPrincipal().getMenuPpal().setVisible(true);
-		vf.getPrincipal().mostrarPanelMenuPrincipal();
 
 		asignarLectores();
 		run();
@@ -57,7 +57,7 @@ public class Controlador implements ActionListener {
 
 		vf.getPrincipal().getMenuGestion().getBtnEliminar().addActionListener(this);
 		vf.getPrincipal().getMenuGestion().getBtnEliminar().setActionCommand("ELIMINAR");
-		
+
 		vf.getPrincipal().getMenuGestion().getBtnVolver().addActionListener(this);
 		vf.getPrincipal().getMenuGestion().getBtnVolver().setActionCommand("VOLVER");
 		;
@@ -66,10 +66,6 @@ public class Controlador implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		boolean carne = false;
-		boolean frutaV = false;
-		boolean juguete = false;
-		boolean pan = false;
 
 		switch (e.getActionCommand()) {
 
@@ -77,24 +73,37 @@ public class Controlador implements ActionListener {
 		case "CARNEFRIA":
 			vf.getPrincipal().setTitle("ADMINISTRANDO CARNES FRIAS");
 			vf.getPrincipal().mostrarPanelMenuGestion();
-
+			carne = true;
+			frutaV = false;
+			juguete = false;
+			pan = false;
 			break;
 
 		case "FRUTAVERDURA":
 			vf.getPrincipal().setTitle("ADMINISTRANDO FRUTAS Y VERDURAS");
 			vf.getPrincipal().mostrarPanelMenuGestion();
-
+			carne = false;
+			frutaV = true;
+			juguete = false;
+			pan = false;
 			break;
 
 		case "JUGUETE":
 			vf.getPrincipal().setTitle("ADMINISTRANDO JUGUETES");
 			vf.getPrincipal().mostrarPanelMenuGestion();
-
+			carne = false;
+			frutaV = false;
+			juguete = true;
+			pan = false;
 			break;
 
 		case "PAN":
 			vf.getPrincipal().setTitle("ADMINISTRANDO PANADERIA");
 			vf.getPrincipal().mostrarPanelMenuGestion();
+			carne = false;
+			frutaV = false;
+			juguete = false;
+			pan = true;
 			break;
 
 		// MENU GESTION
@@ -103,12 +112,45 @@ public class Controlador implements ActionListener {
 			break;
 
 		case "MOSTRAR":
+
+			if (carne == true) {
+				vf.getCon().mostrarListado(mf.getCarneFriaDAO().mostrar());
+			}
+			if (frutaV == true) {
+				vf.getCon().mostrarListado(mf.getFrutaVerduraDAO().mostrar());
+
+			}
+			if (juguete == true) {
+				vf.getCon().mostrarListado(mf.getJugueteDAO().mostrar());
+
+			}
+			if (pan == true) {
+				vf.getCon().mostrarListado(mf.getPanaderiaDAO().mostrar());
+			}
 			break;
 
 		case "ACTUALIZAR":
+
 			break;
 
 		case "ELIMINAR":
+			if (carne == true) {
+				String delete = vf.getCon().leerInputEliminar("Ingrese el nombre del producto a eliminar: ");
+				vf.getCon().mostrarAlerta(mf.getCarneFriaDAO().eliminarPorNombre(delete));
+			}
+			if (frutaV == true) {
+				String delete1 = vf.getCon().leerInputEliminar("Ingrese el nombre del producto a eliminar: ");
+				vf.getCon().mostrarAlerta(mf.getFrutaVerduraDAO().eliminarPorNombre(delete1));
+			}
+			if (juguete == true) {
+				String delete2 = vf.getCon().leerInputEliminar("Ingrese el nombre del producto a eliminar: ");
+				vf.getCon().mostrarAlerta(mf.getJugueteDAO().eliminarPorNombre(delete2));
+			}
+
+			if (pan == true) {
+				String delete3 = vf.getCon().leerInputEliminar("Ingrese el nombre del producto a eliminar: ");
+				vf.getCon().mostrarAlerta(mf.getPanaderiaDAO().eliminarPorNombre(delete3));
+			}
 			break;
 
 		case "VOLVER":
@@ -120,6 +162,11 @@ public class Controlador implements ActionListener {
 	}
 
 	public void run() {
+
+		vf.getPrincipal().setVisible(true);
+		vf.getPrincipal().mostrarPanelMenuPrincipal();
+		vf.getPrincipal().getMenuPpal().setVisible(true);
+		vf.getCon().mostrarMensajeEmergente("Bienvenido!, este es tu espacio para administrar inventario de almacenes éxito");
 
 		mainloop: while (true) {
 
