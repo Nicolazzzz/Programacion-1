@@ -119,7 +119,7 @@ public class Controlador implements ActionListener {
 
 		case "FRUTAVERDURA":
 			vf.getPrincipal().setTitle("ADMINISTRANDO FRUTAS Y VERDURAS");
-			// labels fondo
+
 			vf.getPrincipal().getPanelAgregar().getImagenAgregarC().setVisible(false);
 			vf.getPrincipal().getPanelAgregar().getImagenAgregarV().setVisible(true);
 			vf.getPrincipal().getPanelAgregar().getImagenAgregarJ().setVisible(false);
@@ -197,7 +197,6 @@ public class Controlador implements ActionListener {
 			break;
 
 		// MENU GESTION
-
 		case "AGREGAR":
 
 			vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(false);
@@ -241,6 +240,85 @@ public class Controlador implements ActionListener {
 			}
 			break;
 
+		case "ACTUALIZAR":
+			try {
+
+				if (carne == true) {
+					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
+					if (mf.getCarneFriaDAO().checkearIndex(index - 1).equals("s")) {
+						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
+						vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(true);
+						vf.getPrincipal().mostrarPanelAgregar();
+						newcarne = true;
+						newfrutaV = false;
+						newjuguete = false;
+						newpan = false;
+
+					} else {
+						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
+								+ "que no puede ser negativo ni exceder el tamaño de la lista");
+					}
+				}
+
+				if (frutaV == true) {
+
+					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
+					if (mf.getFrutaVerduraDAO().checkearIndex(index - 1).equals("s")) {
+						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
+						vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(true);
+						vf.getPrincipal().mostrarPanelAgregar();
+						newcarne = false;
+						newfrutaV = true;
+						newjuguete = false;
+						newpan = false;
+
+					} else {
+						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
+								+ "que no puede ser negativo ni exceder el tamaño de la lista");
+
+					}
+				}
+				if (juguete == true) {
+
+					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
+					if (mf.getJugueteDAO().checkearIndex(index - 1).equals("s")) {
+						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
+						vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(true);
+						vf.getPrincipal().mostrarPanelAgregar();
+						newcarne = false;
+						newfrutaV = false;
+						newjuguete = true;
+						newpan = false;
+
+					} else {
+						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
+								+ "que no puede ser negativo ni exceder el tamaño de la lista");
+
+					}
+				}
+				if (pan == true) {
+
+					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
+					if (mf.getPanaderiaDAO().checkearIndex(index - 1).equals("s")) {
+						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
+						vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(true);
+						vf.getPrincipal().mostrarPanelAgregar();
+						newcarne = false;
+						newfrutaV = false;
+						newjuguete = false;
+						newpan = true;
+
+					} else {
+						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
+								+ "que no puede ser negativo ni exceder el tamaño de la lista");
+
+					}
+				}
+			} catch (NumberFormatException j) {
+				vf.getCon().mostrarError("Verifique el formato de los datos ingresados");
+			}
+			break;
+
 		case "ELIMINAR":
 			if (carne == true) {
 				String delete = vf.getCon().leerInputEliminar("Ingrese el nombre del producto a eliminar: ");
@@ -270,6 +348,7 @@ public class Controlador implements ActionListener {
 		// PANEL AGREGAR
 		case "VOLVERDEADD":
 			vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(true);
+			vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(false);
 			vf.getPrincipal().getPanelAgregar().getImagenProducto().setIcon(null);
 
 			if (carne == true) {
@@ -404,88 +483,6 @@ public class Controlador implements ActionListener {
 			} catch (NumberFormatException i) {
 				vf.getCon().mostrarError("Verifique el formato de los datos ingresados");
 			}
-
-			break;
-
-		case "ACTUALIZAR":
-			try {
-
-				if (carne == true) {
-					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
-					if (mf.getCarneFriaDAO().checkearIndex(index - 1).equals("s")) {
-						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
-						vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(true);
-						vf.getPrincipal().mostrarPanelAgregar();
-						newcarne = true;
-						newfrutaV = false;
-						newjuguete = false;
-						newpan = false;
-
-					} else {
-						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
-								+ "que no puede ser negativo ni exceder el tamaño de la lista");
-					}
-				}
-
-				if (frutaV == true) {
-
-					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
-					if (mf.getFrutaVerduraDAO().checkearIndex(index - 1).equals("s")) {
-						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
-						vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(true);
-						vf.getPrincipal().mostrarPanelAgregar();
-						newcarne = false;
-						newfrutaV = true;
-						newjuguete = false;
-						newpan = false;
-
-					} else {
-						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
-								+ "que no puede ser negativo ni exceder el tamaño de la lista");
-
-					}
-				}
-				if (juguete == true) {
-
-					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
-					if (mf.getJugueteDAO().checkearIndex(index - 1).equals("s")) {
-						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
-						vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(true);
-						vf.getPrincipal().mostrarPanelAgregar();
-						newcarne = false;
-						newfrutaV = false;
-						newjuguete = true;
-						newpan = false;
-
-					} else {
-						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
-								+ "que no puede ser negativo ni exceder el tamaño de la lista");
-
-					}
-				}
-				if (pan == true) {
-
-					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
-					if (mf.getPanaderiaDAO().checkearIndex(index - 1).equals("s")) {
-						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
-						vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(true);
-						vf.getPrincipal().mostrarPanelAgregar();
-						newcarne = false;
-						newfrutaV = false;
-						newjuguete = false;
-						newpan = true;
-
-					} else {
-						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
-								+ "que no puede ser negativo ni exceder el tamaño de la lista");
-
-					}
-				}
-			} catch (NumberFormatException j) {
-				vf.getCon().mostrarError("Verifique el formato de los datos ingresados");
-
-			}
-
 			break;
 
 		case "UPDATE":
