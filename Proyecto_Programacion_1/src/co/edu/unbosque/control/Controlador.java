@@ -37,7 +37,7 @@ public class Controlador implements ActionListener {
 	public Controlador() {
 		mf = new ModelFacade();
 		vf = new ViewFacade();
-		
+
 		vf.getPrincipal().mostrarPanelMenuPrincipal();
 		vf.getCon().mostrarMensajeEmergente("Bienvenido a almacenes exito!");
 
@@ -247,6 +247,7 @@ public class Controlador implements ActionListener {
 			try {
 
 				if (carne == true) {
+					vf.getPrincipal().setTitle("ACTUALIZANDO CARNES FRIAS");
 					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
 					if (mf.getCarneFriaDAO().checkearIndex(index - 1).equals("s")) {
 						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
@@ -264,7 +265,7 @@ public class Controlador implements ActionListener {
 				}
 
 				if (frutaV == true) {
-
+					vf.getPrincipal().setTitle("ACTUALIZANDO FRUTAS Y VEGETALES");
 					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
 					if (mf.getFrutaVerduraDAO().checkearIndex(index - 1).equals("s")) {
 						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
@@ -282,7 +283,7 @@ public class Controlador implements ActionListener {
 					}
 				}
 				if (juguete == true) {
-
+					vf.getPrincipal().setTitle("ACTUALIZANDO JUGUETES");
 					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
 					if (mf.getJugueteDAO().checkearIndex(index - 1).equals("s")) {
 						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
@@ -300,7 +301,7 @@ public class Controlador implements ActionListener {
 					}
 				}
 				if (pan == true) {
-
+					vf.getPrincipal().setTitle("ACTUALIZANDO PANADERIA");
 					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
 					if (mf.getPanaderiaDAO().checkearIndex(index - 1).equals("s")) {
 						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
@@ -493,7 +494,6 @@ public class Controlador implements ActionListener {
 			try {
 				if (carne == true && newcarne == true) {
 
-					vf.getPrincipal().setTitle("ACTUALIZANDO CARNES FRIAS");
 					long numId = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
 
 					String nombre = vf.getPrincipal().getPanelAgregar().getNombre().getText();
@@ -512,8 +512,6 @@ public class Controlador implements ActionListener {
 				}
 
 				if (frutaV == true && newfrutaV == true) {
-					vf.getPrincipal().setTitle("ACTUALIZANDO FRUTAS Y VEGETALES");
-					vf.getPrincipal().mostrarPanelAgregar();
 					try {
 						long numId1 = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
 
