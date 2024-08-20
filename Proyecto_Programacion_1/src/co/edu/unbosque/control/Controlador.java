@@ -37,6 +37,9 @@ public class Controlador implements ActionListener {
 	public Controlador() {
 		mf = new ModelFacade();
 		vf = new ViewFacade();
+		
+		vf.getPrincipal().mostrarPanelMenuPrincipal();
+		vf.getCon().mostrarMensajeEmergente("Bienvenido a almacenes exito!");
 
 		asignarLectores();
 	}
