@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import co.edu.unbosque.model.Panaderia;
 
 /**
+ * @author 
+ * @version 1.0
+ * 
  * La clase PanaderiaDAO implementa las operaciones CRUD (Crear, Leer,
  * Actualizar, Eliminar) para manejar una colección de objetos
  * {@link Panaderia}. Utiliza una lista interna para almacenar los productos de

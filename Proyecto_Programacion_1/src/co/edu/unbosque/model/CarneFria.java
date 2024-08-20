@@ -1,6 +1,9 @@
 package co.edu.unbosque.model;
 
 /**
+ * @author NICOLAS ABRIL
+ * @version 1.0
+ * 
  * La clase CarneFria representa un producto del tipo carne fría, que hereda de la clase Producto.
  * Además de los atributos heredados, incluye el atributo animalOrigen, que indica el animal de donde proviene la carne.
  */

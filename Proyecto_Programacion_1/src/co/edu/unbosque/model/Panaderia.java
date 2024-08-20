@@ -1,6 +1,9 @@
 package co.edu.unbosque.model;
 
 /**
+ * @author NICOLAS ABRIL
+ * @version 1.0
+ * 
  * La clase Panaderia representa un producto de panadería, heredando de la clase
  * Producto. Incluye atributos adicionales para especificar si el producto es
  * libre de gluten, integral y libre de levadura.

@@ -1,6 +1,9 @@
 package co.edu.unbosque.model;
 
 /**
+ * @author NICOLAS ABRIL
+ * @version 1.0
+ * 
  * La clase Producto representa un producto genérico con atributos como número
  * de identificación, nombre, empresa, precio y cantidad. Es la clase base para
  * otros tipos de productos específicos(super clase).

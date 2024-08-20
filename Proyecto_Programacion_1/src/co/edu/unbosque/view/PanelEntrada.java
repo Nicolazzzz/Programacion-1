@@ -11,9 +11,9 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 public class PanelEntrada extends JPanel {
-	JLabel imagenBackground, imagenProducto, imagenAgregarC, imagenAgregarV, imagenAgregarJ, imagenAgregarP;
-	JTextField numId, nombre, empresa, precio, cantidad, atributoPropio1, atributoPropio2, atributoPropio3;
-	JButton btnVolver, btnAgregar, btnJFileChooser, btnActualizar;
+	private JLabel imagenBackground, imagenProducto, imagenAgregarC, imagenAgregarV, imagenAgregarJ, imagenAgregarP;
+	private JTextField numId, nombre, empresa, precio, cantidad, atributoPropio1, atributoPropio2, atributoPropio3;
+	private JButton btnVolver, btnAgregar, btnJFileChooser, btnActualizar;
 
 	public PanelEntrada() {
 

@@ -1,6 +1,9 @@
 package co.edu.unbosque.model;
 
 /**
+ * @author NICOLAS ABRIL
+ * @version 1.0
+ * 
  * La clase Juguete representa un producto que es un juguete, heredando de la
  * clase Producto. Incluye atributos adicionales como la edad mínima recomendada
  * y el número de jugadores.

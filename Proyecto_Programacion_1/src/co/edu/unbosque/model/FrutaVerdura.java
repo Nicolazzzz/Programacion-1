@@ -3,6 +3,9 @@ package co.edu.unbosque.model;
 import java.util.Date;
 
 /**
+ * @author NICOLAS ABRIL
+ * @version 1.0
+ * 
  * La clase FrutaVerdura representa un producto que son frutas y verduras,
  * heredando de la clase Producto. Incluye atributos adicionales como la fecha
  * de cosecha y si el producto es orgánico.

@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class PanelMenuGestion extends JPanel {
 
-	JLabel imagenCarne, imagenFV, imagenJuguete, imagenPan;
+	private JLabel imagenCarne, imagenFV, imagenJuguete, imagenPan;
 	JButton btnAgregar, btnMostrar, btnActualizar, btnEliminar, btnVolver;
 
 	public PanelMenuGestion() {
