@@ -286,6 +286,6 @@ public class PanelEntrada extends JPanel {
 	public void setBtnJFileChooser(JButton btnJFileChooser) {
 		this.btnJFileChooser = btnJFileChooser;
 	}
-
+//aaaaaaaaaaaaaaaaaaaaaaaaaaa
 	
 }
