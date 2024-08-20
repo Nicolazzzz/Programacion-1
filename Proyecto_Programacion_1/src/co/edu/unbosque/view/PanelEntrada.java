@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 public class PanelEntrada extends JPanel {
-	JLabel imagenBackground, imagenProducto, imagenAgregarC, exportar, imagenAgregarV, imagenAgregarJ, imagenAgregarP;
+	JLabel imagenBackground, imagenProducto, imagenAgregarC, imagenAgregarV, imagenAgregarJ, imagenAgregarP;
 	JTextField numId, nombre, empresa, precio, cantidad, atributoPropio1, atributoPropio2, atributoPropio3;
 	JButton btnVolver, btnAgregar, btnJFileChooser;
 
@@ -56,37 +56,26 @@ public class PanelEntrada extends JPanel {
 		atributoPropio3.setOpaque(true);
 
 		btnVolver = new JButton("Volver");
-		btnVolver.setBounds(1095, 515, 150, 150);
+		btnVolver.setBounds(1080, 515, 138, 130);
 		btnVolver.setOpaque(true);
 		btnVolver.setActionCommand("VOLVERDEADD");
 		btnVolver.setBackground(new Color(255, 217, 47));
 		btnVolver.setBorder(border);
-		btnVolver.setVerticalTextPosition(JButton.BOTTOM);
 
 		btnAgregar = new JButton("Agregar");
-		btnAgregar.setBounds(900, 515, 150, 150);
+		btnAgregar.setBounds(930, 515, 130, 130);
 		btnAgregar.setOpaque(true);
 		btnAgregar.setActionCommand("AGREGARPRODUCTO");
 		btnAgregar.setBackground(new Color(255, 217, 47));
 		btnAgregar.setBorder(border);
-		btnAgregar.setVerticalTextPosition(JButton.BOTTOM);
 		
 		btnJFileChooser = new JButton("Importar imágen");
-		btnJFileChooser.setBounds(710, 515, 150, 150);
+		btnJFileChooser.setBounds(720, 510, 190, 135);
 		btnJFileChooser.setVisible(true);
 		btnJFileChooser.setActionCommand("IMAGEN");
 		btnJFileChooser.setBackground(new Color(255, 217, 47));
 		btnJFileChooser.setBorder(border);
-		btnJFileChooser.setVerticalTextPosition(JButton.BOTTOM);
 		
-		exportar = new JLabel();
-		ImageIcon exportarI = new ImageIcon("src/media/IMPORTAR.png");
-		Image redimensionado2 = exportarI.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
-		exportar.setIcon(new ImageIcon(redimensionado2));
-		exportar.setVisible(true);
-		exportar.setBounds(710, 515, 150, 150);
-		exportar.setOpaque(false);
-
 		imagenProducto = new JLabel();
 		ImageIcon imagenImportada = new ImageIcon("src/media/VentanaExito.png");
 		Image redimensionado3 = imagenImportada.getImage().getScaledInstance(400, 200, Image.SCALE_SMOOTH);
@@ -115,14 +104,14 @@ public class PanelEntrada extends JPanel {
 		Image redimensionadoJ = imagenAgregarJu.getImage().getScaledInstance(1280, 705, Image.SCALE_SMOOTH);
 		imagenAgregarJ.setIcon(new ImageIcon(redimensionadoJ));
 		imagenAgregarJ.setVisible(false);
-		imagenAgregarJ.setBounds(0, 0, 1280, 705);
+		imagenAgregarJ.setBounds(0, 4, 1280, 705);
 		
 		imagenAgregarP = new JLabel();
 		ImageIcon imagenAgregarPa = new ImageIcon("src/media/AgregarPA.png");
 		Image redimensionadoP = imagenAgregarPa.getImage().getScaledInstance(1280, 705, Image.SCALE_SMOOTH);
 		imagenAgregarP.setIcon(new ImageIcon(redimensionadoP));
 		imagenAgregarP.setVisible(false);
-		imagenAgregarP.setBounds(-10, 0, 1280, 705);
+		imagenAgregarP.setBounds(-4, -2, 1280, 705);
 
 		add(numId);
 		add(nombre);
@@ -132,15 +121,14 @@ public class PanelEntrada extends JPanel {
 		add(atributoPropio1);
 		add(atributoPropio2);
 		add(atributoPropio3);
-		add(exportar);
-		add(btnAgregar);
-		add(btnVolver);
-		add(btnJFileChooser);
 		add(imagenProducto);
 		add(imagenAgregarC);
 		add(imagenAgregarV);
 		add(imagenAgregarJ);
 		add(imagenAgregarP);
+		add(btnAgregar);
+		add(btnVolver);
+		add(btnJFileChooser);
 	}
 
 	public JLabel getImagenBackground() {
@@ -165,14 +153,6 @@ public class PanelEntrada extends JPanel {
 
 	public void setImagenAgregarC(JLabel imagenAgregarC) {
 		this.imagenAgregarC = imagenAgregarC;
-	}
-
-	public JLabel getExportar() {
-		return exportar;
-	}
-
-	public void setExportar(JLabel exportar) {
-		this.exportar = exportar;
 	}
 
 	public JLabel getImagenAgregarV() {
@@ -286,6 +266,5 @@ public class PanelEntrada extends JPanel {
 	public void setBtnJFileChooser(JButton btnJFileChooser) {
 		this.btnJFileChooser = btnJFileChooser;
 	}
-//aaaaaaaaaaaaaaaaaaaaaaaaaaa
 	
 }
