@@ -38,7 +38,7 @@ public class Controlador implements ActionListener {
 		mf = new ModelFacade();
 		vf = new ViewFacade();
 		vf.getPrincipal().mostrarPanelMenuPrincipal();
-        vf.getCon().mostrarMensajeEmergente("Bienvenido a almacenes exito!");
+		vf.getCon().mostrarMensajeEmergente("Bienvenido a almacenes exito!");
 		asignarLectores();
 	}
 
@@ -263,6 +263,8 @@ public class Controlador implements ActionListener {
 				}
 
 				if (frutaV == true) {
+					vf.getPrincipal().getPanelAgregar().getAtributoPropio1().setText("dd/mm/yyyy");
+					vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setText("Si / No");
 					vf.getPrincipal().setTitle("ACTUALIZANDO FRUTAS Y VEGETALES");
 					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
 					if (mf.getFrutaVerduraDAO().checkearIndex(index - 1).equals("s")) {
@@ -291,7 +293,6 @@ public class Controlador implements ActionListener {
 						newfrutaV = false;
 						newjuguete = true;
 						newpan = false;
-//fghjgugfds
 					} else {
 						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
 								+ "que no puede ser negativo ni exceder el tamaño de la lista");
@@ -299,6 +300,9 @@ public class Controlador implements ActionListener {
 					}
 				}
 				if (pan == true) {
+					vf.getPrincipal().getPanelAgregar().getAtributoPropio1().setText("Si / No");
+					vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setText("Si / No");
+					vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setText("Si / No");
 					vf.getPrincipal().setTitle("ACTUALIZANDO PANADERIA");
 					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
 					if (mf.getPanaderiaDAO().checkearIndex(index - 1).equals("s")) {
