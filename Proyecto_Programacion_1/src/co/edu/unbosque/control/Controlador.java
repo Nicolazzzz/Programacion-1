@@ -1,5 +1,6 @@
 /**
- * Paquete que contiene las clases relacionadas con el control de la aplicación y en este paquete se maneja la logica de el aplicativo.
+ * Paquete que contiene las clases relacionadas con el control de la aplicación 
+ * y en este paquete se maneja la logica de el aplicativo.
  */
 package co.edu.unbosque.control;
 
