@@ -86,7 +86,7 @@ public class PanelEntrada extends JPanel {
 		exportar.setVisible(true);
 		exportar.setBounds(710, 515, 150, 150);
 		exportar.setOpaque(false);
-		
+
 		imagenProducto = new JLabel();
 		ImageIcon imagenImportada = new ImageIcon("src/media/VentanaExito.png");
 		Image redimensionado3 = imagenImportada.getImage().getScaledInstance(400, 200, Image.SCALE_SMOOTH);
@@ -123,7 +123,7 @@ public class PanelEntrada extends JPanel {
 		imagenAgregarP.setIcon(new ImageIcon(redimensionadoP));
 		imagenAgregarP.setVisible(false);
 		imagenAgregarP.setBounds(-10, 0, 1280, 705);
-		
+
 		add(numId);
 		add(nombre);
 		add(empresa);
@@ -141,7 +141,62 @@ public class PanelEntrada extends JPanel {
 		add(imagenAgregarV);
 		add(imagenAgregarJ);
 		add(imagenAgregarP);
+	}
 
+	public JLabel getImagenBackground() {
+		return imagenBackground;
+	}
+
+	public void setImagenBackground(JLabel imagenBackground) {
+		this.imagenBackground = imagenBackground;
+	}
+
+	public JLabel getImagenProducto() {
+		return imagenProducto;
+	}
+
+	public void setImagenProducto(JLabel imagenProducto) {
+		this.imagenProducto = imagenProducto;
+	}
+
+	public JLabel getImagenAgregarC() {
+		return imagenAgregarC;
+	}
+
+	public void setImagenAgregarC(JLabel imagenAgregarC) {
+		this.imagenAgregarC = imagenAgregarC;
+	}
+
+	public JLabel getExportar() {
+		return exportar;
+	}
+
+	public void setExportar(JLabel exportar) {
+		this.exportar = exportar;
+	}
+
+	public JLabel getImagenAgregarV() {
+		return imagenAgregarV;
+	}
+
+	public void setImagenAgregarV(JLabel imagenAgregarV) {
+		this.imagenAgregarV = imagenAgregarV;
+	}
+
+	public JLabel getImagenAgregarJ() {
+		return imagenAgregarJ;
+	}
+
+	public void setImagenAgregarJ(JLabel imagenAgregarJ) {
+		this.imagenAgregarJ = imagenAgregarJ;
+	}
+
+	public JLabel getImagenAgregarP() {
+		return imagenAgregarP;
+	}
+
+	public void setImagenAgregarP(JLabel imagenAgregarP) {
+		this.imagenAgregarP = imagenAgregarP;
 	}
 
 	public JTextField getNumId() {
@@ -224,38 +279,6 @@ public class PanelEntrada extends JPanel {
 		this.btnAgregar = btnAgregar;
 	}
 
-	public JLabel getImagenBackground() {
-		return imagenBackground;
-	}
-
-	public void setImagenBackground(JLabel imagenBackground) {
-		this.imagenBackground = imagenBackground;
-	}
-
-	public JLabel getImagenProducto() {
-		return imagenProducto;
-	}
-
-	public void setImagenProducto(JLabel imagenProducto) {
-		this.imagenProducto = imagenProducto;
-	}
-
-	public JLabel getImagenAgregarC() {
-		return imagenAgregarC;
-	}
-
-	public void setImagenAgregarC(JLabel imagenAgregarC) {
-		this.imagenAgregarC = imagenAgregarC;
-	}
-
-	public JLabel getExportar() {
-		return exportar;
-	}
-
-	public void setExportar(JLabel exportar) {
-		this.exportar = exportar;
-	}
-
 	public JButton getBtnJFileChooser() {
 		return btnJFileChooser;
 	}
@@ -264,28 +287,5 @@ public class PanelEntrada extends JPanel {
 		this.btnJFileChooser = btnJFileChooser;
 	}
 
-	public JLabel getImagenAgregarV() {
-		return imagenAgregarV;
-	}
-
-	public void setImagenAgregarV(JLabel imagenAgregarV) {
-		this.imagenAgregarV = imagenAgregarV;
-	}
-
-	public JLabel getImagenAgregarJ() {
-		return imagenAgregarJ;
-	}
-
-	public void setImagenAgregarJ(JLabel imagenAgregarJ) {
-		this.imagenAgregarJ = imagenAgregarJ;
-	}
-
-	public JLabel getImagenAgregarP() {
-		return imagenAgregarP;
-	}
-
-	public void setImagenAgregarP(JLabel imagenAgregarP) {
-		this.imagenAgregarP = imagenAgregarP;
-	}
-
+	
 }

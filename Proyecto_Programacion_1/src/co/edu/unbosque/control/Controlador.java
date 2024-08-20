@@ -1,10 +1,16 @@
 package co.edu.unbosque.control;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import co.edu.unbosque.model.CarneFria;
 import co.edu.unbosque.model.FrutaVerdura;
@@ -158,27 +164,19 @@ public class Controlador implements ActionListener {
 
 			if (carne == true) {
 				vf.getPrincipal().setTitle("AGREGANDO CARNES FRIAS");
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(false);
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(false);
 				vf.getPrincipal().mostrarPanelAgregar();
 			}
 			if (frutaV == true) {
 				vf.getPrincipal().setTitle("AGREGANDO FRUTAS Y VERDURAS");
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(true);
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(false);
 				vf.getPrincipal().mostrarPanelAgregar();
 
 			}
 			if (juguete == true) {
 				vf.getPrincipal().setTitle("AGREGANDO JUGUETES");
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(true);
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(false);
 				vf.getPrincipal().mostrarPanelAgregar();
 
 			}
 			if (pan == true) {
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(true);
-				vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(true);
 				vf.getPrincipal().setTitle("AGREGANDO EN PANADERIA");
 				vf.getPrincipal().mostrarPanelAgregar();
 
@@ -495,11 +493,16 @@ public class Controlador implements ActionListener {
 					vf.getCon().mostrarMensajeEmergente("Producto creado exitosamente");
 				}
 
-				break;
-
 			} catch (NumberFormatException i) {
 				vf.getCon().mostrarError("Verifique el formato de los datos ingresados");
 			}
+			break;
+
+		case "IMAGEN":
+			ejecutarFileChooser();
+
+			break;
+
 		}
 
 	}
@@ -1069,6 +1072,23 @@ public class Controlador implements ActionListener {
 
 			}
 		}
+	}
+
+	public void ejecutarFileChooser() {
+		String ruta = "";
+		JFileChooser fileChooser = new JFileChooser();
+		int result = fileChooser.showOpenDialog(null);
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+		fileChooser.setFileFilter(filter);
+
+		if (result == JFileChooser.APPROVE_OPTION) {
+			ruta = fileChooser.getSelectedFile().getPath();
+			ImageIcon imagenImport = new ImageIcon(ruta);
+			Image redimension = imagenImport.getImage().getScaledInstance(380, 260, Image.SCALE_SMOOTH);
+			vf.getPrincipal().getPanelAgregar().getImagenProducto().setIcon(new ImageIcon(redimension));
+
+		}
+
 	}
 
 }
