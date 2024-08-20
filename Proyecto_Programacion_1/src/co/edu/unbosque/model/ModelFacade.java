@@ -7,7 +7,7 @@ import co.edu.unbosque.model.persistence.PanaderiaDAO;
 import co.edu.unbosque.model.persistence.ProductoDAO;
 
 /**
- * @author NICOLAS ABRIL
+ * @author EMMANUEL PINZON
  * @version 1.0
  * 
  * La clase ModelFacade actúa como un intermediario entre la capa de negocio y

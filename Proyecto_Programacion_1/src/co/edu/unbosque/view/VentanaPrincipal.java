@@ -7,7 +7,12 @@ public class VentanaPrincipal extends JFrame {
 
 	private PanelMenuPrincipal menuPpal;
 	private PanelMenuGestion menuGestion;
-	private PanelEntrada panelAgregar;
+	private PanelEntrada panelEntrada;
+
+	/**
+	 * @author EMMANUEL PINZON
+	 * @version 1.0
+	 */
 
 	public VentanaPrincipal() {
 
@@ -25,7 +30,7 @@ public class VentanaPrincipal extends JFrame {
 
 		menuPpal = new PanelMenuPrincipal();
 		menuGestion = new PanelMenuGestion();
-		panelAgregar = new PanelEntrada();
+		panelEntrada = new PanelEntrada();
 
 	}
 
@@ -37,8 +42,8 @@ public class VentanaPrincipal extends JFrame {
 		setContentPane(menuGestion);
 	}
 
-	public void mostrarPanelAgregar() {
-		setContentPane(panelAgregar);
+	public void mostrarPanelEntrada() {
+		setContentPane(panelEntrada);
 	}
 
 	public PanelMenuPrincipal getMenuPpal() {
@@ -49,8 +54,8 @@ public class VentanaPrincipal extends JFrame {
 		return menuGestion;
 	}
 
-	public PanelEntrada getPanelAgregar() {
-		return panelAgregar;
+	public PanelEntrada getPanelEntrada() {
+		return panelEntrada;
 	}
 
 }

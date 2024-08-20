@@ -14,12 +14,18 @@ public class PanelMenuGestion extends JPanel {
 	private JLabel imagenCarne, imagenFV, imagenJuguete, imagenPan;
 	JButton btnAgregar, btnMostrar, btnActualizar, btnEliminar, btnVolver;
 
+	/*
+	 * @author SANTIAGO GRANADOS y MARIO RODRIGUEZ
+	 * 
+	 * @version 1.0
+	 */
+
 	public PanelMenuGestion() {
 
 		setLayout(null);
 		setVisible(true);
 		setSize(1280, 720);
-		
+
 		btnAgregar = new JButton("agregar");
 		btnAgregar.setBounds(483, 270, 140, 130);
 		btnAgregar.setOpaque(false);

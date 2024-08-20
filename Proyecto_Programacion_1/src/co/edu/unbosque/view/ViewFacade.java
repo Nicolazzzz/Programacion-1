@@ -5,6 +5,11 @@ public class ViewFacade {
 	private Consola con;
 	private VentanaPrincipal principal;
 
+	/**
+	 * @author EMMANUEL PINZON
+	 * @version 1.0
+	 */
+
 	public ViewFacade() {
 		principal = new VentanaPrincipal();
 		con = new Consola();

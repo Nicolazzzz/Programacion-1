@@ -12,6 +12,11 @@ public class PanelMenuPrincipal extends JPanel {
 	private JLabel imagenPpal;
 	private JButton btnCarne, btnFrutaV, btnJuguete, btnPan;
 
+	/**
+	 * @author SANTIAGO GRANADOS y MARIO RODRIGUEZ
+	 * @version 1.0
+	 */
+
 	public PanelMenuPrincipal() {
 
 		setLayout(null);

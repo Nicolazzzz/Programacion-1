@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import co.edu.unbosque.model.Juguete;
 
 /**
- * La clase JugueteDAO implementa las operaciones CRUD (Crear, Leer, Actualizar,
- * Eliminar) para manejar una colección de objetos {@link Juguete}. Utiliza una
- * lista interna para almacenar los productos de tipo Juguete.
+ * @author SANTIAGO GRANADOS
+ * @version 1.0
+ * 
+ *          La clase JugueteDAO implementa las operaciones CRUD (Crear, Leer,
+ *          Actualizar, Eliminar) para manejar una colección de objetos
+ *          {@link Juguete}. Utiliza una lista interna para almacenar los
+ *          productos de tipo Juguete.
  */
 public class JugueteDAO implements CRUDOperation<Juguete> {
 

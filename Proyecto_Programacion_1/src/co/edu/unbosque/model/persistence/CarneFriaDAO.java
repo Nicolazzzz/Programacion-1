@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import co.edu.unbosque.model.CarneFria;
 
 /**
+ * 
+ * @author MARIO RODRIGUEZ
+ * @version 1.0
  * La clase CarneFriaDAO implementa las operaciones CRUD (Crear, Leer,
  * Actualizar, Eliminar) para manejar una colección de objetos
  * {@link CarneFria}. Utiliza una lista interna para almacenar los productos de

@@ -4,9 +4,14 @@ import java.util.ArrayList;
 import co.edu.unbosque.model.Producto;
 
 /**
- * La clase ProductoDAO implementa las operaciones CRUD (Crear, Leer,
- * Actualizar, Eliminar) para manejar una colección de objetos {@link Producto}.
- * Utiliza una lista interna para almacenar los productos de tipo Producto.
+ * 
+ * @author SANTIAGO GRANADOS
+ * @version 1.0
+ * 
+ *          La clase ProductoDAO implementa las operaciones CRUD (Crear, Leer,
+ *          Actualizar, Eliminar) para manejar una colección de objetos
+ *          {@link Producto}. Utiliza una lista interna para almacenar los
+ *          productos de tipo Producto.
  */
 public class ProductoDAO implements CRUDOperation<Producto> {
 

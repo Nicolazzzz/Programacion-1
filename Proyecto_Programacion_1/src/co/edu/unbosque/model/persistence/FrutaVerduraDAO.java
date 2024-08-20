@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import co.edu.unbosque.model.FrutaVerdura;
 
 /**
+ * @author SANTIAGO GRANADOS
+ * @version 1.0
+ * 
  * La clase FrutaVerduraDAO implementa las operaciones CRUD (Crear, Leer,
  * Actualizar, Eliminar) para manejar una colección de objetos
  * {@link FrutaVerdura}. Utiliza una lista interna para almacenar los productos

@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import co.edu.unbosque.model.Panaderia;
 
 /**
- * @author 
+ * @author
  * @version 1.0
  * 
- * La clase PanaderiaDAO implementa las operaciones CRUD (Crear, Leer,
- * Actualizar, Eliminar) para manejar una colección de objetos
- * {@link Panaderia}. Utiliza una lista interna para almacenar los productos de
- * tipo Panaderia.
+ *          La clase PanaderiaDAO implementa las operaciones CRUD (Crear, Leer,
+ *          Actualizar, Eliminar) para manejar una colección de objetos
+ *          {@link Panaderia}. Utiliza una lista interna para almacenar los
+ *          productos de tipo Panaderia.
  */
 public class PanaderiaDAO implements CRUDOperation<Panaderia> {
 
@@ -58,7 +58,12 @@ public class PanaderiaDAO implements CRUDOperation<Panaderia> {
 	}
 
 	/**
-	 * Actualiza un objeto Panaderia en la lista en la posición especificada.
+	 * 
+	 * @author SANTIAGO GRANADOS
+	 * @version 1.0
+	 * 
+	 *          Actualiza un objeto Panaderia en la lista en la posición
+	 *          especificada.
 	 *
 	 * @param index   El índice en la lista donde se debe actualizar el objeto.
 	 * @param newData El nuevo objeto Panaderia que reemplazará al objeto existente

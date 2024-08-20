@@ -1,6 +1,7 @@
 package co.edu.unbosque.view;
 
 import java.awt.Color;
+
 import java.awt.Image;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -9,6 +10,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+
+/*
+ *
+ * @author SANTIAGO GRANADOS y MARIO RODRIGUEZ
+ * @version 1.0
+ * 
+ * 
+ * */
 
 public class PanelEntrada extends JPanel {
 	private JLabel imagenBackground, imagenProducto, imagenAgregarC, imagenAgregarV, imagenAgregarJ, imagenAgregarP;
@@ -109,7 +118,7 @@ public class PanelEntrada extends JPanel {
 		imagenAgregarJ.setIcon(new ImageIcon(redimensionadoJ));
 		imagenAgregarJ.setVisible(false);
 		imagenAgregarJ.setBounds(0, 4, 1280, 705);
-		
+
 		imagenAgregarP = new JLabel();
 		ImageIcon imagenAgregarPa = new ImageIcon("src/media/AgregarPA.png");
 		Image redimensionadoP = imagenAgregarPa.getImage().getScaledInstance(1280, 705, Image.SCALE_SMOOTH);

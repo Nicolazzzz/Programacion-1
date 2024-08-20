@@ -1,6 +1,9 @@
 package co.edu.unbosque.model.persistence;
 
 /**
+ * 
+ * @author MARIO RODRIGUEZ
+ * @version 1.0
  * La interfaz CRUDOperation define las operaciones básicas de crear, mostrar, actualizar y eliminar (CRUD) 
  * que deben implementar las clases que manejen objetos de tipo genérico.
  *

@@ -1,9 +1,13 @@
-package co.edu.unbosque.control;
+package co.edu.unbosque.controller;
 
 /**
- * La clase AplMain es el punto de entrada de la aplicación. Su principal
- * función es iniciar la aplicación creando una instancia de la clase
- * Controlador.
+ * 
+ * @author MARIO RODRIGUEZ
+ * @version 1.0
+ * 
+ *          La clase AplMain es el punto de entrada de la aplicación. Su
+ *          principal función es iniciar la aplicación creando una instancia de
+ *          la clase Controlador.
  */
 public class AplMain {
 	/**

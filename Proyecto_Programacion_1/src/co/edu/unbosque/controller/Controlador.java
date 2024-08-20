@@ -1,13 +1,15 @@
 /**
+ * @author MARIO RODRIGUEZ
+ * @version 1.0
+ * 
  * Paquete que contiene las clases relacionadas con el control de la aplicación 
  * y en este paquete se maneja la logica de el aplicativo.
  */
-package co.edu.unbosque.control;
+package co.edu.unbosque.controller;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -91,17 +93,17 @@ public class Controlador implements ActionListener {
 		vf.getPrincipal().getMenuGestion().getBtnVolver().setActionCommand("VOLVER");
 
 		// Asigna listeners a los botones del panel de agregar
-		vf.getPrincipal().getPanelAgregar().getBtnAgregar().addActionListener(this);
-		vf.getPrincipal().getPanelAgregar().getBtnAgregar().setActionCommand("AGREGARPRODUCTO");
+		vf.getPrincipal().getPanelEntrada().getBtnAgregar().addActionListener(this);
+		vf.getPrincipal().getPanelEntrada().getBtnAgregar().setActionCommand("AGREGARPRODUCTO");
 
-		vf.getPrincipal().getPanelAgregar().getBtnVolver().addActionListener(this);
-		vf.getPrincipal().getPanelAgregar().getBtnVolver().setActionCommand("VOLVERDEADD");
+		vf.getPrincipal().getPanelEntrada().getBtnVolver().addActionListener(this);
+		vf.getPrincipal().getPanelEntrada().getBtnVolver().setActionCommand("VOLVERDEADD");
 
-		vf.getPrincipal().getPanelAgregar().getBtnJFileChooser().addActionListener(this);
-		vf.getPrincipal().getPanelAgregar().getBtnJFileChooser().setActionCommand("IMAGEN");
+		vf.getPrincipal().getPanelEntrada().getBtnJFileChooser().addActionListener(this);
+		vf.getPrincipal().getPanelEntrada().getBtnJFileChooser().setActionCommand("IMAGEN");
 
-		vf.getPrincipal().getPanelAgregar().getBtnActualizar().addActionListener(this);
-		vf.getPrincipal().getPanelAgregar().getBtnActualizar().setActionCommand("UPDATE");
+		vf.getPrincipal().getPanelEntrada().getBtnActualizar().addActionListener(this);
+		vf.getPrincipal().getPanelEntrada().getBtnActualizar().setActionCommand("UPDATE");
 	}
 
 	/**
@@ -125,10 +127,10 @@ public class Controlador implements ActionListener {
 
 			// Configura la visibilidad de las imágenes de fondo según el tipo de producto
 			// seleccionado
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarC().setVisible(true);
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarV().setVisible(false);
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarJ().setVisible(false);
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarP().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarC().setVisible(true);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarV().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarJ().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarP().setVisible(false);
 
 			// Ajusta las imágenes específicas del menú de gestión para mostrar la sección
 			// "Carne Fría"
@@ -139,9 +141,9 @@ public class Controlador implements ActionListener {
 
 			// Configura los campos de atributos propios visibles y no visibles para "Carne
 			// Fría"
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio1().setVisible(true);
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(false);
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio1().setVisible(true);
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio2().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio3().setVisible(false);
 
 			// Muestra el panel del menú de gestión donde se realizarán las operaciones CRUD
 			// para "Carne Fría"
@@ -163,10 +165,10 @@ public class Controlador implements ActionListener {
 
 			// Configura la visibilidad de las imágenes de fondo según el tipo de producto
 			// seleccionado
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarC().setVisible(false);
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarV().setVisible(true);
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarJ().setVisible(false);
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarP().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarC().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarV().setVisible(true);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarJ().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarP().setVisible(false);
 
 			// Ajusta las imágenes específicas del menú de gestión para mostrar la sección
 			// "Fruta y Verdura"
@@ -178,13 +180,13 @@ public class Controlador implements ActionListener {
 			// Configura los campos de atributos propios visibles para "Fruta y Verdura"
 			// En este caso, muestra dos campos para atributos específicos como fecha de
 			// cosecha y orgánico
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio1().setVisible(true);
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(true);
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio1().setVisible(true);
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio2().setVisible(true);
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio3().setVisible(false);
 
 			// Define los textos predeterminados para los campos de atributos propios
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio1().setText("dd/mm/yyyy");
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setText("Si / No");
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio1().setText("dd/mm/yyyy");
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio2().setText("Si / No");
 
 			// Muestra el panel del menú de gestión donde se realizarán las operaciones CRUD
 			// para "Fruta y Verdura"
@@ -206,10 +208,10 @@ public class Controlador implements ActionListener {
 
 			// Configura la visibilidad de las imágenes de fondo según el tipo de producto
 			// seleccionado
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarC().setVisible(false);
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarV().setVisible(false);
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarJ().setVisible(true);
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarP().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarC().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarV().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarJ().setVisible(true);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarP().setVisible(false);
 
 			// Ajusta las imágenes específicas del menú de gestión para mostrar la sección
 			// "Juguete"
@@ -221,9 +223,9 @@ public class Controlador implements ActionListener {
 			// Configura los campos de atributos propios visibles para "Juguete"
 			// Muestra dos campos para atributos específicos de juguetes, como edad
 			// recomendada y tipo de juguete
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio1().setVisible(true);
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(true);
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio1().setVisible(true);
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio2().setVisible(true);
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio3().setVisible(false);
 
 			// Muestra el panel del menú de gestión donde se realizarán las operaciones CRUD
 			// para "Juguete"
@@ -244,10 +246,10 @@ public class Controlador implements ActionListener {
 
 			// Configura la visibilidad de las imágenes de fondo según el tipo de producto
 			// seleccionado
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarC().setVisible(false);
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarV().setVisible(false);
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarJ().setVisible(false);
-			vf.getPrincipal().getPanelAgregar().getImagenAgregarP().setVisible(true);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarC().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarV().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarJ().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getImagenAgregarP().setVisible(true);
 
 			// Ajusta las imágenes específicas del menú de gestión para mostrar la sección
 			// "Panadería"
@@ -259,14 +261,14 @@ public class Controlador implements ActionListener {
 			// Configura los campos de atributos propios visibles para "Panadería"
 			// Muestra tres campos para atributos específicos de panadería, como sin gluten,
 			// integral y sin azúcar
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio1().setVisible(true);
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setVisible(true);
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setVisible(true);
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio1().setVisible(true);
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio2().setVisible(true);
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio3().setVisible(true);
 
 			// Define los textos predeterminados para los campos de atributos propios
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio1().setText("Si / No");
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setText("Si / No");
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setText("Si / No");
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio1().setText("Si / No");
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio2().setText("Si / No");
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio3().setText("Si / No");
 
 			// Muestra el panel del menú de gestión donde se realizarán las operaciones CRUD
 			// para "Panadería"
@@ -291,7 +293,7 @@ public class Controlador implements ActionListener {
 		// Maneja la acción de "Agregar" un nuevo producto a la base de datos
 		case "AGREGAR":
 			// Oculta el botón de "Actualizar" ya que estamos en modo de agregación
-			vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getBtnActualizar().setVisible(false);
 
 			// Determina qué tipo de producto se va a agregar basado en la sección
 			// seleccionada
@@ -300,28 +302,28 @@ public class Controlador implements ActionListener {
 				// producto de "Carnes Frías"
 				vf.getPrincipal().setTitle("AGREGANDO CARNES FRIAS");
 				// Muestra el panel de agregación para ingresar los datos del nuevo producto
-				vf.getPrincipal().mostrarPanelAgregar();
+				vf.getPrincipal().mostrarPanelEntrada();
 			}
 			if (frutaV) {
 				// Cambia el título de la ventana para indicar que se está agregando un nuevo
 				// producto de "Frutas y Verduras"
 				vf.getPrincipal().setTitle("AGREGANDO FRUTAS Y VERDURAS");
 				// Muestra el panel de agregación para ingresar los datos del nuevo producto
-				vf.getPrincipal().mostrarPanelAgregar();
+				vf.getPrincipal().mostrarPanelEntrada();
 			}
 			if (juguete) {
 				// Cambia el título de la ventana para indicar que se está agregando un nuevo
 				// "Juguete"
 				vf.getPrincipal().setTitle("AGREGANDO JUGUETES");
 				// Muestra el panel de agregación para ingresar los datos del nuevo producto
-				vf.getPrincipal().mostrarPanelAgregar();
+				vf.getPrincipal().mostrarPanelEntrada();
 			}
 			if (pan) {
 				// Cambia el título de la ventana para indicar que se está agregando un nuevo
 				// producto en "Panadería"
 				vf.getPrincipal().setTitle("AGREGANDO EN PANADERIA");
 				// Muestra el panel de agregación para ingresar los datos del nuevo producto
-				vf.getPrincipal().mostrarPanelAgregar();
+				vf.getPrincipal().mostrarPanelEntrada();
 			}
 			break;
 
@@ -360,10 +362,10 @@ public class Controlador implements ActionListener {
 					if (mf.getCarneFriaDAO().checkearIndex(index - 1).equals("s")) {
 						// Oculta el botón de "Agregar" y muestra el botón de "Actualizar" para editar
 						// el producto
-						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
-						vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(true);
+						vf.getPrincipal().getPanelEntrada().getBtnAgregar().setVisible(false);
+						vf.getPrincipal().getPanelEntrada().getBtnActualizar().setVisible(true);
 						// Muestra el panel de actualización con los datos del producto seleccionado
-						vf.getPrincipal().mostrarPanelAgregar();
+						vf.getPrincipal().mostrarPanelEntrada();
 						// Ajusta las variables booleanas para indicar que se está actualizando un
 						// producto de "Carnes Frías"
 						newcarne = true;
@@ -380,8 +382,8 @@ public class Controlador implements ActionListener {
 				// Verifica si la sección seleccionada es "Frutas y Verduras"
 				if (frutaV) {
 					// Configura los campos de atributos propios para "Frutas y Verduras"
-					vf.getPrincipal().getPanelAgregar().getAtributoPropio1().setText("dd/mm/yyyy");
-					vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setText("Si / No");
+					vf.getPrincipal().getPanelEntrada().getAtributoPropio1().setText("dd/mm/yyyy");
+					vf.getPrincipal().getPanelEntrada().getAtributoPropio2().setText("Si / No");
 					// Cambia el título de la ventana para indicar que se está actualizando un
 					// producto en "Frutas y Verduras"
 					vf.getPrincipal().setTitle("ACTUALIZANDO FRUTAS Y VEGETALES");
@@ -391,10 +393,10 @@ public class Controlador implements ActionListener {
 					if (mf.getFrutaVerduraDAO().checkearIndex(index - 1).equals("s")) {
 						// Oculta el botón de "Agregar" y muestra el botón de "Actualizar" para editar
 						// el producto
-						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
-						vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(true);
+						vf.getPrincipal().getPanelEntrada().getBtnAgregar().setVisible(false);
+						vf.getPrincipal().getPanelEntrada().getBtnActualizar().setVisible(true);
 						// Muestra el panel de actualización con los datos del producto seleccionado
-						vf.getPrincipal().mostrarPanelAgregar();
+						vf.getPrincipal().mostrarPanelEntrada();
 						// Ajusta las variables booleanas para indicar que se está actualizando un
 						// producto de "Frutas y Verduras"
 						newcarne = false;
@@ -419,10 +421,10 @@ public class Controlador implements ActionListener {
 					if (mf.getJugueteDAO().checkearIndex(index - 1).equals("s")) {
 						// Oculta el botón de "Agregar" y muestra el botón de "Actualizar" para editar
 						// el producto
-						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
-						vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(true);
+						vf.getPrincipal().getPanelEntrada().getBtnAgregar().setVisible(false);
+						vf.getPrincipal().getPanelEntrada().getBtnActualizar().setVisible(true);
 						// Muestra el panel de actualización con los datos del producto seleccionado
-						vf.getPrincipal().mostrarPanelAgregar();
+						vf.getPrincipal().mostrarPanelEntrada();
 						// Ajusta las variables booleanas para indicar que se está actualizando un
 						// producto de "Juguetes"
 						newcarne = false;
@@ -437,15 +439,15 @@ public class Controlador implements ActionListener {
 				}
 
 				if (pan == true) {
-					vf.getPrincipal().getPanelAgregar().getAtributoPropio1().setText("Si / No");
-					vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setText("Si / No");
-					vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setText("Si / No");
+					vf.getPrincipal().getPanelEntrada().getAtributoPropio1().setText("Si / No");
+					vf.getPrincipal().getPanelEntrada().getAtributoPropio2().setText("Si / No");
+					vf.getPrincipal().getPanelEntrada().getAtributoPropio3().setText("Si / No");
 					vf.getPrincipal().setTitle("ACTUALIZANDO PANADERIA");
 					index = Integer.parseInt(vf.getCon().leerEntradaEmergente("Ingrese la posición a actualizar: "));
 					if (mf.getPanaderiaDAO().checkearIndex(index - 1).equals("s")) {
-						vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(false);
-						vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(true);
-						vf.getPrincipal().mostrarPanelAgregar();
+						vf.getPrincipal().getPanelEntrada().getBtnAgregar().setVisible(false);
+						vf.getPrincipal().getPanelEntrada().getBtnActualizar().setVisible(true);
+						vf.getPrincipal().mostrarPanelEntrada();
 						newcarne = false;
 						newfrutaV = false;
 						newjuguete = false;
@@ -484,15 +486,15 @@ public class Controlador implements ActionListener {
 
 		case "VOLVER":
 			vf.getPrincipal().setTitle("MENU PRINCIPAL");
-			vf.getPrincipal().getPanelAgregar().getImagenProducto().setIcon(null);
+			vf.getPrincipal().getPanelEntrada().getImagenProducto().setIcon(null);
 			vf.getPrincipal().mostrarPanelMenuPrincipal();
 			break;
 
 		// PANEL AGREGAR
 		case "VOLVERDEADD":
-			vf.getPrincipal().getPanelAgregar().getBtnAgregar().setVisible(true);
-			vf.getPrincipal().getPanelAgregar().getBtnActualizar().setVisible(false);
-			vf.getPrincipal().getPanelAgregar().getImagenProducto().setIcon(null);
+			vf.getPrincipal().getPanelEntrada().getBtnAgregar().setVisible(true);
+			vf.getPrincipal().getPanelEntrada().getBtnActualizar().setVisible(false);
+			vf.getPrincipal().getPanelEntrada().getImagenProducto().setIcon(null);
 
 			if (carne == true) {
 				vf.getPrincipal().setTitle("ADMINISTRANDO CARNES FRIAS");
@@ -514,14 +516,14 @@ public class Controlador implements ActionListener {
 
 			}
 
-			vf.getPrincipal().getPanelAgregar().getNumId().setText("");
-			vf.getPrincipal().getPanelAgregar().getNombre().setText("");
-			vf.getPrincipal().getPanelAgregar().getEmpresa().setText("");
-			vf.getPrincipal().getPanelAgregar().getPrecio().setText("");
-			vf.getPrincipal().getPanelAgregar().getCantidad().setText("");
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio1().setText("");
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio2().setText("");
-			vf.getPrincipal().getPanelAgregar().getAtributoPropio3().setText("");
+			vf.getPrincipal().getPanelEntrada().getNumId().setText("");
+			vf.getPrincipal().getPanelEntrada().getNombre().setText("");
+			vf.getPrincipal().getPanelEntrada().getEmpresa().setText("");
+			vf.getPrincipal().getPanelEntrada().getPrecio().setText("");
+			vf.getPrincipal().getPanelEntrada().getCantidad().setText("");
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio1().setText("");
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio2().setText("");
+			vf.getPrincipal().getPanelEntrada().getAtributoPropio3().setText("");
 			break;
 
 		case "AGREGARPRODUCTO":
@@ -529,17 +531,17 @@ public class Controlador implements ActionListener {
 			try {
 
 				if (carne == true) {
-					long numId = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+					long numId = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
 
-					String nombre = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+					String nombre = vf.getPrincipal().getPanelEntrada().getNombre().getText();
 
-					String empresa = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+					String empresa = vf.getPrincipal().getPanelEntrada().getEmpresa().getText();
 
-					float precio = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+					float precio = Float.parseFloat(vf.getPrincipal().getPanelEntrada().getPrecio().getText());
 
-					int cantidad = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+					int cantidad = Integer.parseInt(vf.getPrincipal().getPanelEntrada().getCantidad().getText());
 
-					String animalOrigen = vf.getPrincipal().getPanelAgregar().getAtributoPropio1().getText();
+					String animalOrigen = vf.getPrincipal().getPanelEntrada().getAtributoPropio1().getText();
 
 					mf.getCarneFriaDAO().crear(new CarneFria(numId, nombre, empresa, precio, cantidad, animalOrigen));
 					vf.getCon().mostrarMensajeEmergente("Producto creado exitosamente");
@@ -548,22 +550,22 @@ public class Controlador implements ActionListener {
 				if (frutaV == true) {
 
 					try {
-						long numId1 = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+						long numId1 = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
 
-						String nombre1 = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+						String nombre1 = vf.getPrincipal().getPanelEntrada().getNombre().getText();
 
-						String empresa1 = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+						String empresa1 = vf.getPrincipal().getPanelEntrada().getEmpresa().getText();
 
-						float precio1 = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+						float precio1 = Float.parseFloat(vf.getPrincipal().getPanelEntrada().getPrecio().getText());
 
-						int cantidad1 = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+						int cantidad1 = Integer.parseInt(vf.getPrincipal().getPanelEntrada().getCantidad().getText());
 
 						SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-						String date = vf.getPrincipal().getPanelAgregar().getAtributoPropio1().getText();
+						String date = vf.getPrincipal().getPanelEntrada().getAtributoPropio1().getText();
 						Date cosecha;
 						cosecha = sdf.parse(date);
 
-						String organico = (vf.getPrincipal().getPanelAgregar().getAtributoPropio2().getText());
+						String organico = (vf.getPrincipal().getPanelEntrada().getAtributoPropio2().getText());
 						boolean esOrganico = vf.getCon().leerBoolean(organico);
 
 						mf.getFrutaVerduraDAO().crear(
@@ -576,21 +578,21 @@ public class Controlador implements ActionListener {
 
 				}
 				if (juguete == true) {
-					long numId2 = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+					long numId2 = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
 
-					String nombre2 = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+					String nombre2 = vf.getPrincipal().getPanelEntrada().getNombre().getText();
 
-					String empresa2 = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+					String empresa2 = vf.getPrincipal().getPanelEntrada().getEmpresa().getText();
 
-					float precio2 = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+					float precio2 = Float.parseFloat(vf.getPrincipal().getPanelEntrada().getPrecio().getText());
 
-					int cantidad2 = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+					int cantidad2 = Integer.parseInt(vf.getPrincipal().getPanelEntrada().getCantidad().getText());
 
 					int edadMinima = Integer
-							.parseInt(vf.getPrincipal().getPanelAgregar().getAtributoPropio1().getText());
+							.parseInt(vf.getPrincipal().getPanelEntrada().getAtributoPropio1().getText());
 
 					int numeroJugadores = Integer
-							.parseInt(vf.getPrincipal().getPanelAgregar().getAtributoPropio2().getText());
+							.parseInt(vf.getPrincipal().getPanelEntrada().getAtributoPropio2().getText());
 
 					mf.getJugueteDAO().crear(
 							new Juguete(numId2, nombre2, empresa2, precio2, cantidad2, edadMinima, numeroJugadores));
@@ -599,23 +601,23 @@ public class Controlador implements ActionListener {
 				}
 				if (pan == true) {
 
-					long numId3 = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+					long numId3 = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
 
-					String nombre3 = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+					String nombre3 = vf.getPrincipal().getPanelEntrada().getNombre().getText();
 
-					String empresa3 = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+					String empresa3 = vf.getPrincipal().getPanelEntrada().getEmpresa().getText();
 
-					float precio3 = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+					float precio3 = Float.parseFloat(vf.getPrincipal().getPanelEntrada().getPrecio().getText());
 
-					int cantidad3 = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+					int cantidad3 = Integer.parseInt(vf.getPrincipal().getPanelEntrada().getCantidad().getText());
 
-					String lGluten = (vf.getPrincipal().getPanelAgregar().getAtributoPropio1().getText());
+					String lGluten = (vf.getPrincipal().getPanelEntrada().getAtributoPropio1().getText());
 					boolean esLibreGluten = vf.getCon().leerBoolean(lGluten);
 
-					String integral = (vf.getPrincipal().getPanelAgregar().getAtributoPropio2().getText());
+					String integral = (vf.getPrincipal().getPanelEntrada().getAtributoPropio2().getText());
 					boolean esIntegral = vf.getCon().leerBoolean(integral);
 
-					String lLevadura = (vf.getPrincipal().getPanelAgregar().getAtributoPropio3().getText());
+					String lLevadura = (vf.getPrincipal().getPanelEntrada().getAtributoPropio3().getText());
 					boolean esLibreLevadura = vf.getCon().leerBoolean(lLevadura);
 
 					mf.getPanaderiaDAO().crear(new Panaderia(numId3, nombre3, empresa3, precio3, cantidad3,
@@ -633,17 +635,17 @@ public class Controlador implements ActionListener {
 			try {
 				if (carne == true && newcarne == true) {
 
-					long numId = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+					long numId = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
 
-					String nombre = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+					String nombre = vf.getPrincipal().getPanelEntrada().getNombre().getText();
 
-					String empresa = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+					String empresa = vf.getPrincipal().getPanelEntrada().getEmpresa().getText();
 
-					float precio = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+					float precio = Float.parseFloat(vf.getPrincipal().getPanelEntrada().getPrecio().getText());
 
-					int cantidad = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+					int cantidad = Integer.parseInt(vf.getPrincipal().getPanelEntrada().getCantidad().getText());
 
-					String animalOrigen = vf.getPrincipal().getPanelAgregar().getAtributoPropio1().getText();
+					String animalOrigen = vf.getPrincipal().getPanelEntrada().getAtributoPropio1().getText();
 
 					mf.getCarneFriaDAO().actualizar(index - 1,
 							new CarneFria(numId, nombre, empresa, precio, cantidad, animalOrigen));
@@ -652,22 +654,22 @@ public class Controlador implements ActionListener {
 
 				if (frutaV == true && newfrutaV == true) {
 					try {
-						long numId1 = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+						long numId1 = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
 
-						String nombre1 = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+						String nombre1 = vf.getPrincipal().getPanelEntrada().getNombre().getText();
 
-						String empresa1 = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+						String empresa1 = vf.getPrincipal().getPanelEntrada().getEmpresa().getText();
 
-						float precio1 = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+						float precio1 = Float.parseFloat(vf.getPrincipal().getPanelEntrada().getPrecio().getText());
 
-						int cantidad1 = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+						int cantidad1 = Integer.parseInt(vf.getPrincipal().getPanelEntrada().getCantidad().getText());
 
 						SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-						String date = vf.getPrincipal().getPanelAgregar().getAtributoPropio1().getText();
+						String date = vf.getPrincipal().getPanelEntrada().getAtributoPropio1().getText();
 						Date cosecha;
 						cosecha = sdf.parse(date);
 
-						String organico = (vf.getPrincipal().getPanelAgregar().getAtributoPropio2().getText());
+						String organico = (vf.getPrincipal().getPanelEntrada().getAtributoPropio2().getText());
 						boolean esOrganico = vf.getCon().leerBoolean(organico);
 						vf.getCon().mostrarMensajeEmergente("Producto actualizado exitosamente");
 
@@ -680,21 +682,21 @@ public class Controlador implements ActionListener {
 
 				if (juguete == true && newjuguete == true) {
 
-					long numId2 = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+					long numId2 = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
 
-					String nombre2 = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+					String nombre2 = vf.getPrincipal().getPanelEntrada().getNombre().getText();
 
-					String empresa2 = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+					String empresa2 = vf.getPrincipal().getPanelEntrada().getEmpresa().getText();
 
-					float precio2 = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+					float precio2 = Float.parseFloat(vf.getPrincipal().getPanelEntrada().getPrecio().getText());
 
-					int cantidad2 = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+					int cantidad2 = Integer.parseInt(vf.getPrincipal().getPanelEntrada().getCantidad().getText());
 
 					int edadMinima = Integer
-							.parseInt(vf.getPrincipal().getPanelAgregar().getAtributoPropio1().getText());
+							.parseInt(vf.getPrincipal().getPanelEntrada().getAtributoPropio1().getText());
 
 					int numeroJugadores = Integer
-							.parseInt(vf.getPrincipal().getPanelAgregar().getAtributoPropio2().getText());
+							.parseInt(vf.getPrincipal().getPanelEntrada().getAtributoPropio2().getText());
 
 					mf.getJugueteDAO().actualizar(index - 1,
 							new Juguete(numId2, nombre2, empresa2, precio2, cantidad2, edadMinima, numeroJugadores));
@@ -704,23 +706,23 @@ public class Controlador implements ActionListener {
 
 				if (pan == true && newpan == true) {
 
-					long numId3 = Long.parseLong(vf.getPrincipal().getPanelAgregar().getNumId().getText());
+					long numId3 = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
 
-					String nombre3 = vf.getPrincipal().getPanelAgregar().getNombre().getText();
+					String nombre3 = vf.getPrincipal().getPanelEntrada().getNombre().getText();
 
-					String empresa3 = vf.getPrincipal().getPanelAgregar().getEmpresa().getText();
+					String empresa3 = vf.getPrincipal().getPanelEntrada().getEmpresa().getText();
 
-					float precio3 = Float.parseFloat(vf.getPrincipal().getPanelAgregar().getPrecio().getText());
+					float precio3 = Float.parseFloat(vf.getPrincipal().getPanelEntrada().getPrecio().getText());
 
-					int cantidad3 = Integer.parseInt(vf.getPrincipal().getPanelAgregar().getCantidad().getText());
+					int cantidad3 = Integer.parseInt(vf.getPrincipal().getPanelEntrada().getCantidad().getText());
 
-					String lGluten = (vf.getPrincipal().getPanelAgregar().getAtributoPropio1().getText());
+					String lGluten = (vf.getPrincipal().getPanelEntrada().getAtributoPropio1().getText());
 					boolean esLibreGluten = vf.getCon().leerBoolean(lGluten);
 
-					String integral = (vf.getPrincipal().getPanelAgregar().getAtributoPropio2().getText());
+					String integral = (vf.getPrincipal().getPanelEntrada().getAtributoPropio2().getText());
 					boolean esIntegral = vf.getCon().leerBoolean(integral);
 
-					String lLevadura = (vf.getPrincipal().getPanelAgregar().getAtributoPropio3().getText());
+					String lLevadura = (vf.getPrincipal().getPanelEntrada().getAtributoPropio3().getText());
 					boolean esLibreLevadura = vf.getCon().leerBoolean(lLevadura);
 
 					mf.getPanaderiaDAO().actualizar(index - 1, new Panaderia(numId3, nombre3, empresa3, precio3,
@@ -738,7 +740,7 @@ public class Controlador implements ActionListener {
 			break;
 
 		case "IMAGEN":
-			vf.getPrincipal().getPanelAgregar().getImagenProducto().setVisible(true);
+			vf.getPrincipal().getPanelEntrada().getImagenProducto().setVisible(true);
 
 			ejecutarFileChooser();
 
@@ -759,7 +761,7 @@ public class Controlador implements ActionListener {
 			ruta = fileChooser.getSelectedFile().getPath();
 			ImageIcon imagenImport = new ImageIcon(ruta);
 			Image redimension = imagenImport.getImage().getScaledInstance(380, 260, Image.SCALE_SMOOTH);
-			vf.getPrincipal().getPanelAgregar().getImagenProducto().setIcon(new ImageIcon(redimension));
+			vf.getPrincipal().getPanelEntrada().getImagenProducto().setIcon(new ImageIcon(redimension));
 
 		}
 
