@@ -30,16 +30,17 @@ import co.edu.unbosque.view.ViewFacade;
  * @author MARIO RODRIGUEZ
  * @version 1.0
  * 
- * Clase que controla la interacción y logica entre la vista y el modelo en la
- * aplicación. Implementa la interfaz {@link java.awt.event.ActionListener} para
- * manejar eventos de acciones en la interfaz gráfica.
+ *          Clase que controla la interacción y logica entre la vista y el
+ *          modelo en la aplicación. Implementa la interfaz
+ *          {@link java.awt.event.ActionListener} para manejar eventos de
+ *          acciones en la interfaz gráfica.
  */
 public class Controlador implements ActionListener {
 
 	private ModelFacade mf;
 	private ViewFacade vf;
-	
-	//Variables necesarias para ejecutar el programa
+
+	// Variables necesarias para ejecutar el programa
 	private int index = 0;
 	private boolean carne = false;
 	private boolean frutaV = false;
@@ -468,8 +469,12 @@ public class Controlador implements ActionListener {
 				vf.getCon().mostrarError("Verifique el formato de los datos ingresados");
 			}
 			break;
-
+		/**
+		 * Permite eliminar un producto de la base de datos según la categoría
+		 * seleccionada y el nombre del producto ingresado por el usuario.
+		 */
 		case "ELIMINAR":
+			// Código para manejar la acción de eliminar un producto...
 			if (carne == true) {
 				String delete = vf.getCon().leerInputEliminar("Ingrese el nombre del producto a eliminar: ");
 				vf.getCon().mostrarAlerta(mf.getCarneFriaDAO().eliminarPorNombre(delete));
@@ -489,38 +494,74 @@ public class Controlador implements ActionListener {
 			}
 			break;
 
+		/**
+		 * Retorna al menú principal y limpia la interfaz.
+		 */
 		case "VOLVER":
+			// Código para manejar la acción de volver al menú principal...
 			vf.getPrincipal().setTitle("MENU PRINCIPAL");
 			vf.getPrincipal().getPanelEntrada().getImagenProducto().setIcon(null);
 			vf.getPrincipal().mostrarPanelMenuPrincipal();
 			break;
 
 		// PANEL ENTRADA
+		/**
+		 * Retorna desde el panel de agregación al menú de gestión de la categoría
+		 * seleccionada.
+		 */
 		case "VOLVERDEADD":
+			// Código para manejar la acción de volver desde el panel de agregación...
 			vf.getPrincipal().getPanelEntrada().getBtnAgregar().setVisible(true);
 			vf.getPrincipal().getPanelEntrada().getBtnActualizar().setVisible(false);
 			vf.getPrincipal().getPanelEntrada().getImagenProducto().setIcon(null);
 
+			/**
+			 * Cambia el título de la ventana según la categoría seleccionada y muestra el
+			 * panel de menú de gestión correspondiente.
+			 * 
+			 * Si la categoría es "Carne Fría", establece el título como "ADMINISTRANDO
+			 * CARNES FRIAS".
+			 * 
+			 */
 			if (carne == true) {
 				vf.getPrincipal().setTitle("ADMINISTRANDO CARNES FRIAS");
 				vf.getPrincipal().mostrarPanelMenuGestion();
 			}
+			/**
+			 * * Si la categoría es "Fruta y Verdura", establece el título como
+			 * "ADMINISTRANDO FRUTAS Y VERDURAS".
+			 */
+
 			if (frutaV == true) {
 				vf.getPrincipal().setTitle("ADMINISTRANDO FRUTAS Y VERDURAS");
 				vf.getPrincipal().mostrarPanelMenuGestion();
 
 			}
+			/**
+			 * * Si la categoría es "Juguete", establece el título como "ADMINISTRANDO
+			 * JUGUETES".
+			 */
+
 			if (juguete == true) {
 				vf.getPrincipal().setTitle("ADMINISTRANDO JUGUETES");
 				vf.getPrincipal().mostrarPanelMenuGestion();
 
 			}
+			/*
+			 * Si la categoría es "Panadería", establece el título como
+			 * "ADMINISTRANDO PANADERIA".
+			 */
 			if (pan == true) {
 				vf.getPrincipal().setTitle("ADMINISTRANDO PANADERIA");
 				vf.getPrincipal().mostrarPanelMenuGestion();
 
 			}
-
+			/**
+			 * Limpia los campos de entrada en el panel de entrada de datos para preparar el
+			 * formulario para la introducción de un nuevo producto. Se vacían los
+			 * siguientes campos: - Número de ID - Nombre del producto - Empresa productora
+			 * - Precio - Cantidad - Atributos propios (dependiendo de la categoría)
+			 */
 			vf.getPrincipal().getPanelEntrada().getNumId().setText("");
 			vf.getPrincipal().getPanelEntrada().getNombre().setText("");
 			vf.getPrincipal().getPanelEntrada().getEmpresa().setText("");
@@ -530,11 +571,20 @@ public class Controlador implements ActionListener {
 			vf.getPrincipal().getPanelEntrada().getAtributoPropio2().setText("");
 			vf.getPrincipal().getPanelEntrada().getAtributoPropio3().setText("");
 			break;
-
+		/**
+		 * Maneja la creación de productos en función de la categoría seleccionada
+		 * (Carne Fría, Fruta y Verdura, Juguete). Extrae los datos del formulario de
+		 * entrada, crea el objeto correspondiente y lo guarda en la base de datos.
+		 * Muestra un mensaje de éxito o error en la interfaz gráfica.
+		 */
 		case "AGREGARPRODUCTO":
 
 			try {
-
+				/**
+				 * Si la categoría seleccionada es "Carne Fría", extrae los datos del formulario
+				 * y crea un objeto `CarneFria`. Guarda el objeto en la base de datos mediante
+				 * el DAO correspondiente y muestra un mensaje de éxito.
+				 */
 				if (carne == true) {
 					long numId = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
 
@@ -552,6 +602,13 @@ public class Controlador implements ActionListener {
 					vf.getCon().mostrarMensajeEmergente("Producto creado exitosamente");
 
 				}
+				/**
+				 * Si la categoría seleccionada es "Fruta y Verdura", extrae los datos del
+				 * formulario y crea un objeto `FrutaVerdura`. Realiza un análisis adicional
+				 * para el atributo `cosecha` (que debe ser una fecha) y si es orgánico. Guarda
+				 * el objeto en la base de datos mediante el DAO correspondiente. Muestra un
+				 * mensaje de éxito o error en caso de fallo en el análisis de la fecha.
+				 */
 				if (frutaV == true) {
 
 					try {
@@ -582,6 +639,11 @@ public class Controlador implements ActionListener {
 					}
 
 				}
+				/**
+				 * Si la categoría seleccionada es "Juguete", extrae los datos del formulario y
+				 * crea un objeto `Juguete`. Guarda el objeto en la base de datos mediante el
+				 * DAO correspondiente y muestra un mensaje de éxito.
+				 */
 				if (juguete == true) {
 					long numId2 = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
 
@@ -604,6 +666,12 @@ public class Controlador implements ActionListener {
 					vf.getCon().mostrarMensajeEmergente("Producto creado exitosamente");
 
 				}
+				/**
+				 * Si la categoría seleccionada es "Panadería", extrae los datos del formulario
+				 * y crea un objeto `Panaderia`. Guarda el objeto en la base de datos mediante
+				 * el DAO correspondiente y muestra un mensaje de éxito. Si ocurre un error de
+				 * formato al convertir los datos numéricos, muestra un mensaje de error.
+				 */
 				if (pan == true) {
 
 					long numId3 = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
@@ -615,7 +683,7 @@ public class Controlador implements ActionListener {
 					float precio3 = Float.parseFloat(vf.getPrincipal().getPanelEntrada().getPrecio().getText());
 
 					int cantidad3 = Integer.parseInt(vf.getPrincipal().getPanelEntrada().getCantidad().getText());
-
+					// Convertir atributos booleanos (libre de gluten, integral, libre de levadura)
 					String lGluten = (vf.getPrincipal().getPanelEntrada().getAtributoPropio1().getText());
 					boolean esLibreGluten = vf.getCon().leerBoolean(lGluten);
 
@@ -624,17 +692,22 @@ public class Controlador implements ActionListener {
 
 					String lLevadura = (vf.getPrincipal().getPanelEntrada().getAtributoPropio3().getText());
 					boolean esLibreLevadura = vf.getCon().leerBoolean(lLevadura);
-
+					// Crear el objeto Panaderia y guardarlo en la base de datos
 					mf.getPanaderiaDAO().crear(new Panaderia(numId3, nombre3, empresa3, precio3, cantidad3,
 							esLibreGluten, esIntegral, esLibreLevadura));
+					// Mostrar mensaje de éxito en la interfaz gráfica
 					vf.getCon().mostrarMensajeEmergente("Producto creado exitosamente");
 				}
 
 			} catch (NumberFormatException i) {
+				// Mostrar mensaje de error si ocurre una excepción de formato de número
 				vf.getCon().mostrarError("Verifique el formato de los datos ingresados");
 			}
 			break;
-
+		/**
+		 * permite actualizar productos en diferentes categorías como "Carne Fría",
+		 * "Fruta y Verdura", "Juguetes" y "Panadería"
+		 */
 		case "UPDATE":
 
 			try {
@@ -738,12 +811,18 @@ public class Controlador implements ActionListener {
 			} catch (
 
 			NumberFormatException f) {
+				/**
+				 * manejar errores en la conversión de texto a números y se muestra un mensaje
+				 * de error.
+				 **/
 				vf.getCon().mostrarError("Verifique el formato de los datos ingresados");
 
 			}
 
 			break;
-
+		/**
+		 * maneja la selección y visualización de imágenes en el formulario de entrada.
+		 **/
 		case "IMAGEN":
 			vf.getPrincipal().getPanelEntrada().getImagenProducto().setVisible(true);
 
@@ -755,6 +834,15 @@ public class Controlador implements ActionListener {
 
 	}
 
+	/**
+	 * El método ejecutarFileChooser se encarga de abrir un selector de archivos
+	 * para que el usuario pueda elegir una imagen. La imagen seleccionada se
+	 * redimensiona y se muestra en el panel de entrada.
+	 * 
+	 * Selector de Archivos (JFileChooser) Abre un diálogo para que el usuario
+	 * seleccione una imagen en formato JPG, PNG o GIF.
+	 * 
+	 **/
 	public void ejecutarFileChooser() {
 		String ruta = "";
 		JFileChooser fileChooser = new JFileChooser();
