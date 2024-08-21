@@ -1,9 +1,6 @@
 package co.edu.unbosque.view;
 
-import java.awt.Dimension;
 import java.awt.Image;
-import java.awt.Toolkit;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -12,7 +9,7 @@ import javax.swing.JPanel;
 public class PanelMenuGestion extends JPanel {
 
 	private JLabel imagenCarne, imagenFV, imagenJuguete, imagenPan;
-	JButton btnAgregar, btnMostrar, btnActualizar, btnEliminar, btnVolver;
+	private JButton btnAgregar, btnMostrar, btnActualizar, btnEliminar, btnVolver;
 
 	/*
 	 * @author SANTIAGO GRANADOS y MARIO RODRIGUEZ

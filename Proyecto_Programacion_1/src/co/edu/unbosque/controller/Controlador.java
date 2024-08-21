@@ -26,6 +26,10 @@ import co.edu.unbosque.model.Panaderia;
 import co.edu.unbosque.view.ViewFacade;
 
 /**
+ * 
+ * @author MARIO RODRIGUEZ
+ * @version 1.0
+ * 
  * Clase que controla la interacción y logica entre la vista y el modelo en la
  * aplicación. Implementa la interfaz {@link java.awt.event.ActionListener} para
  * manejar eventos de acciones en la interfaz gráfica.
@@ -34,16 +38,17 @@ public class Controlador implements ActionListener {
 
 	private ModelFacade mf;
 	private ViewFacade vf;
+	
+	//Variables necesarias para ejecutar el programa
 	private int index = 0;
 	private boolean carne = false;
 	private boolean frutaV = false;
 	private boolean juguete = false;
 	private boolean pan = false;
-
-	private boolean newcarne = false;
-	private boolean newfrutaV = false;
-	private boolean newjuguete = false;
-	private boolean newpan = false;
+	private boolean newCarne = false;
+	private boolean newFrutaV = false;
+	private boolean newJuguete = false;
+	private boolean newPan = false;
 
 	/**
 	 * Constructor que inicializa el controlador, Modelfacade, ViewFacade y muestra
@@ -290,7 +295,7 @@ public class Controlador implements ActionListener {
 		 * @param e El evento de acción que se produjo.
 		 */
 
-		// Maneja la acción de "Agregar" un nuevo producto a la base de datos
+		// Maneja la acción de "Agregar" un nuevo producto al inventario
 		case "AGREGAR":
 			// Oculta el botón de "Actualizar" ya que estamos en modo de agregación
 			vf.getPrincipal().getPanelEntrada().getBtnActualizar().setVisible(false);
@@ -368,10 +373,10 @@ public class Controlador implements ActionListener {
 						vf.getPrincipal().mostrarPanelEntrada();
 						// Ajusta las variables booleanas para indicar que se está actualizando un
 						// producto de "Carnes Frías"
-						newcarne = true;
-						newfrutaV = false;
-						newjuguete = false;
-						newpan = false;
+						newCarne = true;
+						newFrutaV = false;
+						newJuguete = false;
+						newPan = false;
 					} else {
 						// Muestra un mensaje de alerta si el índice ingresado no es válido
 						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
@@ -399,10 +404,10 @@ public class Controlador implements ActionListener {
 						vf.getPrincipal().mostrarPanelEntrada();
 						// Ajusta las variables booleanas para indicar que se está actualizando un
 						// producto de "Frutas y Verduras"
-						newcarne = false;
-						newfrutaV = true;
-						newjuguete = false;
-						newpan = false;
+						newCarne = false;
+						newFrutaV = true;
+						newJuguete = false;
+						newPan = false;
 					} else {
 						// Muestra un mensaje de alerta si el índice ingresado no es válido
 						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
@@ -427,10 +432,10 @@ public class Controlador implements ActionListener {
 						vf.getPrincipal().mostrarPanelEntrada();
 						// Ajusta las variables booleanas para indicar que se está actualizando un
 						// producto de "Juguetes"
-						newcarne = false;
-						newfrutaV = false;
-						newjuguete = true;
-						newpan = false;
+						newCarne = false;
+						newFrutaV = false;
+						newJuguete = true;
+						newPan = false;
 					} else {
 						// Muestra un mensaje de alerta si el índice ingresado no es válido
 						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
@@ -448,10 +453,10 @@ public class Controlador implements ActionListener {
 						vf.getPrincipal().getPanelEntrada().getBtnAgregar().setVisible(false);
 						vf.getPrincipal().getPanelEntrada().getBtnActualizar().setVisible(true);
 						vf.getPrincipal().mostrarPanelEntrada();
-						newcarne = false;
-						newfrutaV = false;
-						newjuguete = false;
-						newpan = true;
+						newCarne = false;
+						newFrutaV = false;
+						newJuguete = false;
+						newPan = true;
 
 					} else {
 						vf.getCon().mostrarAlerta("Ingrese un indice valido, recuerde "
@@ -490,7 +495,7 @@ public class Controlador implements ActionListener {
 			vf.getPrincipal().mostrarPanelMenuPrincipal();
 			break;
 
-		// PANEL AGREGAR
+		// PANEL ENTRADA
 		case "VOLVERDEADD":
 			vf.getPrincipal().getPanelEntrada().getBtnAgregar().setVisible(true);
 			vf.getPrincipal().getPanelEntrada().getBtnActualizar().setVisible(false);
@@ -633,7 +638,7 @@ public class Controlador implements ActionListener {
 		case "UPDATE":
 
 			try {
-				if (carne == true && newcarne == true) {
+				if (carne == true && newCarne == true) {
 
 					long numId = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
 
@@ -652,7 +657,7 @@ public class Controlador implements ActionListener {
 					vf.getCon().mostrarMensajeEmergente("Producto actualizado exitosamente");
 				}
 
-				if (frutaV == true && newfrutaV == true) {
+				if (frutaV == true && newFrutaV == true) {
 					try {
 						long numId1 = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
 
@@ -680,7 +685,7 @@ public class Controlador implements ActionListener {
 					}
 				}
 
-				if (juguete == true && newjuguete == true) {
+				if (juguete == true && newJuguete == true) {
 
 					long numId2 = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
 
@@ -704,7 +709,7 @@ public class Controlador implements ActionListener {
 
 				}
 
-				if (pan == true && newpan == true) {
+				if (pan == true && newPan == true) {
 
 					long numId3 = Long.parseLong(vf.getPrincipal().getPanelEntrada().getNumId().getText());
 

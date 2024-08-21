@@ -61,20 +61,40 @@ public class PanelMenuPrincipal extends JPanel {
 		return imagenPpal;
 	}
 
+	public void setImagenPpal(JLabel imagenPpal) {
+		this.imagenPpal = imagenPpal;
+	}
+
 	public JButton getBtnCarne() {
 		return btnCarne;
+	}
+
+	public void setBtnCarne(JButton btnCarne) {
+		this.btnCarne = btnCarne;
 	}
 
 	public JButton getBtnFrutaV() {
 		return btnFrutaV;
 	}
 
+	public void setBtnFrutaV(JButton btnFrutaV) {
+		this.btnFrutaV = btnFrutaV;
+	}
+
 	public JButton getBtnJuguete() {
 		return btnJuguete;
 	}
 
+	public void setBtnJuguete(JButton btnJuguete) {
+		this.btnJuguete = btnJuguete;
+	}
+
 	public JButton getBtnPan() {
 		return btnPan;
+	}
+
+	public void setBtnPan(JButton btnPan) {
+		this.btnPan = btnPan;
 	}
 
 }
