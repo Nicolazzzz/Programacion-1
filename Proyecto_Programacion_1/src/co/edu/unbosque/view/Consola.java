@@ -2,6 +2,10 @@ package co.edu.unbosque.view;
 
 import javax.swing.JOptionPane;
 
+/*
+* @author MARIO RODRIGUEZ
+* @version 1.0
+*/
 public class Consola {
 
 	public void mostrarMensajeEmergente(String texto) {

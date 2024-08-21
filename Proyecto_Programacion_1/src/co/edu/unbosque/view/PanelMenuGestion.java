@@ -6,6 +6,14 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/*
+*
+* @author SANTIAGO GRANADOS y MARIO RODRIGUEZ
+* @version 1.0
+* 
+* 
+* */
+
 public class PanelMenuGestion extends JPanel {
 
 	private JLabel imagenCarne, imagenFV, imagenJuguete, imagenPan;

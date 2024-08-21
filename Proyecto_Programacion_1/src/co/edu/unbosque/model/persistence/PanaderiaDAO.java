@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import co.edu.unbosque.model.Panaderia;
 
 /**
- * @author
+ * @author SANTIAGO GRANADOS
  * @version 1.0
  * 
  *          La clase PanaderiaDAO implementa las operaciones CRUD (Crear, Leer,
