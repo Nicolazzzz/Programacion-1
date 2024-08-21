@@ -19,6 +19,11 @@ import javax.swing.border.Border;
  * 
  * */
 
+/**
+ * PanelEntrada es un panel de la interfaz gráfica que permite la entrada de datos para productos.
+ * Incluye campos de texto para ingresar información del producto, botones para agregar, actualizar,
+ * importar imágenes y volver, así como etiquetas de imagen para mostrar detalles adicionales según el tipo de producto.
+ */
 public class PanelEntrada extends JPanel {
 	private JLabel imagenBackground, imagenProducto, imagenAgregarC, imagenAgregarV, imagenAgregarJ, imagenAgregarP;
 	private JTextField numId, nombre, empresa, precio, cantidad, atributoPropio1, atributoPropio2, atributoPropio3;

@@ -14,17 +14,23 @@ import javax.swing.JPanel;
 * 
 * */
 
+/**
+ * PanelMenuGestion es un panel de la interfaz gráfica que representa el menú de gestión
+ * para el sistema. Contiene botones para agregar, mostrar, actualizar, eliminar productos,
+ * y volver al menú principal. Además, incluye imágenes de fondo específicas para cada tipo
+ * de producto.
+ */
+
 public class PanelMenuGestion extends JPanel {
 
 	private JLabel imagenCarne, imagenFV, imagenJuguete, imagenPan;
 	private JButton btnAgregar, btnMostrar, btnActualizar, btnEliminar, btnVolver;
 
-	/*
-	 * @author SANTIAGO GRANADOS y MARIO RODRIGUEZ
-	 * 
-	 * @version 1.0
+	/**
+	 * Constructor de PanelMenuGestion. Inicializa el panel con botones para las
+	 * acciones de gestión y con imágenes de fondo específicas para cada tipo de
+	 * producto.
 	 */
-
 	public PanelMenuGestion() {
 
 		setLayout(null);
@@ -96,74 +102,164 @@ public class PanelMenuGestion extends JPanel {
 
 	}
 
+	/**
+	 * Obtiene la etiqueta de imagen para el tipo de producto "carne".
+	 * 
+	 * @return La etiqueta de imagen para "carne".
+	 */
 	public JLabel getImagenCarne() {
 		return imagenCarne;
 	}
 
+	/**
+	 * Establece la etiqueta de imagen para el tipo de producto "carne".
+	 * 
+	 * @param imagenCarne La nueva etiqueta de imagen para "carne".
+	 */
 	public void setImagenCarne(JLabel imagenCarne) {
 		this.imagenCarne = imagenCarne;
 	}
 
+	/**
+	 * Obtiene la etiqueta de imagen para el tipo de producto "fruta y verdura".
+	 * 
+	 * @return La etiqueta de imagen para "fruta y verdura".
+	 */
 	public JLabel getImagenFV() {
 		return imagenFV;
 	}
 
+	/**
+	 * Establece la etiqueta de imagen para el tipo de producto "fruta y verdura".
+	 * 
+	 * @param imagenFV La nueva etiqueta de imagen para "fruta y verdura".
+	 */
 	public void setImagenFV(JLabel imagenFV) {
 		this.imagenFV = imagenFV;
 	}
 
+	/**
+	 * Obtiene la etiqueta de imagen para el tipo de producto "juguete".
+	 * 
+	 * @return La etiqueta de imagen para "juguete".
+	 */
 	public JLabel getImagenJuguete() {
 		return imagenJuguete;
 	}
 
+	/**
+	 * Establece la etiqueta de imagen para el tipo de producto "juguete".
+	 * 
+	 * @param imagenJuguete La nueva etiqueta de imagen para "juguete".
+	 */
 	public void setImagenJuguete(JLabel imagenJuguete) {
 		this.imagenJuguete = imagenJuguete;
 	}
 
+	/**
+	 * Obtiene la etiqueta de imagen para el tipo de producto "pan".
+	 * 
+	 * @return La etiqueta de imagen para "pan".
+	 */
 	public JLabel getImagenPan() {
 		return imagenPan;
 	}
 
+	/**
+	 * Establece la etiqueta de imagen para el tipo de producto "pan".
+	 * 
+	 * @param imagenPan La nueva etiqueta de imagen para "pan".
+	 */
 	public void setImagenPan(JLabel imagenPan) {
 		this.imagenPan = imagenPan;
 	}
 
+	/**
+	 * Obtiene el botón de "agregar" del panel.
+	 * 
+	 * @return El botón de "agregar".
+	 */
 	public JButton getBtnAgregar() {
 		return btnAgregar;
 	}
 
+	/**
+	 * Establece el botón de "agregar" del panel.
+	 * 
+	 * @param btnAgregar El nuevo botón de "agregar".
+	 */
 	public void setBtnAgregar(JButton btnAgregar) {
 		this.btnAgregar = btnAgregar;
 	}
 
+	/**
+	 * Obtiene el botón de "mostrar" del panel.
+	 * 
+	 * @return El botón de "mostrar".
+	 */
 	public JButton getBtnMostrar() {
 		return btnMostrar;
 	}
 
+	/**
+	 * Establece el botón de "mostrar" del panel.
+	 * 
+	 * @param btnMostrar El nuevo botón de "mostrar".
+	 */
 	public void setBtnMostrar(JButton btnMostrar) {
 		this.btnMostrar = btnMostrar;
 	}
 
+	/**
+	 * Obtiene el botón de "actualizar" del panel.
+	 * 
+	 * @return El botón de "actualizar".
+	 */
 	public JButton getBtnActualizar() {
 		return btnActualizar;
 	}
 
+	/**
+	 * Establece el botón de "actualizar" del panel.
+	 * 
+	 * @param btnActualizar El nuevo botón de "actualizar".
+	 */
 	public void setBtnActualizar(JButton btnActualizar) {
 		this.btnActualizar = btnActualizar;
 	}
 
+	/**
+	 * Obtiene el botón de "eliminar" del panel.
+	 * 
+	 * @return El botón de "eliminar".
+	 */
 	public JButton getBtnEliminar() {
 		return btnEliminar;
 	}
 
+	/**
+	 * Establece el botón de "eliminar" del panel.
+	 * 
+	 * @param btnEliminar El nuevo botón de "eliminar".
+	 */
 	public void setBtnEliminar(JButton btnEliminar) {
 		this.btnEliminar = btnEliminar;
 	}
 
+	/**
+	 * Obtiene el botón de "volver" del panel.
+	 * 
+	 * @return El botón de "volver".
+	 */
 	public JButton getBtnVolver() {
 		return btnVolver;
 	}
 
+	/**
+	 * Establece el botón de "volver" del panel.
+	 * 
+	 * @param btnVolver El nuevo botón de "volver".
+	 */
 	public void setBtnVolver(JButton btnVolver) {
 		this.btnVolver = btnVolver;
 	}
