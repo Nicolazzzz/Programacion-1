@@ -15,10 +15,10 @@ import javax.swing.JPanel;
 * */
 
 /**
- * PanelMenuGestion es un panel de la interfaz gráfica que representa el menú de gestión
- * para el sistema. Contiene botones para agregar, mostrar, actualizar, eliminar productos,
- * y volver al menú principal. Además, incluye imágenes de fondo específicas para cada tipo
- * de producto.
+ * PanelMenuGestion es un panel de la interfaz gráfica que representa el menú de
+ * gestión para el sistema. Contiene botones para agregar, mostrar, actualizar,
+ * eliminar productos, y volver al menú principal. Además, incluye imágenes de
+ * fondo específicas para cada tipo de producto.
  */
 
 public class PanelMenuGestion extends JPanel {
